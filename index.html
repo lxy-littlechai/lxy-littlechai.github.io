@@ -213,6 +213,67 @@
         <section class="postShorten-group main-content-wrap">
           
           
+            
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://lxy-littlechai.github.io/2021/07/js/">
+          Js
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-07-15T21:47:29&#43;08:00">
+        
+  July 15, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://lxy-littlechai.github.io/categories/web">Web</a>, 
+    
+      <a class="category-link" href="https://lxy-littlechai.github.io/categories/js">js</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        代理和反射 所谓代理，可以类比于C的指针，对代理对象的操作也会反映到目标对象上。但代理更有意义的作用在于可以实时捕获目标对象的行为。
+const proxy = new Proxy(target, handle); 捕获器trap 捕获器为内置，如get(), set()等
+const target = { foo: &#39;bar&#39;; }; const handle = { get() { return &#39;handle override&#39;; } }; const proxy = new Proxy(target, handle); console.log(target.foo);//bar console.log(proxy.foo);//handle override 捕获器参数和反射API 捕获器参数可以捕获操作的值，并借此重建并输出行为，反射API可捕获原方法
+const handle = { get(trapTarget, property, receiver) { return trapTarget[property]; } }; const handle = { get() { //console what you want 	return Reflect.get(...arguments); } }; 设置空代理 const proxy = new Proxy(target, Reflect); 代理撤销 使用$revoke和revocable$
+      
+      <p>
+        <a href="https://lxy-littlechai.github.io/2021/07/js/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+          
           
 
         </section>

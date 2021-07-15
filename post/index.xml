@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo tranquilpeak theme</title>
-    <link>https://lxy-littlechai.github.io/</link>
-    <description>Recent content on Hugo tranquilpeak theme</description>
+    <title>Posts on Hugo tranquilpeak theme</title>
+    <link>https://lxy-littlechai.github.io/post/</link>
+    <description>Recent content in Posts on Hugo tranquilpeak theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Jul 2021 21:47:29 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jul 2021 21:47:29 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Js</title>
       <link>https://lxy-littlechai.github.io/2021/07/js/</link>
@@ -17,17 +17,6 @@
 const proxy = new Proxy(target, handle); 捕获器trap 捕获器为内置，如get(), set()等
 const target = { foo: &amp;#39;bar&amp;#39;; }; const handle = { get() { return &amp;#39;handle override&amp;#39;; } }; const proxy = new Proxy(target, handle); console.log(target.foo);//bar console.log(proxy.foo);//handle override 捕获器参数和反射API 捕获器参数可以捕获操作的值，并借此重建并输出行为，反射API可捕获原方法
 const handle = { get(trapTarget, property, receiver) { return trapTarget[property]; } }; const handle = { get() { //console what you want 	return Reflect.get(...arguments); } }; 设置空代理 const proxy = new Proxy(target, Reflect); 代理撤销 使用$revoke和revocable$</description>
-    </item>
-    
-    <item>
-      <title>About Hugo</title>
-      <link>https://lxy-littlechai.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://lxy-littlechai.github.io/about/</guid>
-      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
-It makes use of a variety of open source projects including:
- https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
     </item>
     
   </channel>
