@@ -17,7 +17,7 @@
 <meta name="twitter:title" content="Posts">
 <meta property="og:url" content="https://lxy-littlechai.github.io/post/">
 <meta property="twitter:url" content="https://lxy-littlechai.github.io/post/">
-<meta property="og:site_name" content="Hugo tranquilpeak theme">
+<meta property="og:site_name" content="Littlechai">
 <meta property="og:description" content="Hugo tranquilpeak theme demo">
 <meta name="twitter:description" content="Hugo tranquilpeak theme demo">
 <meta property="og:locale" content="en-us">
@@ -35,8 +35,8 @@
 
 
 
-  <meta property="og:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=640">
+  <meta property="og:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+  <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
 
 
     <title>Posts</title>
@@ -71,7 +71,7 @@
       <header id="header" data-behavior="1">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://lxy-littlechai.github.io/">Hugo tranquilpeak theme</a>
+    <a class="header-title-link" href="https://lxy-littlechai.github.io/">Littlechai</a>
   </div>
   
     
@@ -81,7 +81,7 @@
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=90" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
       
     
     </a>
@@ -93,7 +93,7 @@
     
       <div class="sidebar-profile">
         <a href="https://lxy-littlechai.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Littlechai</h4>
         
@@ -217,16 +217,12 @@
             
   
     
-      
-        
-      
-    
   
 
 
   
 
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
   <div class="postShorten-wrap">
     
     <div class="postShorten-header">
@@ -260,10 +256,11 @@
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        代理和反射 所谓代理，可以类比于C的指针，对代理对象的操作也会反映到目标对象上。但代理更有意义的作用在于可以实时捕获目标对象的行为。
+        JS学习笔记 RE:从0开始的前端生活
+代理和反射 所谓代理，可以类比于C的指针，对代理对象的操作也会反映到目标对象上。但代理更有意义的作用在于可以实时捕获目标对象的行为。
 const proxy = new Proxy(target, handle); 捕获器trap 捕获器为内置，如get(), set()等
 const target = { foo: &#39;bar&#39;; }; const handle = { get() { return &#39;handle override&#39;; } }; const proxy = new Proxy(target, handle); console.log(target.foo);//bar console.log(proxy.foo);//handle override 捕获器参数和反射API 捕获器参数可以捕获操作的值，并借此重建并输出行为，反射API可捕获原方法
-const handle = { get(trapTarget, property, receiver) { return trapTarget[property]; } }; const handle = { get() { //console what you want 	return Reflect.get(...arguments); } }; 设置空代理 const proxy = new Proxy(target, Reflect); 代理撤销 使用$revoke和revocable$
+const handle = { get(trapTarget, property, receiver) { return trapTarget[property]; } }; const handle = { get() { //console what you want 	return Reflect.get(...arguments); } }; 设置空代理 const proxy = new Proxy(target, Reflect); 代理撤销 使用revoke和revocable​
       
       <p>
         <a href="https://lxy-littlechai.github.io/2021/07/js/" class="postShorten-excerpt_link link">Continue reading</a>
@@ -271,6 +268,12 @@ const handle = { get(trapTarget, property, receiver) { return trapTarget[propert
       </p>
     </div>
   </div>
+  
+    <a href="https://lxy-littlechai.github.io/2021/07/js/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://lxy-littlechai.github.io/images/javascript.jpg"/>
+      </div>
+    </a>
   
 </article>
 
@@ -293,7 +296,7 @@ const handle = { get(trapTarget, property, receiver) { return trapTarget[propert
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/d09dc2d7aa5c467519e8af89f7b3d94c?s=110" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Littlechai</h4>
     
@@ -321,7 +324,7 @@ const handle = { get(trapTarget, property, receiver) { return trapTarget[propert
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/prism.min.js" integrity="sha256-haEv2ilTk2sXcJaGbkTtErRCHy/qGt3g+bGbgPf5OTY=" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
@@ -342,18 +345,6 @@ function updateMinWidth() {
   var w3 = getComputedStyle(sidebar).getPropertyValue("left");
   main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
 }
-</script>
-
-<script>
-$(document).ready(function() {
-  hljs.configure({ classPrefix: '', useBR: false });
-  $('pre.code-highlight > code, pre > code').each(function(i, block) {
-    if (!$(this).hasClass('codeblock')) {
-      $(this).addClass('codeblock');
-    }
-    hljs.highlightBlock(block);
-  });
-});
 </script>
 
 
