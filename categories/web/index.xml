@@ -13,11 +13,7 @@
       <pubDate>Thu, 15 Jul 2021 21:47:29 +0800</pubDate>
       
       <guid>https://lxy-littlechai.github.io/2021/07/js/</guid>
-      <description>JS学习笔记 RE:从0开始的前端生活
-代理和反射 所谓代理，可以类比于C的指针，对代理对象的操作也会反映到目标对象上。但代理更有意义的作用在于可以实时捕获目标对象的行为。
-const proxy = new Proxy(target, handle); 捕获器trap 捕获器为内置，如get(), set()等
-const target = { foo: &amp;#39;bar&amp;#39;; }; const handle = { get() { return &amp;#39;handle override&amp;#39;; } }; const proxy = new Proxy(target, handle); console.log(target.foo);//bar console.log(proxy.foo);//handle override 捕获器参数和反射API 捕获器参数可以捕获操作的值，并借此重建并输出行为，反射API可捕获原方法
-const handle = { get(trapTarget, property, receiver) { return trapTarget[property]; } }; const handle = { get() { //console what you want 	return Reflect.get(...arguments); } }; 设置空代理 const proxy = new Proxy(target, Reflect); 代理撤销 使用revoke和revocable​</description>
+      <description>&lt;p&gt;RE:从0开始的前端生活&lt;/p&gt;</description>
     </item>
     
   </channel>
