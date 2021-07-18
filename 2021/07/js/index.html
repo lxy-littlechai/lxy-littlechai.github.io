@@ -404,6 +404,39 @@
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">app</span>;
 }();
 </code></pre></div><p>模块增强模式的好处在于，可以额外添加属性或方法。</p>
+<h2 id="期约与异步函数">期约与异步函数</h2>
+<h3 id="期约">期约</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise(() =&gt; {});
+</code></pre></div><h4 id="期约的状态">期约的状态</h4>
+<ul>
+<li>待定 pending</li>
+<li>兑现 fulfilled/resolved</li>
+<li>拒绝 rejected</li>
+</ul>
+<h4 id="通过执行函数控制期约状态">通过执行函数控制期约状态</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; <span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">value</span>));
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">value</span>);
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; <span style="color:#a6e22e">reject</span>(<span style="color:#e6db74">&#39;ErrorInformation&#39;</span>));
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise.<span style="color:#a6e22e">reject</span>(<span style="color:#e6db74">&#39;ErrorInformation&#39;</span>);
+</code></pre></div><p>注意：Promise.resolve()是幂等的，但Promise.reject()不是，后者会将其当作错误信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">p1</span> <span style="color:#f92672">===</span> Promise.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">p1</span>));<span style="color:#75715e">//true
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Promise.<span style="color:#a6e22e">reject</span>(Promise.<span style="color:#a6e22e">reject</span>()));
+<span style="color:#75715e">//Promise { &lt;rejected&gt; Promise { &lt;rejected&gt; undefined } }
+</span></code></pre></div><h4 id="同步异步执行的二元性">同步/异步执行的二元性</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">try</span> {
+	<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;foo&#39;</span>;)
+} <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>) {
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>);<span style="color:#75715e">// Error: foo
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">try</span> {
+	Promise.<span style="color:#a6e22e">reject</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;bar&#39;</span>));
+} <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>) {
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>);
+}
+<span style="color:#75715e">//Uncaught (in promise) Error: bar
+</span></code></pre></div><p>异步错误必须用异步捕获方式</p>
               
             </div>
           </div>
@@ -593,7 +626,7 @@
 </div>
 <div id="share-options-mask" class="share-options-mask"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+
     
     <div id="about">
   <div id="about-card">
