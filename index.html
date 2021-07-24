@@ -249,12 +249,7 @@
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        Hdu多校补题 第二场 1002 题意 给出一颗树，支持下列两种操作
-1 a b: 将a-b这条路径上的点&lt;x1,x2,&hellip;,xn&gt;分别加$1^2,2^2&hellip;n^2$
-2 a: 查询点a的值
-分析 首先考虑一条链的情况，对于连续区间l~r，一操作对于每个点的贡献是$(id[x]-id[l]+1)^2$，计$val=id[l]-1$拆开后$id[x]^2 - 2*id[x]*val + val^2$至此我萌就能用线段树维护了。
-考虑树的情况，注意到在树上的区间是分割的，所以要动态维护L，R，x ~ lca上$val = id[l]-L$,lca ~ y上$val = id[l]+R$
-#include&lt;bits/stdc++.h&gt;#define ll long long #define lowbit(x) x&amp;(-x) #define lson rt&lt;&lt;1, l, mid #define rson rt&lt;&lt;1|1, mid+1, r using namespace std; const int maxn = 3e5+100; int n, q; int tot, dep[maxn], siz[maxn], id[maxn], fa[maxn], top[maxn], son[maxn]; vector&lt;int&gt;vec[maxn]; void dfs1(int x, int f){ fa[x] = f; dep[x] = dep[f] + 1; siz[x] = 1; for(auto v: vec[x]){ if(v == f) continue; dfs1(v, x); siz[x] += siz[v]; if(siz[v] &gt; siz[son[x]]) son[x] = v; } } void dfs2(int x, int tp){ id[x] = ++ tot; top[x] = tp; if(son[x]) dfs2(son[x], tp); for(auto v: vec[x]){ if(v == fa[x] || v == son[x]) continue; dfs2(v, v); } } struct tree { ll sum[4]; ll add[4]; }z[maxn*4]; void pushdown(int rt, int l, int r, int t){ int mid = (l + r) &gt;&gt; 1; if(z[rt].
+        <h1 id="hdu多校补题">Hdu多校补题</h1>
       
       <p>
         <a href="https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/" class="postShorten-excerpt_link link">Continue reading</a>
