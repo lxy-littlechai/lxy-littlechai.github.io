@@ -184,7 +184,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://github.com/kakawait" target="_blank" rel="noopener">
+      <a class="sidebar-button-link " href="https://github.com/lxy-littlechai" target="_blank" rel="noopener">
     
       <i class="sidebar-button-icon fa fa-lg fa-github"></i>
       
@@ -437,6 +437,34 @@
 }
 <span style="color:#75715e">//Uncaught (in promise) Error: bar
 </span></code></pre></div><p>异步错误必须用异步捕获方式</p>
+<h4 id="一些api">一些API</h4>
+<h5 id="promiseprototypethen">Promise.prototype.then()</h5>
+<p>为期约实例添加处理程序</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise(() =&gt; {});
+<span style="color:#a6e22e">p1</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">兑现状态处理函数</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">拒绝状态处理函数</span>)
+
+<span style="color:#a6e22e">若无返回值</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">则原样后传</span>
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">=</span> Promise.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;foo&#39;</span>);
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">p1</span>.<span style="color:#a6e22e">then</span>();<span style="color:#75715e">//Promise &lt;resolved&gt;: foo
+</span></code></pre></div><h5 id="promiseprototypecatch">Promise.prototype.catch()</h5>
+<p>为reject状态添加处理程序，等价于调用Promise.then(null, onRejected),返回一个新的期约实例。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> Promise.<span style="color:#a6e22e">reject</span>();
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">onRejected</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>, <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;rejected&#39;</span>);
+}
+<span style="color:#a6e22e">p</span>.<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">onRejected</span>);
+<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">onRejected</span>);
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise(() =&gt; {});
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">p1</span>.<span style="color:#66d9ef">catch</span>();
+<span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">p2</span>);<span style="color:#75715e">//Promise &lt;pending&gt;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">p1</span>);<span style="color:#75715e">//Promise &lt;pending&gt;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">p1</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">p2</span>); <span style="color:#75715e">//false
+</span></code></pre></div><h5 id="promiseprotypefinally">Promise.protype.finally()</h5>
+<p>给期约添加onFinally处理程序，其在期约转换为解决或拒绝状态时都会执行。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">=</span> Promise.<span style="color:#a6e22e">resolve</span>();
+<span style="color:#a6e22e">p1</span>.<span style="color:#66d9ef">finally</span>(() =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Finally&#39;</span>));
+</code></pre></div><p>finally()的返回值大多数情况下表现为父期约的传递。若返回的是待定期约获知onfinally()处理程序抛出错误（显式抛出或返回拒绝期约），则会返回相应期约。</p>
               
             </div>
           </div>
@@ -451,7 +479,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/" data-tooltip="Hdu多校">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -537,7 +565,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/" data-tooltip="Hdu多校">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>

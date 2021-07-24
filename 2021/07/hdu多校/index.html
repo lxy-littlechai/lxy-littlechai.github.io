@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Littlechai">
+<meta name="keywords" content="">
+<meta name="description" content="Hdu多校补题 第二场 1002 题意 给出一颗树，支持下列两种操作
+1 a b: 将a-b这条路径上的点&lt;x1,x2,&hellip;,xn&gt;分别加$1^2,2^2&hellip;n^2$
+2 a: 查询点a的值
+分析 首先考虑一条链的情况，对于连续区间l~r，一操作对于每个点的贡献是$(id[x]-id[l]&#43;1)^2$，计$val=id[l]-1$拆开后$id[x]^2 - 2*id[x]*val &#43; val^2$至此我萌就能用线段树维护了。
+考虑树的情况，注意到在树上的区间是分割的，所以要动态维护L，R，x ~ lca上$val = id[l]-L$,lca ~ y上$val = id[l]&#43;R$
+#include&lt;bits/stdc&#43;&#43;.h&gt;#define ll long long #define lowbit(x) x&amp;(-x) #define lson rt&lt;&lt;1, l, mid #define rson rt&lt;&lt;1|1, mid&#43;1, r using namespace std; const int maxn = 3e5&#43;100; int n, q; int tot, dep[maxn], siz[maxn], id[maxn], fa[maxn], top[maxn], son[maxn]; vector&lt;int&gt;vec[maxn]; void dfs1(int x, int f){ fa[x] = f; dep[x] = dep[f] &#43; 1; siz[x] = 1; for(auto v: vec[x]){ if(v == f) continue; dfs1(v, x); siz[x] &#43;= siz[v]; if(siz[v] &gt; siz[son[x]]) son[x] = v; } } void dfs2(int x, int tp){ id[x] = &#43;&#43; tot; top[x] = tp; if(son[x]) dfs2(son[x], tp); for(auto v: vec[x]){ if(v == fa[x] || v == son[x]) continue; dfs2(v, v); } } struct tree { ll sum[4]; ll add[4]; }z[maxn*4]; void pushdown(int rt, int l, int r, int t){ int mid = (l &#43; r) &gt;&gt; 1; if(z[rt].">
+
+
+<meta property="og:description" content="Hdu多校补题 第二场 1002 题意 给出一颗树，支持下列两种操作
+1 a b: 将a-b这条路径上的点&lt;x1,x2,&hellip;,xn&gt;分别加$1^2,2^2&hellip;n^2$
+2 a: 查询点a的值
+分析 首先考虑一条链的情况，对于连续区间l~r，一操作对于每个点的贡献是$(id[x]-id[l]&#43;1)^2$，计$val=id[l]-1$拆开后$id[x]^2 - 2*id[x]*val &#43; val^2$至此我萌就能用线段树维护了。
+考虑树的情况，注意到在树上的区间是分割的，所以要动态维护L，R，x ~ lca上$val = id[l]-L$,lca ~ y上$val = id[l]&#43;R$
+#include&lt;bits/stdc&#43;&#43;.h&gt;#define ll long long #define lowbit(x) x&amp;(-x) #define lson rt&lt;&lt;1, l, mid #define rson rt&lt;&lt;1|1, mid&#43;1, r using namespace std; const int maxn = 3e5&#43;100; int n, q; int tot, dep[maxn], siz[maxn], id[maxn], fa[maxn], top[maxn], son[maxn]; vector&lt;int&gt;vec[maxn]; void dfs1(int x, int f){ fa[x] = f; dep[x] = dep[f] &#43; 1; siz[x] = 1; for(auto v: vec[x]){ if(v == f) continue; dfs1(v, x); siz[x] &#43;= siz[v]; if(siz[v] &gt; siz[son[x]]) son[x] = v; } } void dfs2(int x, int tp){ id[x] = &#43;&#43; tot; top[x] = tp; if(son[x]) dfs2(son[x], tp); for(auto v: vec[x]){ if(v == fa[x] || v == son[x]) continue; dfs2(v, v); } } struct tree { ll sum[4]; ll add[4]; }z[maxn*4]; void pushdown(int rt, int l, int r, int t){ int mid = (l &#43; r) &gt;&gt; 1; if(z[rt].">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hdu多校">
+<meta name="twitter:title" content="Hdu多校">
+<meta property="og:url" content="https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+<meta property="twitter:url" content="https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+<meta property="og:site_name" content="Littlechai">
+<meta property="og:description" content="Hdu多校补题 第二场 1002 题意 给出一颗树，支持下列两种操作
+1 a b: 将a-b这条路径上的点&lt;x1,x2,&hellip;,xn&gt;分别加$1^2,2^2&hellip;n^2$
+2 a: 查询点a的值
+分析 首先考虑一条链的情况，对于连续区间l~r，一操作对于每个点的贡献是$(id[x]-id[l]&#43;1)^2$，计$val=id[l]-1$拆开后$id[x]^2 - 2*id[x]*val &#43; val^2$至此我萌就能用线段树维护了。
+考虑树的情况，注意到在树上的区间是分割的，所以要动态维护L，R，x ~ lca上$val = id[l]-L$,lca ~ y上$val = id[l]&#43;R$
+#include&lt;bits/stdc&#43;&#43;.h&gt;#define ll long long #define lowbit(x) x&amp;(-x) #define lson rt&lt;&lt;1, l, mid #define rson rt&lt;&lt;1|1, mid&#43;1, r using namespace std; const int maxn = 3e5&#43;100; int n, q; int tot, dep[maxn], siz[maxn], id[maxn], fa[maxn], top[maxn], son[maxn]; vector&lt;int&gt;vec[maxn]; void dfs1(int x, int f){ fa[x] = f; dep[x] = dep[f] &#43; 1; siz[x] = 1; for(auto v: vec[x]){ if(v == f) continue; dfs1(v, x); siz[x] &#43;= siz[v]; if(siz[v] &gt; siz[son[x]]) son[x] = v; } } void dfs2(int x, int tp){ id[x] = &#43;&#43; tot; top[x] = tp; if(son[x]) dfs2(son[x], tp); for(auto v: vec[x]){ if(v == fa[x] || v == son[x]) continue; dfs2(v, v); } } struct tree { ll sum[4]; ll add[4]; }z[maxn*4]; void pushdown(int rt, int l, int r, int t){ int mid = (l &#43; r) &gt;&gt; 1; if(z[rt].">
+<meta name="twitter:description" content="Hdu多校补题 第二场 1002 题意 给出一颗树，支持下列两种操作
+1 a b: 将a-b这条路径上的点&lt;x1,x2,&hellip;,xn&gt;分别加$1^2,2^2&hellip;n^2$
+2 a: 查询点a的值
+分析 首先考虑一条链的情况，对于连续区间l~r，一操作对于每个点的贡献是$(id[x]-id[l]&#43;1)^2$，计$val=id[l]-1$拆开后$id[x]^2 - 2*id[x]*val &#43; val^2$至此我萌就能用线段树维护了。
+考虑树的情况，注意到在树上的区间是分割的，所以要动态维护L，R，x ~ lca上$val = id[l]-L$,lca ~ y上$val = id[l]&#43;R$
+#include&lt;bits/stdc&#43;&#43;.h&gt;#define ll long long #define lowbit(x) x&amp;(-x) #define lson rt&lt;&lt;1, l, mid #define rson rt&lt;&lt;1|1, mid&#43;1, r using namespace std; const int maxn = 3e5&#43;100; int n, q; int tot, dep[maxn], siz[maxn], id[maxn], fa[maxn], top[maxn], son[maxn]; vector&lt;int&gt;vec[maxn]; void dfs1(int x, int f){ fa[x] = f; dep[x] = dep[f] &#43; 1; siz[x] = 1; for(auto v: vec[x]){ if(v == f) continue; dfs1(v, x); siz[x] &#43;= siz[v]; if(siz[v] &gt; siz[son[x]]) son[x] = v; } } void dfs2(int x, int tp){ id[x] = &#43;&#43; tot; top[x] = tp; if(son[x]) dfs2(son[x], tp); for(auto v: vec[x]){ if(v == fa[x] || v == son[x]) continue; dfs2(v, v); } } struct tree { ll sum[4]; ll add[4]; }z[maxn*4]; void pushdown(int rt, int l, int r, int t){ int mid = (l &#43; r) &gt;&gt; 1; if(z[rt].">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-07-24T20:20:28">
+  
+  
+    <meta property="article:modified_time" content="2021-07-24T20:20:28">
+  
+  
+  
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+  <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+
+
+    <title>Hdu多校</title>
+
+    <link rel="icon" href="https://lxy-littlechai.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://lxy-littlechai.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://lxy-littlechai.github.io/">Littlechai</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://lxy-littlechai.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://lxy-littlechai.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Littlechai</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/about/">
+    
+      
+      
+      <span class="sidebar-button-desc">About Hugo</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/lxy-littlechai" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Hdu多校
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-07-24T20:20:28&#43;08:00">
+        
+  July 24, 2021
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="hdu多校补题">Hdu多校补题</h1>
+<h2 id="第二场">第二场</h2>
+<h3 id="1002">1002</h3>
+<h4 id="题意">题意</h4>
+<p>给出一颗树，支持下列两种操作</p>
+<p>1 a b: 将a-b这条路径上的点&lt;x1,x2,&hellip;,xn&gt;分别加$1^2,2^2&hellip;n^2$</p>
+<p>2 a: 查询点a的值</p>
+<h4 id="分析">分析</h4>
+<p>首先考虑一条链的情况，对于连续区间l~r，一操作对于每个点的贡献是$(id[x]-id[l]+1)^2$，计$val=id[l]-1$拆开后$id[x]^2 - 2*id[x]*val + val^2$至此我萌就能用线段树维护了。</p>
+<p>考虑树的情况，注意到在树上的区间是分割的，所以要动态维护L，R，x ~ lca上$val = id[l]-L$,lca ~ y上$val = id[l]+R$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define ll long long
+</span><span style="color:#75715e">#define lowbit(x) x&amp;(-x)
+</span><span style="color:#75715e">#define lson rt&lt;&lt;1, l, mid
+</span><span style="color:#75715e">#define rson rt&lt;&lt;1|1, mid+1, r
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">3e5</span><span style="color:#f92672">+</span><span style="color:#ae81ff">100</span>;
+<span style="color:#66d9ef">int</span> n, q;
+<span style="color:#66d9ef">int</span> tot, dep[maxn], siz[maxn], id[maxn], fa[maxn], top[maxn], son[maxn];
+vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>vec[maxn];
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs1</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> f){
+     fa[x] <span style="color:#f92672">=</span> f;
+     dep[x] <span style="color:#f92672">=</span> dep[f] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+     siz[x] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> v: vec[x]){
+          <span style="color:#66d9ef">if</span>(v <span style="color:#f92672">==</span> f) <span style="color:#66d9ef">continue</span>;
+          dfs1(v, x);
+          siz[x] <span style="color:#f92672">+=</span> siz[v];
+          <span style="color:#66d9ef">if</span>(siz[v] <span style="color:#f92672">&gt;</span> siz[son[x]])
+               son[x] <span style="color:#f92672">=</span> v;
+     }
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs2</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> tp){
+     id[x] <span style="color:#f92672">=</span> <span style="color:#f92672">++</span> tot;
+     top[x] <span style="color:#f92672">=</span> tp;
+     <span style="color:#66d9ef">if</span>(son[x]) dfs2(son[x], tp);
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> v: vec[x]){
+          <span style="color:#66d9ef">if</span>(v <span style="color:#f92672">==</span> fa[x] <span style="color:#f92672">||</span> v <span style="color:#f92672">==</span> son[x]) <span style="color:#66d9ef">continue</span>;
+          dfs2(v, v);
+     }
+}
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">tree</span> {
+     ll sum[<span style="color:#ae81ff">4</span>];
+     ll add[<span style="color:#ae81ff">4</span>];
+}z[maxn<span style="color:#f92672">*</span><span style="color:#ae81ff">4</span>];
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pushdown</span>(<span style="color:#66d9ef">int</span> rt, <span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r, <span style="color:#66d9ef">int</span> t){
+     <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+     <span style="color:#66d9ef">if</span>(z[rt].add[t] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>){
+          ll k <span style="color:#f92672">=</span> z[rt].add[t];
+          z[rt<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">1</span>].add[t] <span style="color:#f92672">+=</span> k;
+          z[rt<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">|</span><span style="color:#ae81ff">1</span>].add[t] <span style="color:#f92672">+=</span> k;
+          z[rt<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">1</span>].sum[t] <span style="color:#f92672">+=</span> k<span style="color:#f92672">*</span>(mid<span style="color:#f92672">-</span>l<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+          z[rt<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">|</span><span style="color:#ae81ff">1</span>].sum[t] <span style="color:#f92672">+=</span> k<span style="color:#f92672">*</span>(r<span style="color:#f92672">-</span>mid);
+          z[rt].add[t] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+     }
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">modify</span>(<span style="color:#66d9ef">int</span> rt, <span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r, <span style="color:#66d9ef">int</span> t, <span style="color:#66d9ef">int</span> nowl, <span style="color:#66d9ef">int</span> nowr, ll val){
+     <span style="color:#66d9ef">if</span>(nowl <span style="color:#f92672">&lt;=</span> l <span style="color:#f92672">&amp;&amp;</span> r <span style="color:#f92672">&lt;=</span> nowr){
+          z[rt].sum[t] <span style="color:#f92672">+=</span> val<span style="color:#f92672">*</span>(r<span style="color:#f92672">-</span>l<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+          z[rt].add[t] <span style="color:#f92672">+=</span> val;
+          <span style="color:#66d9ef">return</span> ;
+     }
+     <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+     pushdown(rt, l, r, t);
+     <span style="color:#66d9ef">if</span>(nowl <span style="color:#f92672">&lt;=</span> mid) modify(lson, t, nowl, nowr, val);
+     <span style="color:#66d9ef">if</span>(nowr <span style="color:#f92672">&gt;</span> mid) modify(rson, t, nowl, nowr, val);
+     z[rt].sum[t] <span style="color:#f92672">=</span> z[rt<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">1</span>].sum[t] <span style="color:#f92672">+</span> z[rt<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">|</span><span style="color:#ae81ff">1</span>].sum[t];
+}
+
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getlca</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y){
+     <span style="color:#66d9ef">for</span>(;top[x] <span style="color:#f92672">!=</span> top[y];){
+          <span style="color:#66d9ef">if</span>(dep[top[x]] <span style="color:#f92672">&lt;</span> dep[top[y]]) swap(x, y);
+          x <span style="color:#f92672">=</span> fa[top[x]];
+     }
+     <span style="color:#66d9ef">if</span>(dep[x] <span style="color:#f92672">&gt;</span> dep[y]) swap(x, y);
+     <span style="color:#66d9ef">return</span> x;
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">change</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y){
+<span style="color:#75715e">//cout &lt;&lt; &#34;new change&#34; &lt;&lt; endl;
+</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> dep[x] <span style="color:#f92672">+</span> dep[y] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>dep[getlca(x, y)] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+     <span style="color:#66d9ef">int</span> L <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, R <span style="color:#f92672">=</span> len;
+<span style="color:#75715e">//cout &lt;&lt; &#34;L R &#34; &lt;&lt; L &lt;&lt; &#34; &#34; &lt;&lt; R &lt;&lt; endl; 
+</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">for</span>(;top[x] <span style="color:#f92672">!=</span> top[y];){
+          <span style="color:#66d9ef">if</span>(dep[top[x]] <span style="color:#f92672">&gt;</span> dep[top[y]]){
+               ll val <span style="color:#f92672">=</span> id[top[x]] <span style="color:#f92672">-</span> L;
+               modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">1</span>, id[top[x]], id[x], <span style="color:#ae81ff">1</span>);
+               modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">2</span>, id[top[x]], id[x], val);
+               modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">3</span>, id[top[x]], id[x], val<span style="color:#f92672">*</span>val);
+               L <span style="color:#f92672">+=</span> dep[x] <span style="color:#f92672">-</span> dep[top[x]] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+               x <span style="color:#f92672">=</span> fa[top[x]];
+          }
+          <span style="color:#66d9ef">else</span> {
+               ll val <span style="color:#f92672">=</span> id[top[y]] <span style="color:#f92672">+</span> R;
+               modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">1</span>, id[top[y]], id[y], <span style="color:#ae81ff">1</span>);
+               modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">2</span>, id[top[y]], id[y], val);
+               modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">3</span>, id[top[y]], id[y], val<span style="color:#f92672">*</span>val);
+               R <span style="color:#f92672">-=</span> dep[y] <span style="color:#f92672">-</span> dep[top[y]] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+               y <span style="color:#f92672">=</span> fa[top[y]];
+          }
+     }
+     <span style="color:#66d9ef">if</span>(dep[x] <span style="color:#f92672">&lt;</span> dep[y]){
+          ll val <span style="color:#f92672">=</span> id[x] <span style="color:#f92672">-</span> L;
+          modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">1</span>, id[x], id[y], <span style="color:#ae81ff">1</span>);
+          modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">2</span>, id[x], id[y], val);
+          modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">3</span>, id[x], id[y], val<span style="color:#f92672">*</span>val);
+     }
+     <span style="color:#66d9ef">else</span> {
+          ll val <span style="color:#f92672">=</span> id[y] <span style="color:#f92672">+</span> R;
+          modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">1</span>, id[y], id[x], <span style="color:#ae81ff">1</span>);
+          modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">2</span>, id[y], id[x], val);
+          modify(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">3</span>, id[y], id[x], val<span style="color:#f92672">*</span>val);
+     }
+}
+ll <span style="color:#a6e22e">query</span>(<span style="color:#66d9ef">int</span> rt, <span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r, <span style="color:#66d9ef">int</span> t, <span style="color:#66d9ef">int</span> pos){
+<span style="color:#75715e">//cout &lt;&lt; &#34;query &#34; &lt;&lt; l &lt;&lt; &#34; &#34; &lt;&lt; r &lt;&lt; &#34; &#34; &lt;&lt; t &lt;&lt; &#34; &#34; &lt;&lt;z[rt].sumendl;
+</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">if</span>(l <span style="color:#f92672">==</span> r){
+          <span style="color:#66d9ef">return</span> z[rt].sum[t];
+     }
+     <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+     pushdown(rt, l, r, t);
+     <span style="color:#66d9ef">if</span>(pos <span style="color:#f92672">&lt;=</span> mid) <span style="color:#66d9ef">return</span> query(lson, t, pos);
+     <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> query(rson, t, pos);
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+     scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>n);
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i <span style="color:#f92672">&lt;</span> n;i <span style="color:#f92672">++</span>){
+          <span style="color:#66d9ef">int</span> x, y;
+          scanf(<span style="color:#e6db74">&#34;%d %d&#34;</span>,<span style="color:#f92672">&amp;</span>x,<span style="color:#f92672">&amp;</span>y);
+          vec[x].push_back(y);
+          vec[y].push_back(x);
+     }
+     dfs1(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+     dfs2(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+     scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>q);
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i <span style="color:#f92672">&lt;=</span> q;i <span style="color:#f92672">++</span>){
+          <span style="color:#66d9ef">int</span> op, a, b, x;
+          scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>op);
+          <span style="color:#66d9ef">if</span>(op <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>){
+               scanf(<span style="color:#e6db74">&#34;%d %d&#34;</span>,<span style="color:#f92672">&amp;</span>a,<span style="color:#f92672">&amp;</span>b);
+               change(a, b);
+          }
+          <span style="color:#66d9ef">if</span>(op <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>){
+               scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>x);
+               ll ans1 <span style="color:#f92672">=</span> query(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">1</span>, id[x]);
+               ll ans2 <span style="color:#f92672">=</span> query(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">2</span>, id[x]);
+               ll ans3 <span style="color:#f92672">=</span> query(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, n, <span style="color:#ae81ff">3</span>, id[x]);
+               printf(<span style="color:#e6db74">&#34;%lld</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, ans1<span style="color:#f92672">*</span>id[x]<span style="color:#f92672">*</span>id[x] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>ans2<span style="color:#f92672">*</span>id[x] <span style="color:#f92672">+</span> ans3);
+          }
+     }
+     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h3 id="1004">1004</h3>
+<h4 id="题意-1">题意</h4>
+<p>给出n个数，q组询问，每组询问l,r,a,b问l~r间满足$c \ xor \ a \le \ b$不同大小的$c$的数量</p>
+<h4 id="分析-1">分析</h4>
+<p>对于不同大小的数量这种问题，很容易想到莫队，考虑用trie维护$c \ xor \ a \le \ b$就好了，然而这题超卡常（不会树套数的log做法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define ll long long
+</span><span style="color:#75715e">#define lowbit(x) x&amp;(-x)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">3e5</span><span style="color:#f92672">+</span><span style="color:#ae81ff">100</span>;
+<span style="color:#66d9ef">int</span> n, m;
+<span style="color:#66d9ef">int</span> a[maxn], ans[maxn], cnt[maxn], size;
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">node</span> {
+     <span style="color:#66d9ef">int</span> l, r, a, b, id;
+}q[maxn];
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">cmp</span>(node x, node y){
+     <span style="color:#66d9ef">if</span>(x.l<span style="color:#f92672">/</span>size <span style="color:#f92672">==</span> y.l<span style="color:#f92672">/</span>size) <span style="color:#66d9ef">return</span> x.r <span style="color:#f92672">&lt;</span> y.r;
+     <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> x.l <span style="color:#f92672">&lt;</span> y.l;
+}
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">tree</span> {
+     <span style="color:#66d9ef">int</span> nxt[<span style="color:#ae81ff">3</span>], sum;
+}z[maxn<span style="color:#f92672">*</span><span style="color:#ae81ff">10</span>];
+<span style="color:#66d9ef">int</span> tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">re</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x){
+     x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+     <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+     <span style="color:#66d9ef">char</span> ch <span style="color:#f92672">=</span> getchar();
+     <span style="color:#66d9ef">while</span>(ch <span style="color:#f92672">&lt;</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">||</span> ch <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;9&#39;</span>){
+          <span style="color:#66d9ef">if</span>(ch <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>) b <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+          ch <span style="color:#f92672">=</span> getchar();
+     }
+     <span style="color:#66d9ef">while</span>(ch <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;0&#39;</span> <span style="color:#f92672">&amp;&amp;</span> ch <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;9&#39;</span>){
+          x <span style="color:#f92672">=</span> (x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> (x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> ch <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;0&#39;</span>;
+          ch <span style="color:#f92672">=</span> getchar();
+     }
+     <span style="color:#66d9ef">if</span>(b <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+          x <span style="color:#f92672">*=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insert</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> v){
+     <span style="color:#66d9ef">int</span> rt <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>;i <span style="color:#f92672">--</span>){
+          z[rt].sum <span style="color:#f92672">+=</span> v;
+          <span style="color:#66d9ef">int</span> ch <span style="color:#f92672">=</span> (x<span style="color:#f92672">&gt;&gt;</span>i)<span style="color:#f92672">&amp;</span><span style="color:#ae81ff">1</span>;
+          <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>z[rt].nxt[ch]){
+               z[rt].nxt[ch] <span style="color:#f92672">=</span> <span style="color:#f92672">++</span> tot;
+          }
+          rt <span style="color:#f92672">=</span> z[rt].nxt[ch];
+     }
+     z[rt].sum <span style="color:#f92672">+=</span> v;
+
+}
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> v){
+     <span style="color:#66d9ef">if</span>(v <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>){
+          <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>cnt[x]) insert(x, v);
+          cnt[x] <span style="color:#f92672">++</span>;
+     }
+     <span style="color:#66d9ef">if</span>(v <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+          cnt[x] <span style="color:#f92672">--</span>;
+          <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>cnt[x]) insert(x, v);
+     }
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">query</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b){
+     <span style="color:#66d9ef">int</span> rt <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>;i <span style="color:#f92672">--</span>){
+
+
+          <span style="color:#66d9ef">if</span>((a<span style="color:#f92672">&gt;&gt;</span>i)<span style="color:#f92672">&amp;</span><span style="color:#ae81ff">1</span>){
+               <span style="color:#66d9ef">if</span>((b<span style="color:#f92672">&gt;&gt;</span>i)<span style="color:#f92672">&amp;</span><span style="color:#ae81ff">1</span>){
+                    ans <span style="color:#f92672">+=</span> z[z[rt].nxt[<span style="color:#ae81ff">1</span>]].sum;
+                    rt <span style="color:#f92672">=</span> z[rt].nxt[<span style="color:#ae81ff">0</span>];
+               }
+               <span style="color:#66d9ef">else</span> rt <span style="color:#f92672">=</span> z[rt].nxt[<span style="color:#ae81ff">1</span>];
+          }
+          <span style="color:#66d9ef">else</span> {
+               <span style="color:#66d9ef">if</span>((b<span style="color:#f92672">&gt;&gt;</span>i)<span style="color:#f92672">&amp;</span><span style="color:#ae81ff">1</span>){
+                    ans <span style="color:#f92672">+=</span> z[z[rt].nxt[<span style="color:#ae81ff">0</span>]].sum;
+                    rt <span style="color:#f92672">=</span> z[rt].nxt[<span style="color:#ae81ff">1</span>];
+               }
+               <span style="color:#66d9ef">else</span> rt <span style="color:#f92672">=</span> z[rt].nxt[<span style="color:#ae81ff">0</span>];
+          }
+          <span style="color:#75715e">// int ch = (a&gt;&gt;i)&amp;1;
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// int cur = (b&gt;&gt;i)&amp;1;
+</span><span style="color:#75715e"></span>
+          <span style="color:#75715e">// if(ch == 0 &amp;&amp; cur == 0){
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">//      rt = z[rt].nxt[0];
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// }
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// else if(ch == 0 &amp;&amp; cur == 1){
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">//      ans += z[z[rt].nxt[0]].sum;
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">//      rt = z[rt].nxt[1];
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// }
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// else if(ch == 1 &amp;&amp; cur == 0){
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">//      rt = z[rt].nxt[1];
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// }
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// else if(ch == 1 &amp;&amp; cur == 1){
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">//      ans += z[z[rt].nxt[1]].sum;
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">//      rt = z[rt].nxt[0];
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// }
+</span><span style="color:#75715e"></span>     }
+     ans <span style="color:#f92672">+=</span> z[rt].sum;
+     <span style="color:#66d9ef">return</span> ans;
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+
+     <span style="color:#75715e">//freopen(&#34;1.in&#34;,&#34;r&#34;,stdin);
+</span><span style="color:#75715e"></span>     <span style="color:#75715e">//freopen(&#34;wa.out&#34;,&#34;w&#34;,stdout);
+</span><span style="color:#75715e"></span>     re(n);
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i <span style="color:#f92672">&lt;=</span> n;i <span style="color:#f92672">++</span>)
+          re(a[i]);
+
+     scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>m);
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i <span style="color:#f92672">&lt;=</span> m;i <span style="color:#f92672">++</span>){
+          re(q[i].l);re(q[i].r);re(q[i].a);re(q[i].b);
+          q[i].id <span style="color:#f92672">=</span> i;
+     }
+     
+     size <span style="color:#f92672">=</span> sqrt(n)<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>;
+     sort(q<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>,q<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>m,cmp);
+
+     <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i <span style="color:#f92672">&lt;=</span> m;i <span style="color:#f92672">++</span>){
+          <span style="color:#66d9ef">int</span> ql <span style="color:#f92672">=</span> q[i].l;
+          <span style="color:#66d9ef">int</span> qr <span style="color:#f92672">=</span> q[i].r;
+<span style="color:#75715e">//cout &lt;&lt; &#34;new query &#34; &lt;&lt; ql &lt;&lt; &#34; &#34; &lt;&lt; qr &lt;&lt; &#34; &#34; &lt;&lt; q[i].a &lt;&lt; &#34; &#34; &lt;&lt; q[i].b &lt;&lt; endl;
+</span><span style="color:#75715e"></span>          <span style="color:#66d9ef">while</span>(l <span style="color:#f92672">&lt;</span> ql) add(a[l <span style="color:#f92672">++</span>], <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+          <span style="color:#66d9ef">while</span>(l <span style="color:#f92672">&gt;</span> ql) add(a[<span style="color:#f92672">--</span> l], <span style="color:#ae81ff">1</span>);
+          <span style="color:#66d9ef">while</span>(r <span style="color:#f92672">&gt;</span> qr) add(a[r <span style="color:#f92672">--</span>], <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+          <span style="color:#66d9ef">while</span>(r <span style="color:#f92672">&lt;</span> qr) add(a[<span style="color:#f92672">++</span> r], <span style="color:#ae81ff">1</span>);
+
+          ans[q[i].id] <span style="color:#f92672">=</span> query(q[i].a, q[i].b);
+     }
+     <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i <span style="color:#f92672">&lt;=</span> m;i <span style="color:#f92672">++</span>){
+          printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,ans[i]);
+     }
+     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+</code></pre></div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/07/js/" data-tooltip="Js">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Littlechai. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/07/js/" data-tooltip="Js">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F07%2Fhdu%25E5%25A4%259A%25E6%25A0%25A1%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F07%2Fhdu%25E5%25A4%259A%25E6%25A0%25A1%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F07%2Fhdu%25E5%25A4%259A%25E6%25A0%25A1%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Littlechai</h4>
+    
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        China
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://lxy-littlechai.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/prism.min.js" integrity="sha256-haEv2ilTk2sXcJaGbkTtErRCHy/qGt3g+bGbgPf5OTY=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://lxy-littlechai.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/lxy-littlechai.github.io\/2021\/07\/hdu%E5%A4%9A%E6%A0%A1\/';
+          
+            this.page.identifier = '\/2021\/07\/hdu%E5%A4%9A%E6%A0%A1\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
