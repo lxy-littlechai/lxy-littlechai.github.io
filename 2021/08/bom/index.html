@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Littlechai">
+<meta name="keywords" content="Bom">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bom">
+<meta name="twitter:title" content="Bom">
+<meta property="og:url" content="https://lxy-littlechai.github.io/2021/08/bom/">
+<meta property="twitter:url" content="https://lxy-littlechai.github.io/2021/08/bom/">
+<meta property="og:site_name" content="Littlechai">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-08-31T19:11:39">
+  
+  
+    <meta property="article:modified_time" content="2021-08-31T19:11:39">
+  
+  
+  
+    
+      <meta property="article:section" content="js">
+    
+      <meta property="article:section" content="subcategory">
+    
+  
+  
+    
+      <meta property="article:tag" content="tag1">
+    
+      <meta property="article:tag" content="tag2">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+  <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+
+
+    <title>Bom</title>
+
+    <link rel="icon" href="https://lxy-littlechai.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://lxy-littlechai.github.io/2021/08/bom/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://lxy-littlechai.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://lxy-littlechai.github.io/">Littlechai</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://lxy-littlechai.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://lxy-littlechai.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Littlechai</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/about/">
+    
+      
+      
+      <span class="sidebar-button-desc">About Hugo</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/lxy-littlechai" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Bom
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-08-31T19:11:39&#43;08:00">
+        
+  August 31, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://lxy-littlechai.github.io/categories/js">js</a>, 
+    
+      <a class="category-link" href="https://lxy-littlechai.github.io/categories/subcategory">subcategory</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="window对象">Window对象</h1>
+<h3 id="窗口大小">窗口大小</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">outerWidth</span> <span style="color:#a6e22e">和</span> <span style="color:#a6e22e">outerHeight返回浏览器窗口自身的大小</span>
+<span style="color:#a6e22e">innerWidth</span> <span style="color:#a6e22e">和</span> <span style="color:#a6e22e">innerHeight返回浏览器窗口中页面视口的大小</span><span style="color:#960050;background-color:#1e0010">（</span><span style="color:#a6e22e">不包括浏览器边框和工具栏</span><span style="color:#960050;background-color:#1e0010">）</span>
+document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientWidth</span> <span style="color:#a6e22e">和</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientHeight</span> <span style="color:#a6e22e">返回页面视口的宽高</span>
+</code></pre></div><p>确定页面视口大小</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">pageHeight</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">innerHeight</span>;
+        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">pageWidth</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">innerWidth</span>;
+
+        <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">pageHeight</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;number&#34;</span>) {<span style="color:#75715e">//检查页面是否处于标准模式
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span>(document.<span style="color:#a6e22e">compatMode</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;CSS1Compat&#34;</span>) {<span style="color:#75715e">//移动设备浏览器兼容处理
+</span><span style="color:#75715e"></span>                <span style="color:#a6e22e">pageHeight</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientHeight</span>;
+                <span style="color:#a6e22e">pageWidth</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">clientWidth</span>;
+            } <span style="color:#66d9ef">else</span> {
+                <span style="color:#a6e22e">pageHeight</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">clientHeight</span>;
+                <span style="color:#a6e22e">pageWidth</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">clientWidth</span>;
+            }
+        }
+</code></pre></div><p>缩放方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">window.<span style="color:#a6e22e">resizeTo</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>);<span style="color:#a6e22e">缩放到</span>
+window.<span style="color:#a6e22e">resizeBy</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>);<span style="color:#a6e22e">缩放</span><span style="color:#f92672">+</span>
+<span style="color:#a6e22e">可能被浏览器禁用</span>
+</code></pre></div><h3 id="视口位置">视口位置</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">window.<span style="color:#a6e22e">scrollBy</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>);<span style="color:#a6e22e">相对当前视口滑动</span>
+window.<span style="color:#a6e22e">scrollTo</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>);<span style="color:#a6e22e">滚到据屏幕左边x顶边y的位置</span>
+
+<span style="color:#a6e22e">平滑活动设置</span> <span style="color:#a6e22e">behavior</span>
+<span style="color:#a6e22e">正常滚动</span><span style="color:#960050;background-color:#1e0010">：</span>
+window.<span style="color:#a6e22e">scrollBy</span>({
+	<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">x</span>,
+	<span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">y</span>,
+	<span style="color:#a6e22e">behavior</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;auto&#39;</span>
+});
+<span style="color:#a6e22e">平滑滑动</span>
+window.<span style="color:#a6e22e">scrollBy</span>({
+	<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">x</span>,
+	<span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">y</span>,
+	<span style="color:#a6e22e">behavior</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smooth&#39;</span>
+});
+</code></pre></div><h3 id="导航与打开新窗口">导航与打开新窗口</h3>
+<p>window.open(<strong>URL</strong>、目标窗口、<strong>特性字符串</strong>、表示新窗口在浏览器历史记录中是否替代当前加载页的bool值)，通常只用前三个参数，最后一个只有在不打开新窗口时才会使用</p>
+<pre><code>window.open(&quot;http://www.wrox.com&quot;,&quot;topFrame&quot;); 等价于
+&lt;a href=&quot;http://www.wrox.com&quot; target=&quot;topFrame&quot;&gt;&lt;/a&gt;相同
+</code></pre><p><strong>特性字符串</strong></p>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fullscreen</td>
+<td>yes 或 no</td>
+<td>表示窗口是否最大化，<strong>仅IE支持</strong></td>
+</tr>
+<tr>
+<td>height</td>
+<td></td>
+<td>值必须大于等于100</td>
+</tr>
+<tr>
+<td>left</td>
+<td></td>
+<td>x轴坐标</td>
+</tr>
+<tr>
+<td>location</td>
+<td></td>
+<td>是否显示地址栏，各浏览器默认不同</td>
+</tr>
+<tr>
+<td>Menubar</td>
+<td>yes 或 no</td>
+<td>是否显示菜单栏，默认为no</td>
+</tr>
+</tbody>
+</table>
+<p>等等</p>
+<p>一个例子</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">window.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;http://www.wrox.com&#34;</span>,<span style="color:#e6db74">&#34;topFrame&#34;</span>,
+                    <span style="color:#e6db74">&#34;height=400, width=400, top=10, left=10, resizeable=yes&#34;</span>);
+</code></pre></div><h4 id="windowclose">window.close</h4>
+<p>只能用于关闭window.open()创建的窗口，关闭窗口后，窗口的引用虽然还在，但只能用于检查其**closed(是否已关闭)**属性。</p>
+<h4 id="windowopener">window.opener</h4>
+<p>指向打开它的窗口的指针，将其设为null，表示新打开的标签页可以运行在独立的进程中。</p>
+<h3 id="弹窗屏蔽程序">弹窗屏蔽程序</h3>
+<h4 id="检查弹窗是否被屏蔽">检查弹窗是否被屏蔽</h4>
+<p>如果被屏蔽，window.open()很可能返回null</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">wrox</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;http://www.wrox.com&#34;</span>,<span style="color:#e6db74">&#34;topFrame&#34;</span>);
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">wrox</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;the popup was blocked!&#34;</span>);
+}
+</code></pre></div><p>但实际上，在浏览器扩展或其他程序屏蔽弹窗时window.open()通常会抛出错误。因此要准确检测弹窗是否被屏蔽，还要用try/catch包装起来</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">blocked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+<span style="color:#66d9ef">try</span> {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">wrox</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;http://www.wrox.com&#34;</span>,<span style="color:#e6db74">&#34;topFrame&#34;</span>);
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">wrox</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+        <span style="color:#a6e22e">blocked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+    }
+} <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">ex</span>) {
+    <span style="color:#a6e22e">blocked</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+}
+<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">blocked</span>) {
+    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;the popup was blocked!&#34;</span>);
+}
+</code></pre></div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://lxy-littlechai.github.io/tags/tag1/">tag1</a>
+
+  <a class="tag tag--primary tag--small" href="https://lxy-littlechai.github.io/tags/tag2/">tag2</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/08/css/" data-tooltip="Css">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lxy-littlechai.github.io/2021/08/bom/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lxy-littlechai.github.io/2021/08/bom/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://lxy-littlechai.github.io/2021/08/bom/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Littlechai. All Rights Reserved
+  </span>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/08/css/" data-tooltip="Css">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lxy-littlechai.github.io/2021/08/bom/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lxy-littlechai.github.io/2021/08/bom/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://lxy-littlechai.github.io/2021/08/bom/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F08%2Fbom%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F08%2Fbom%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F08%2Fbom%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Littlechai</h4>
+    
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        China
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://lxy-littlechai.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/prism.min.js" integrity="sha256-haEv2ilTk2sXcJaGbkTtErRCHy/qGt3g+bGbgPf5OTY=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://lxy-littlechai.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/lxy-littlechai.github.io\/2021\/08\/bom\/';
+          
+            this.page.identifier = '\/2021\/08\/bom\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

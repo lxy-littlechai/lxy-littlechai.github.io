@@ -2,22 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://lxy-littlechai.github.io/2021/08/bom/</loc>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
+  </url><url>
     <loc>https://lxy-littlechai.github.io/categories/</loc>
-    <lastmod>2021-08-11T17:32:26+08:00</lastmod>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
+  </url><url>
+    <loc>https://lxy-littlechai.github.io/categories/js/</loc>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
+  </url><url>
+    <loc>https://lxy-littlechai.github.io/</loc>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
+  </url><url>
+    <loc>https://lxy-littlechai.github.io/post/</loc>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
+  </url><url>
+    <loc>https://lxy-littlechai.github.io/categories/subcategory/</loc>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
+  </url><url>
+    <loc>https://lxy-littlechai.github.io/tags/tag1/</loc>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
+  </url><url>
+    <loc>https://lxy-littlechai.github.io/tags/tag2/</loc>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
+  </url><url>
+    <loc>https://lxy-littlechai.github.io/tags/</loc>
+    <lastmod>2021-08-31T19:11:39+08:00</lastmod>
   </url><url>
     <loc>https://lxy-littlechai.github.io/2021/08/css/</loc>
     <lastmod>2021-08-11T17:32:26+08:00</lastmod>
   </url><url>
     <loc>https://lxy-littlechai.github.io/tags/css/</loc>
-    <lastmod>2021-08-11T17:32:26+08:00</lastmod>
-  </url><url>
-    <loc>https://lxy-littlechai.github.io/</loc>
-    <lastmod>2021-08-11T17:32:26+08:00</lastmod>
-  </url><url>
-    <loc>https://lxy-littlechai.github.io/post/</loc>
-    <lastmod>2021-08-11T17:32:26+08:00</lastmod>
-  </url><url>
-    <loc>https://lxy-littlechai.github.io/tags/</loc>
     <lastmod>2021-08-11T17:32:26+08:00</lastmod>
   </url><url>
     <loc>https://lxy-littlechai.github.io/categories/web/</loc>
@@ -27,9 +42,6 @@
     <lastmod>2021-07-24T20:20:28+08:00</lastmod>
   </url><url>
     <loc>https://lxy-littlechai.github.io/2021/07/js/</loc>
-    <lastmod>2021-07-15T21:47:29+08:00</lastmod>
-  </url><url>
-    <loc>https://lxy-littlechai.github.io/categories/js/</loc>
     <lastmod>2021-07-15T21:47:29+08:00</lastmod>
   </url><url>
     <loc>https://lxy-littlechai.github.io/about/</loc>

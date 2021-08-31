@@ -465,6 +465,30 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">=</span> Promise.<span style="color:#a6e22e">resolve</span>();
 <span style="color:#a6e22e">p1</span>.<span style="color:#66d9ef">finally</span>(() =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Finally&#39;</span>));
 </code></pre></div><p>finally()的返回值大多数情况下表现为父期约的传递。若返回的是待定期约获知onfinally()处理程序抛出错误（显式抛出或返回拒绝期约），则会返回相应期约。</p>
+<h5 id="promiseall-合成期约">promise.all() 合成期约</h5>
+<p>promise,all()返回一个新期约，其会在一组期约全部解决完后再解决。</p>
+<p>如果所有期约都解决，那么合成期约的解决值就是所有包含期约解决值得数组。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">promise</span>.<span style="color:#a6e22e">all</span>([<span style="color:#a6e22e">function1</span>, <span style="color:#a6e22e">function2</span>]);
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> Promise.<span style="color:#a6e22e">all</span>([
+    Promise.<span style="color:#a6e22e">resolve</span>(<span style="color:#ae81ff">1</span>),
+    Promise.<span style="color:#a6e22e">resolve</span>(<span style="color:#ae81ff">2</span>),
+    Promise.<span style="color:#a6e22e">resolve</span>()
+]);
+<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">values</span>) =&gt; <span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>, <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">values</span>));
+<span style="color:#75715e">//[ 1, 2, undefined ]
+</span></code></pre></div><p>如果有期约拒绝，则第一个期约拒绝的reason为合成期约拒绝得reason，且不影响后续的期约。合成期约会<strong>静默处理</strong>包含期约的拒绝操作</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> Promise.<span style="color:#a6e22e">all</span>([
+    Promise.<span style="color:#a6e22e">reject</span>(<span style="color:#ae81ff">3</span>),
+    <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; <span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">reject</span>, <span style="color:#ae81ff">1000</span>)),
+    Promise.<span style="color:#a6e22e">reject</span>(<span style="color:#ae81ff">4</span>)
+]);
+<span style="color:#a6e22e">p</span>.<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">reason</span>) =&gt; <span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">reason</span>));
+<span style="color:#75715e">//3
+</span></code></pre></div><h5 id="promiserace">promise.race()</h5>
+<p>返回一个包装期约，是一组期约中最先解决或拒绝的期约的镜像，其它静默处理。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> Promise.<span style="color:#a6e22e">race</span>([<span style="color:#a6e22e">function1</span>, <span style="color:#a6e22e">function2</span>]);
+</code></pre></div>
               
             </div>
           </div>
