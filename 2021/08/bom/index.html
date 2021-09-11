@@ -373,7 +373,61 @@ window.<span style="color:#a6e22e">scrollBy</span>({
 <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">blocked</span>) {
     <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;the popup was blocked!&#34;</span>);
 }
-</code></pre></div>
+</code></pre></div><h1 id="location对象">location对象</h1>
+<h3 id="查询字符串">查询字符串</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">getQueryStringArgs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">qs</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">search</span>.<span style="color:#a6e22e">substring</span>(<span style="color:#ae81ff">1</span>) <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> {};
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">item</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">qs</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;&amp;&#34;</span>).<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">kv</span> =&gt; <span style="color:#a6e22e">kv</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;=&#34;</span>))) {
+		<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">item</span>[<span style="color:#ae81ff">0</span>];
+        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">item</span>[<span style="color:#ae81ff">1</span>];
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">length</span>) {
+			<span style="color:#a6e22e">args</span>[<span style="color:#a6e22e">name</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>;
+        }
+    }
+}
+</code></pre></div><p>URLSearchParams支持检查和修改查询字符串，给其传入一个查询字符串就可以创造一个实例，该实例上有get(), set(), has(), delete()等方法</p>
+<h3 id="修改地址">修改地址</h3>
+<h4 id="hrefassign">href,assign</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://www.wrox.com&#34;</span>;
+<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">assign</span>(<span style="color:#e6db74">&#34;http://www.wrox.com&#34;</span>);
+window.<span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://www.wrox.com&#34;</span>;
+<span style="color:#a6e22e">修改location的属性也会修改当前加载的页面</span>
+<span style="color:#a6e22e">tips</span><span style="color:#960050;background-color:#1e0010">：</span><span style="color:#a6e22e">修改hash的值会在浏览器历史中增加一条新纪录</span>
+</code></pre></div><h4 id="replace">replace</h4>
+<p>若不希望增加历史记录，可使用location.replace(),但调用后用户不能回到前一页</p>
+<h4 id="reload">reload()</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">reload</span>(); <span style="color:#a6e22e">重新加载</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">可能从缓存加载</span>
+<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">reload</span>(<span style="color:#66d9ef">true</span>); <span style="color:#a6e22e">重新加载</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">从服务器加载</span>
+</code></pre></div><h1 id="navigator对象">navigator对象</h1>
+<h3 id="检测插件">检测插件</h3>
+<p>IE11及以上可用plugins数组确定，包括一下属性</p>
+<pre><code>name 插件名称
+description 插件介绍
+filename 插件的文件名
+length 由当前插件处理的MIME类型数量
+</code></pre><p>插件检测</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">hasPlugin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">name</span>) {
+    <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">toLowerCase</span>();
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">plugin</span> <span style="color:#66d9ef">of</span> window.<span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">plugins</span>) {
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">plugin</span>.<span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">toLowerCase</span>().<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">name</span>) <span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+}
+</code></pre></div><h3 id="注册处理程序">注册处理程序</h3>
+<p>registerProtocolHandler();</p>
+<h1 id="screen对象">screen对象</h1>
+<p>显示器信息</p>
+<h1 id="history对象">history对象</h1>
+<h3 id="导航">导航</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">go</span>(<span style="color:#ae81ff">2</span>) <span style="color:#a6e22e">前进2页</span>
+<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">go</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>) <span style="color:#a6e22e">后退2页</span>
+<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">forward</span>() <span style="color:#a6e22e">前进1页</span>
+<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">back</span>() <span style="color:#a6e22e">后退1页</span>
+<span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">length</span> <span style="color:#a6e22e">表示历史记录中有多少个条目</span>
+</code></pre></div><h3 id="历史状态管理-">历史状态管理 ？？？</h3>
               
             </div>
           </div>
@@ -400,7 +454,7 @@ window.<span style="color:#a6e22e">scrollBy</span>({
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/09/vue/" data-tooltip="Vue">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -408,7 +462,7 @@ window.<span style="color:#a6e22e">scrollBy</span>({
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/08/css/" data-tooltip="Css">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/" data-tooltip="Hdu多校">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -487,7 +541,7 @@ window.<span style="color:#a6e22e">scrollBy</span>({
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/09/vue/" data-tooltip="Vue">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -495,7 +549,7 @@ window.<span style="color:#a6e22e">scrollBy</span>({
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/08/css/" data-tooltip="Css">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/07/hdu%E5%A4%9A%E6%A0%A1/" data-tooltip="Hdu多校">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>

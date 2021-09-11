@@ -6,7 +6,25 @@
     <description>Recent content in Categories on Littlechai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Aug 2021 19:11:39 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Sep 2021 12:53:18 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>category</title>
+      <link>https://lxy-littlechai.github.io/categories/category/</link>
+      <pubDate>Sat, 11 Sep 2021 12:53:18 +0800</pubDate>
+      
+      <guid>https://lxy-littlechai.github.io/categories/category/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>subcategory</title>
+      <link>https://lxy-littlechai.github.io/categories/subcategory/</link>
+      <pubDate>Sat, 11 Sep 2021 12:53:18 +0800</pubDate>
+      
+      <guid>https://lxy-littlechai.github.io/categories/subcategory/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>js</title>
       <link>https://lxy-littlechai.github.io/categories/js/</link>
@@ -17,18 +35,9 @@
     </item>
     
     <item>
-      <title>subcategory</title>
-      <link>https://lxy-littlechai.github.io/categories/subcategory/</link>
-      <pubDate>Tue, 31 Aug 2021 19:11:39 +0800</pubDate>
-      
-      <guid>https://lxy-littlechai.github.io/categories/subcategory/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
+      <title>Web</title>
       <link>https://lxy-littlechai.github.io/categories/web/</link>
-      <pubDate>Wed, 11 Aug 2021 17:32:26 +0800</pubDate>
+      <pubDate>Thu, 15 Jul 2021 21:47:29 +0800</pubDate>
       
       <guid>https://lxy-littlechai.github.io/categories/web/</guid>
       <description></description>

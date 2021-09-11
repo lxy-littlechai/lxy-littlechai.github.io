@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.85.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Littlechai">
+<meta name="keywords" content="tech">
+<meta name="description" content="Ajax">
+
+
+<meta property="og:description" content="Ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax">
+<meta name="twitter:title" content="Ajax">
+<meta property="og:url" content="https://lxy-littlechai.github.io/2021/09/ajax/">
+<meta property="twitter:url" content="https://lxy-littlechai.github.io/2021/09/ajax/">
+<meta property="og:site_name" content="Littlechai">
+<meta property="og:description" content="Ajax">
+<meta name="twitter:description" content="Ajax">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-09-11T12:53:18">
+  
+  
+    <meta property="article:modified_time" content="2021-09-11T12:53:18">
+  
+  
+  
+    
+      <meta property="article:section" content="category">
+    
+      <meta property="article:section" content="subcategory">
+    
+  
+  
+    
+      <meta property="article:tag" content="tag1">
+    
+      <meta property="article:tag" content="tag2">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+  <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+
+
+    <title>Ajax</title>
+
+    <link rel="icon" href="https://lxy-littlechai.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://lxy-littlechai.github.io/2021/09/ajax/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://lxy-littlechai.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://lxy-littlechai.github.io/">Littlechai</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://lxy-littlechai.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://lxy-littlechai.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Littlechai</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/about/">
+    
+      
+      
+      <span class="sidebar-button-desc">About Hugo</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/lxy-littlechai" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://lxy-littlechai.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Ajax
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-09-11T12:53:18&#43;08:00">
+        
+  September 11, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://lxy-littlechai.github.io/categories/category">category</a>, 
+    
+      <a class="category-link" href="https://lxy-littlechai.github.io/categories/subcategory">subcategory</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="ajax">Ajax</h1>
+<h2 id="创建xmlhttprequest对象">创建XMLHttpRequest对象</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">xttp</span>;
+<span style="color:#66d9ef">if</span>(window.<span style="color:#a6e22e">XMLHttpRequest</span>) {
+    <span style="color:#a6e22e">xttp</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+
+} <span style="color:#66d9ef">else</span> {
+    <span style="color:#75715e">//code for IE 5 &amp; 6
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">xttp</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ActiveXObject</span>(<span style="color:#e6db74">&#34;Microsoft.XMLHTTP&#34;</span>);
+}
+</code></pre></div><h2 id="xmlhttprequest对象方法">XMLHttpRequest对象方法</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new XMLHttpRequest()</td>
+<td>创建新的 XMLHttpRequest 对象</td>
+</tr>
+<tr>
+<td>abort()</td>
+<td>取消当前请求</td>
+</tr>
+<tr>
+<td>getAllResponseHeaders()</td>
+<td>返回头部信息</td>
+</tr>
+<tr>
+<td>getResponseHeader()</td>
+<td>返回特定的头部信息</td>
+</tr>
+<tr>
+<td>open(<em>method</em>, <em>url</em>, <em>async</em>, <em>user</em>, <em>psw</em>)</td>
+<td>规定请求method：请求类型 GET 或 POSTurl：文件位置async：true（异步）或 false（同步）user：可选的用户名称psw：可选的密码</td>
+</tr>
+<tr>
+<td>send()</td>
+<td>将请求发送到服务器，用于 GET 请求</td>
+</tr>
+<tr>
+<td>send(<em>string</em>)</td>
+<td>将请求发送到服务器，用于 POST 请求</td>
+</tr>
+</tbody>
+</table>
+<h2 id="xmlhttprequest-对象属性">XMLHttpRequest 对象属性</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">onreadystatechange</td>
+<td style="text-align:left">定义当 readyState 属性发生变化时被调用的函数</td>
+</tr>
+<tr>
+<td style="text-align:left">readyState</td>
+<td style="text-align:left">保存 XMLHttpRequest 的状态。0：请求未初始化1：服务器连接已建立2：请求已收到3：正在处理请求4：请求已完成且响应已就绪</td>
+</tr>
+<tr>
+<td style="text-align:left">responseText</td>
+<td style="text-align:left">以字符串返回响应数据</td>
+</tr>
+<tr>
+<td style="text-align:left">responseXML</td>
+<td style="text-align:left">以 XML 数据返回响应数据</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:left">返回请求的状态号200: &ldquo;OK&quot;403: &ldquo;Forbidden&quot;404: &ldquo;Not Found&quot;如需完整列表请访问 <a href="https://www.w3school.com.cn/tags/ref_httpmessages.asp">Http 消息参考手册</a></td>
+</tr>
+<tr>
+<td style="text-align:left">statusText</td>
+<td style="text-align:left">返回状态文本（比如 &ldquo;OK&rdquo; 或 &ldquo;Not Found&rdquo;）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>当readyState为4，status为200时，响应就绪</strong></p>
+<h2 id="使用回调函数">使用回调函数</h2>
+<p>以此封装请求操作</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">loadDoc</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">cFunction</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhttp</span>;
+  <span style="color:#a6e22e">xhttp</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+  <span style="color:#a6e22e">xhttp</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>) {
+      <span style="color:#a6e22e">cFunction</span>(<span style="color:#66d9ef">this</span>);
+    }
+  };
+  <span style="color:#a6e22e">xhttp</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;GET&#34;</span>, <span style="color:#a6e22e">url</span>, <span style="color:#66d9ef">true</span>);
+  <span style="color:#a6e22e">xhttp</span>.<span style="color:#a6e22e">send</span>();
+}
+</code></pre></div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://lxy-littlechai.github.io/tags/tag1/">tag1</a>
+
+  <a class="tag tag--primary tag--small" href="https://lxy-littlechai.github.io/tags/tag2/">tag2</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/09/vue/" data-tooltip="Vue">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lxy-littlechai.github.io/2021/09/ajax/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lxy-littlechai.github.io/2021/09/ajax/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://lxy-littlechai.github.io/2021/09/ajax/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Littlechai. All Rights Reserved
+  </span>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://lxy-littlechai.github.io/2021/09/vue/" data-tooltip="Vue">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://lxy-littlechai.github.io/2021/09/ajax/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://lxy-littlechai.github.io/2021/09/ajax/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://lxy-littlechai.github.io/2021/09/ajax/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F09%2Fajax%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F09%2Fajax%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flxy-littlechai.github.io%2F2021%2F09%2Fajax%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Littlechai</h4>
+    
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        China
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://lxy-littlechai.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.3/prism.min.js" integrity="sha256-haEv2ilTk2sXcJaGbkTtErRCHy/qGt3g+bGbgPf5OTY=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://lxy-littlechai.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/lxy-littlechai.github.io\/2021\/09\/ajax\/';
+          
+            this.page.identifier = '\/2021\/09\/ajax\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
