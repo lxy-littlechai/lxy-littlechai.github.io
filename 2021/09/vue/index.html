@@ -274,15 +274,37 @@
 &lt;/<span style="color:#f92672">div</span>&gt;
 </code></pre></div><h3 id="v-html">v-html</h3>
 <h3 id="v-bind-用于html内的属性绑定">v-bind :用于html内的属性绑定</h3>
-<h3 id="v-model用于input等">v-model用于input等</h3>
+<h3 id="v-model">v-model</h3>
+<h5 id="text--textarea">Text &amp; Textarea</h5>
+<p>使用<code>value</code> property 和 <code>input</code>事件
+<code>v-model</code>绑定的值对应 内容</p>
+<h5 id="checkbox-和-radio">checkbox 和 radio</h5>
+<p>使用<code>radio</code> property 和<code>change</code>事件
+<code>v-model</code>绑定的值对应 <code>value</code></p>
+<p>而<code>checkbox</code>中<code>v-model</code>对应<code>bool</code></p>
+<p><strong>Tips</strong></p>
+<p>如果 <code>v-model</code> 表达式的初始值未能匹配任何选项，<code>&lt;select&gt;</code> 元素将被渲染为“未选中”状态。在 iOS 中，这会使用户无法选择第一个选项。因为这样的情况下，iOS 不会触发 <code>change</code> 事件。因此，更推荐像上面这样提供一个值为空的禁用选项</p>
+<p>多选绑定<strong>数组</strong></p>
+<h4 id="修饰符">修饰符</h4>
+<h5 id="lazy"><code>.lazy</code></h5>
+<p>默认情况下<code>v-model</code>在每次<code>input</code>事件触发后将输入框的值与数据进行同步。<code>.lazy</code>修饰符将其转换为<code>change</code>事件之后进行同步，即失去焦点或者<code>enter</code>后进行同步</p>
+<h5 id="number"><code>.number</code></h5>
+<p>自动将用户输入值转化为数值类型</p>
+<h5 id="trim"><code>.trim</code></h5>
+<p>自动过滤用户输入的首尾空白字符</p>
 <h3 id="v-on-用于添加事件">v-on @用于添加事件</h3>
 <h3 id="v-for-用于循环">v-for 用于循环</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item in items&#34;</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
 &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(value, name) in items&#34;</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(value, name, index) in items&#34;</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+</code></pre></div><p>为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 <code>key</code> attribute：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item in items&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item.id&#34;</span>&gt;
+  <span style="color:#75715e">&lt;!-- content --&gt;</span>
+&lt;/<span style="color:#f92672">div</span>&gt;
 </code></pre></div><h3 id="v-if-v-else-v-else-if">v-if v-else v-else-if</h3>
 <h3 id="动态参数-避免大写">动态参数 避免大写</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">v-on:</span><span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">eventname</span><span style="color:#960050;background-color:#1e0010">]=&#34;</span><span style="color:#a6e22e">doSomething</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt; ... &lt;/<span style="color:#f92672">a</span>&gt;
-</code></pre></div><h3 id="修饰符">修饰符</h3>
+</code></pre></div><h3 id="修饰符-1">修饰符</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">v-on:submit</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">prevent</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;onSubmit&#34;</span>&gt;...&lt;/<span style="color:#f92672">form</span>&gt;
 </code></pre></div><h2 id="data-property">Data Property</h2>
 <p>组件的 <code>data</code> 选项是一个函数。Vue 在创建新组件实例的过程中调用此函数。它应该返回一个对象，然后 Vue 会通过响应性系统将其包裹起来，并以 <code>$data</code> 的形式存储在组件实例中</p>
@@ -340,6 +362,732 @@
 <h3 id="computed">computed</h3>
 <p>computed 也可以写在 methods 中，但computed<strong>是基于它们的响应依赖关系缓存的</strong>，也就是说，只要computed中的值不发生改变，就不会重新求值。</p>
 <h3 id="setter">Setter</h3>
+<h3 id="监听器-watch">监听器 watch</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span> {
+    <span style="color:#75715e">//对象写法
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> {<span style="color:#75715e">//监听对象
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">handel</span>() {<span style="color:#75715e">//调用函数
+</span><span style="color:#75715e"></span>
+		},
+		<span style="color:#a6e22e">immediate</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">/</span><span style="color:#66d9ef">false</span>, <span style="color:#75715e">//是否立刻触发一次
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">deep</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">/</span><span style="color:#66d9ef">false</span> <span style="color:#75715e">//对象中任何属性变化都可以监听，否则无法监听对象内容
+</span><span style="color:#75715e"></span>	}
+    <span style="color:#75715e">//函数写法
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">name</span>(<span style="color:#a6e22e">newValue</span>, <span style="color:#a6e22e">oldeValue</span>){
+	
+    }
+}
+</code></pre></div><h2 id="事件处理">事件处理</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;greet&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+
+Vue.createApp({
+  data() {
+    return {
+      name: &#39;Vue.js&#39;
+    }
+  },
+  methods: {
+    greet(event) {
+      // `methods` 内部的 `this` 指向当前活动实例
+      alert(&#39;Hello &#39; + this.name + &#39;!&#39;)
+      // `event` 是原生 DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}).mount(&#39;#event-with-method&#39;)
+</code></pre></div><h3 id="内联处理器">内联处理器</h3>
+<p>使用$event</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;say(&#39;hi&#39;, $event)&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+
+Vue.createApp({
+  data() {
+    return {
+      name: &#39;Vue.js&#39;
+    }
+  },
+  methods: {
+    say(message, event) {
+      // `methods` 内部的 `this` 指向当前活动实例
+      alert(&#39;Hello &#39; + this.name + &#39;!&#39;)
+      // `event` 是原生 DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}).mount(&#39;#event-with-method&#39;)
+</code></pre></div><h3 id="多事件处理器">多事件处理器</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;one($event), two($event)&#34;</span>&gt;
+  Submit
+&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><h3 id="事件修饰符">事件修饰符</h3>
+<ul>
+<li><code>.stop</code></li>
+<li><code>.prevent</code></li>
+<li><code>.capture</code></li>
+<li><code>.self</code></li>
+<li><code>.once</code></li>
+<li><code>.passive</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 阻止单击事件继续传播 --&gt;</span>
+&lt;<span style="color:#f92672">a</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">stop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doThis&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
+
+<span style="color:#75715e">&lt;!-- 提交事件不再重载页面 --&gt;</span>
+&lt;<span style="color:#f92672">form</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">submit</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">prevent</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;onSubmit&#34;</span>&gt;&lt;/<span style="color:#f92672">form</span>&gt;
+
+<span style="color:#75715e">&lt;!-- 修饰符可以串联 --&gt;</span>
+&lt;<span style="color:#f92672">a</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">stop</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">prevent</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doThat&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
+
+<span style="color:#75715e">&lt;!-- 只有修饰符 --&gt;</span>
+&lt;<span style="color:#f92672">form</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">submit</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">prevent</span>&gt;&lt;/<span style="color:#f92672">form</span>&gt;
+
+<span style="color:#75715e">&lt;!-- 添加事件监听器时使用事件捕获模式 --&gt;</span>
+<span style="color:#75715e">&lt;!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 --&gt;</span>
+&lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">capture</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doThis&#34;</span>&gt;...&lt;/<span style="color:#f92672">div</span>&gt;
+
+<span style="color:#75715e">&lt;!-- 只当在 event.target 是当前元素自身时触发处理函数 --&gt;</span>
+<span style="color:#75715e">&lt;!-- 即事件不是从内部元素触发的 --&gt;</span>
+&lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">self</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doThat&#34;</span>&gt;...&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><h3 id="按键修饰符">按键修饰符</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">keyup</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">enter</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>/&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">keyup</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">page-down</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;onPageDown&#34;</span>/&gt;
+</code></pre></div><h4 id="按键别名">按键别名</h4>
+<p>Vue 为最常用的键提供了别名：</p>
+<ul>
+<li><code>.enter</code></li>
+<li><code>.tab</code></li>
+<li><code>.delete</code> (捕获“删除”和“退格”键)</li>
+<li><code>.esc</code></li>
+<li><code>.space</code></li>
+<li><code>.up</code></li>
+<li><code>.down</code></li>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+</ul>
+<h3 id="系统修饰键">系统修饰键</h3>
+<p>可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。</p>
+<ul>
+<li><code>.ctrl</code></li>
+<li><code>.alt</code></li>
+<li><code>.shift</code></li>
+<li><code>.meta</code></li>
+</ul>
+<p><strong>Tips</strong>： Mac中meta对应command键(⌘)，Windows中meta对应徽标键 (⊞)，</p>
+<p><strong>Tips</strong>：必须修饰键的情况下释放其它按键，才能出发keyup，而单单释放修饰键也不会触发事件</p>
+<h4 id="exact"><code>.exact</code></h4>
+<p>.exact保证了只有确定的修饰符组合才能触发按键， 例如</p>
+<p>当且仅当按下ctrl时才触发，同时按其他键不会触发</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">ctrl</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">exact</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;onCtrlClick&#34;</span>&gt;A&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><h4 id="鼠标按钮修饰符">鼠标按钮修饰符</h4>
+<ul>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+<li><code>.middle</code></li>
+</ul>
+<h2 id="组件基础">组件基础</h2>
+<h3 id="基本实例">基本实例</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>({})
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;button-counter&#39;</span>,{
+	<span style="color:#a6e22e">data</span>() {
+		<span style="color:#66d9ef">return</span> {
+			<span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
+		}
+	},
+	<span style="color:#a6e22e">template</span><span style="color:#f92672">:</span><span style="color:#e6db74">`
+</span><span style="color:#e6db74">		&lt;button @click=&#34;count++&#34;&gt;
+</span><span style="color:#e6db74">			You clicked me {{ count }} times.
+</span><span style="color:#e6db74">		&lt;/button&gt;
+</span><span style="color:#e6db74">	`</span>
+})
+</code></pre></div><h3 id="传递数据">传递数据</h3>
+<h4 id="props--emits">props &amp; emits</h4>
+<h3 id="监听子组件事件">监听子组件事件</h3>
+<h4 id="使用事件抛出一个值">使用事件抛出一个值</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$emit(&#39;enlargeText&#39;, 0.1)&#34;</span>&gt;
+  Enlarge text
+&lt;/<span style="color:#f92672">button</span>&gt;
+抛出值可用$event接受
+
+&lt;<span style="color:#f92672">blog-post</span> <span style="color:#960050;background-color:#1e0010">...</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">enlarge-text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;onEnlargeText&#34;</span>&gt;&lt;/<span style="color:#f92672">blog-post</span>&gt;
+methods: {
+  onEnlargeText(enlargeAmount) {
+    this.postFontSize += enlargeAmount
+  }
+}
+抛出值用参数接受
+</code></pre></div><h4 id="在组件上使用v-model">在组件上使用v-model</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;searchText&#34;</span>&gt;
+等价于
+&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">:value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;searchText&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;searchText = $event.target.value&#34;</span>&gt;
+</code></pre></div><p>在组件上使用时，v-model等价于</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">custom-input</span>
+    <span style="color:#a6e22e">:model-value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;searchText&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">update:model-value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;searchText = $event&#34;</span>
+&gt;&lt;/<span style="color:#f92672">custom-input</span>&gt;
+</code></pre></div><p>为了让它正常工作，这个组件内的 <code>&lt;input&gt;</code> 必须：</p>
+<ul>
+<li>将其 <code>value</code> attribute 绑定到一个名叫 <code>modelValue</code> 的 prop 上</li>
+<li>在其 <code>input</code> 事件被触发时，将新的值通过自定义的 <code>update:modelValue</code> 事件抛出</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">custom</span><span style="color:#f92672">-</span><span style="color:#a6e22e">input</span>
+        <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;searchText&#34;</span>
+    <span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/custom-input&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span><span style="color:#f92672">&gt;</span> {{ <span style="color:#a6e22e">searchText</span> }} <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/span&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>({
+        <span style="color:#a6e22e">data</span>() {
+            <span style="color:#66d9ef">return</span> {
+                <span style="color:#a6e22e">searchText</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>
+            }
+        }
+    })
+    
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;custom-input&#39;</span>, {
+    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;modelValue&#39;</span>],
+    <span style="color:#a6e22e">emits</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;update:modelValue&#39;</span>],
+    <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">        &lt;input
+</span><span style="color:#e6db74">            :value=&#34;modelValue&#34;
+</span><span style="color:#e6db74">            @input=&#34;$emit(&#39;update:modelValue&#39;, $event.target.value)&#34;
+</span><span style="color:#e6db74">        &gt;
+</span><span style="color:#e6db74">    `</span>
+
+})
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</code></pre></div><p>也可以使用computed来实现</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">custom</span><span style="color:#f92672">-</span><span style="color:#a6e22e">input</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/custom-input&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>({
+})
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;custom-input&#39;</span>, {
+    <span style="color:#a6e22e">data</span>() {
+        <span style="color:#66d9ef">return</span> {
+            <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>
+        }
+    },
+    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;modelValue&#39;</span>],
+    <span style="color:#a6e22e">emits</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;update:modelValue&#39;</span>],
+
+    <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">        &lt;input v-model=&#34;value&#34;&gt;
+</span><span style="color:#e6db74">        &lt;span&gt; {{ value }} &lt;/span&gt;
+</span><span style="color:#e6db74">    `</span>,
+
+    <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">get</span>() {
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">modelValue</span>
+            },
+            <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">value</span>) {
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$emit</span>(<span style="color:#e6db74">&#39;update:modelValue&#39;</span>, <span style="color:#a6e22e">value</span>)
+            }
+        }
+    }
+})
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</code></pre></div><h3 id="插槽">插槽</h3>
+<p>我们时常在html中添加内容，在模板中我们应该使用插槽来指出内容的位置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">alert-box</span>&gt;
+	There is something wrong
+&lt;/<span style="color:#f92672">alert-box</span>&gt;
+
+app.component(&#39;alert-box&#39;,{
+    template: `
+        &lt;<span style="color:#f92672">strong</span>&gt;Error!&lt;/<span style="color:#f92672">strong</span>&gt;
+        &lt;<span style="color:#f92672">slot</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+
+    `
+})
+</code></pre></div><h3 id="动态组件">动态组件</h3>
+<p>实现不同组件的动态切换，使用<code>is</code>attribute</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">component</span> <span style="color:#a6e22e">:is</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;getCurrentTag&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tag&#34;</span>&gt;&lt;/<span style="color:#f92672">component</span>&gt;
+</code></pre></div><p><img src="C:%5CUsers%5C16117%5Cblog%5Ccontent%5Cpost%5Cvue.assets%5Cimage-20210914162525721.png" alt="image-20210914162525721"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span><span style="color:#f92672">&gt;</span>
+    
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span>
+            <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tag in tags&#34;</span>
+            <span style="color:#f92672">:</span><span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tag&#34;</span>
+            <span style="color:#f92672">:</span><span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[&#39;tag-button&#39;, {active: tag == currentTag}]&#34;</span> 
+            <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;currentTag = tag&#34;</span>
+        <span style="color:#f92672">&gt;</span>
+        {{ <span style="color:#a6e22e">tag</span> }}
+        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">component</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">is</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;getCurrentTag&#34;</span> <span style="color:#66d9ef">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tag&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/component&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/body&gt;</span>
+
+
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>({
+        <span style="color:#a6e22e">data</span>() {
+            <span style="color:#66d9ef">return</span> {
+                <span style="color:#a6e22e">currentTag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Home&#34;</span>,
+                <span style="color:#a6e22e">tags</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;Home&#34;</span>, <span style="color:#e6db74">&#34;Posts&#34;</span>, <span style="color:#e6db74">&#34;Archive&#34;</span>]
+            }
+        },
+        <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">getCurrentTag</span>(){
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">currentTag</span>.<span style="color:#a6e22e">toLowerCase</span>()
+            }
+        }
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;home&#39;</span>, {
+        <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">            &lt;div&gt;Home&lt;div&gt;
+</span><span style="color:#e6db74">        `</span>
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;posts&#39;</span>, {
+        <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">            &lt;div&gt;Posts&lt;div&gt;
+</span><span style="color:#e6db74">        `</span>
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;archive&#39;</span>, {
+        <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">            &lt;div&gt;Archive&lt;div&gt;
+</span><span style="color:#e6db74">        `</span>
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#34;#app&#34;</span>)
+
+
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</code></pre></div><h3 id="解析dom模板时的注意事项">解析DOM模板时的注意事项</h3>
+<h4 id="element-placement-restrictions">Element Placement Restrictions</h4>
+<p>有些 HTML 元素，诸如 <code>&lt;ul&gt;</code>、<code>&lt;ol&gt;</code>、<code>&lt;table&gt;</code> 和 <code>&lt;select&gt;</code>，对于哪些元素可以出现在其内部是有严格限制的。而有些元素，诸如 <code>&lt;li&gt;</code>、<code>&lt;tr&gt;</code> 和 <code>&lt;option&gt;</code>，只能出现在其它某些特定的元素内部。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">不合法
+&lt;<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">blog-post-row</span>&gt;&lt;/<span style="color:#f92672">blog-post-row</span>&gt;
+&lt;/<span style="color:#f92672">table</span>&gt;
+
+合法
+&lt;<span style="color:#f92672">table</span>&gt;
+  &lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">is</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vue:blog-post-row&#34;</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;
+&lt;/<span style="color:#f92672">table</span>&gt;
+</code></pre></div><h4 id="case-insensitivity">Case Insensitivity</h4>
+<p>js中的大写字母，要在html中使用 kebab-cased (横线字符分隔)</p>
+<pre><code>postTitle &lt;=&gt; post-title
+</code></pre><h2 id="深入组件">深入组件</h2>
+<h3 id="组件注册">组件注册</h3>
+<h4 id="全局注册">全局注册</h4>
+<h4 id="局部注册">局部注册</h4>
+<p>注意局部注册的组件在其子组件中不可用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ComponentA</span> <span style="color:#f92672">=</span> {
+
+}
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ComponentB</span> <span style="color:#f92672">=</span> {
+
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">creat</span>({
+    <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#39;component-a&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ComponentA</span>,
+        <span style="color:#e6db74">&#39;component-b&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ComponentB</span>
+    }
+})
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ComponentA</span> <span style="color:#f92672">=</span> {
+
+}
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ComponentB</span> <span style="color:#f92672">=</span> {
+	<span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+		<span style="color:#e6db74">&#39;component-a&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ComponentA</span>
+	}
+}
+</code></pre></div><h2 id="props">Props</h2>
+<h3 id="prop类型">prop类型</h3>
+<h4 id="字符串数组">字符串数组</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#e6db74">&#39;message&#39;</span>, <span style="color:#e6db74">&#39;title&#39;</span>]
+</code></pre></div><h4 id="对象">对象</h4>
+<p>以<code>值+数据类型</code>给出</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+	<span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> Number,
+	<span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> String,
+	<span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> String
+}
+</code></pre></div><h3 id="传递静态或动态的prop">传递静态或动态的Prop</h3>
+<p>使用<code>v-bind</code>来传递动态的Prop，同时<code>v-bind</code>可以告诉这是一个JavaScript表达式，而不是字符串</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">blog</span> <span style="color:#a6e22e">:ids</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[123,456]&#34;</span>&gt;&lt;/<span style="color:#f92672">blog</span>&gt;
+使用v-bind vue才能识别这是一个数组
+</code></pre></div><h3 id="传入一个对象的所有property">传入一个对象的所有property</h3>
+<p>可以使用不带参数的<code>v-bind</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">peo: {
+	name: &#39;Frank&#39;,
+	age: 17
+}
+
+&lt;<span style="color:#f92672">blog</span> <span style="color:#a6e22e">v-bind</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;peo&#34;</span>&gt;&lt;/<span style="color:#f92672">blog</span>&gt;
+等价于
+&lt;<span style="color:#f92672">blog</span> <span style="color:#a6e22e">:name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;peo.name&#34;</span> <span style="color:#a6e22e">:age</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;peo.age&#34;</span>&gt;&lt;/<span style="color:#f92672">blog</span>&gt;
+</code></pre></div><h3 id="prop验证">Prop验证</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;&#39;</span>, {
+    <span style="color:#75715e">//数据类型检测，null和undefined可以通过任意数据类型检测
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">propA</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">数据类型</span>,
+    <span style="color:#75715e">//多个可能的类型
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">propB</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">数据类型</span>,<span style="color:#a6e22e">数据类型</span>],
+    
+    <span style="color:#a6e22e">propC</span><span style="color:#f92672">:</span> {
+		<span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">//必填
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">property</span> <span style="color:#75715e">//默认值
+</span><span style="color:#75715e"></span>    },
+    
+    <span style="color:#a6e22e">propD</span><span style="color:#f92672">:</span> {
+        <span style="color:#75715e">//对象或数组默认值必须从一个工厂函数获取
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> Object,
+        <span style="color:#66d9ef">default</span>() {
+			<span style="color:#66d9ef">return</span> {
+                <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
+            }
+        }
+    }
+    
+    <span style="color:#75715e">//自定义验证函数
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">propE</span><span style="color:#f92672">:</span> {
+		<span style="color:#a6e22e">validator</span>(<span style="color:#a6e22e">value</span>){
+    		<span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;success&#39;</span>,<span style="color:#e6db74">&#39;failure&#39;</span>].<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">value</span>)
+		}
+	}
+    
+})
+</code></pre></div><h3 id="非prop的attribute">非prop的Attribute</h3>
+<h4 id="atrribute继承">Atrribute继承</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">my-component</span> <span style="color:#a6e22e">status</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;actived&#34;</span>&gt;&lt;/<span style="color:#f92672">my-component</span>&gt;
+
+app.component(&#39;my-component&#39;,{
+	template: `
+		&lt;<span style="color:#f92672">div</span>&gt;
+        	&lt;<span style="color:#f92672">input</span>&gt;    
+		&lt;/<span style="color:#f92672">div</span>&gt;
+	`
+})
+
+渲染后,status会继承在div上，也就是root山
+</code></pre></div><h4 id="禁用atrribute继承">禁用Atrribute继承</h4>
+<p>如果你<strong>不</strong>希望组件的根元素继承 attribute，你可以在组件的选项中设置 <code>inheritAttrs: false</code>。</p>
+<p>禁用继承的常见情况是需要atrribute应用在除根节点外的所有其它元素</p>
+<p>通过将 <code>inheritAttrs</code> 选项设置为 <code>false</code>，你可以访问组件的 <code>$attrs</code> property，该 property 包括组件 <code>props</code> 和 <code>emits</code> property 中未包含的所有属性 (例如，<code>class</code>、<code>style</code>、<code>v-on</code> 监听器等)。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">my</span><span style="color:#f92672">-</span><span style="color:#a6e22e">component</span> <span style="color:#a6e22e">status</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;actived&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/my-component&gt;</span>
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;my-component&#39;</span>,{
+	<span style="color:#a6e22e">inheritAttrs</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+	<span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">		&lt;div&gt;
+</span><span style="color:#e6db74">        	&lt;input v-bind=&#34;$attrs&#34;&gt;    
+</span><span style="color:#e6db74">		&lt;/div&gt;
+</span><span style="color:#e6db74">	`</span>
+})
+
+<span style="color:#a6e22e">渲染后</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">status会在input上</span>
+</code></pre></div><h4 id="多个根节点上的-attribute-继承">多个根节点上的 Attribute 继承</h4>
+<p>多根节点的组件不具有自动fallthrough行为。若为显式绑定<code>$attrs</code>,运行时会给予警告</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;custom-layout&#39;</span>, {
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">    &lt;header&gt;...&lt;/header&gt;
+</span><span style="color:#e6db74">    &lt;main&gt;...&lt;/main&gt;
+</span><span style="color:#e6db74">    &lt;footer&gt;...&lt;/footer&gt;`</span>
+})
+</code></pre></div><h3 id="自定义事件">自定义事件</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">directives</span><span style="color:#f92672">:</span> {
+		<span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> {
+            <span style="color:#75715e">//第一次被绑定时立即触发
+</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">el</span>, <span style="color:#a6e22e">binding</span>) {
+				<span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;red&#39;</span>
+            },
+            <span style="color:#75715e">//每次dom更新时触发
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">el</span>, <span style="color:#a6e22e">binding</span>){
+                <span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;red&#39;</span>
+			}
+        }
+        
+        <span style="color:#75715e">//若bind和update相同，可简写为
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">color</span>(<span style="color:#a6e22e">el</span>, <span style="color:#a6e22e">binding</span>){
+    		<span style="color:#a6e22e">el</span>.<span style="color:#a6e22e">style</span>.<span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;red&#39;</span>
+		}
+    }
+}
+</code></pre></div><h4 id="定义自定义事件">定义自定义事件</h4>
+<p>可以通过<code>emits</code>选项在组件上定义发出的事件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;custom-form&#39;</span>,{
+	<span style="color:#a6e22e">emits</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#e6db74">&#39;submit&#39;</span>]
+})
+</code></pre></div><h4 id="验证抛出的事件">验证抛出的事件</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;custom-form&#39;</span>,{
+	<span style="color:#a6e22e">emits</span><span style="color:#f92672">:</span> {
+        <span style="color:#75715e">//无验证
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">click</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+        
+        <span style="color:#a6e22e">submit</span><span style="color:#f92672">:</span> ({<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">password</span>}) =&gt; {
+			<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">mail</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">password</span>){
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+            } <span style="color:#66d9ef">else</span> {
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+            }
+        }
+    }
+})
+</code></pre></div><h4 id="多个v-model绑定">多个v-model绑定</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">First</span> <span style="color:#a6e22e">name</span> {{ <span style="color:#a6e22e">firstName</span> }}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Last</span> <span style="color:#a6e22e">name</span> {{ <span style="color:#a6e22e">lastName</span> }}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">user</span><span style="color:#f92672">-</span><span style="color:#a6e22e">name</span> 
+            <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">model</span><span style="color:#f92672">:</span><span style="color:#a6e22e">first</span><span style="color:#f92672">-</span><span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+            <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">model</span><span style="color:#f92672">:</span><span style="color:#a6e22e">last</span><span style="color:#f92672">-</span><span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+        <span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/user-name&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>({
+        <span style="color:#a6e22e">data</span>(){
+            <span style="color:#66d9ef">return</span> {
+                <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Frank&#39;</span>,
+                <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;John&#39;</span>
+            }
+        }
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;user-name&#39;</span>, {
+        <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> String,
+            <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> String
+        },
+      <span style="color:#75715e">/*   emits: [&#39;update:firstName&#39;,&#39;update:lastName&#39;], */</span>
+        <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">            &lt;input
+</span><span style="color:#e6db74">                :value=&#34;firstName&#34;
+</span><span style="color:#e6db74">                @input=&#34;$emit(&#39;update:firstName&#39;,$event.target.value)&#34;
+</span><span style="color:#e6db74">            &gt;
+</span><span style="color:#e6db74">            &lt;input
+</span><span style="color:#e6db74">                :value=&#34;lastName&#34;
+</span><span style="color:#e6db74">                @input=&#34;$emit(&#39;update:lastName&#39;,$event.target.value)&#34;
+</span><span style="color:#e6db74">            &gt;
+</span><span style="color:#e6db74">        `</span>
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+</code></pre></div><h4 id="处理v-model修饰符">处理v-model修饰符</h4>
+<p>v-model修饰符在<code>modelModifiers</code>prop中,若为带参数的<code>v-model</code>绑定，则在<code>args+Modifiers</code>中，实际上v-model修饰符的作用在于<code>if</code>判定，对于有<strong>修饰符</strong>进行特殊处理</p>
+<p>以下实现了首字母大写</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;!</span><span style="color:#a6e22e">DOCTYPE</span> <span style="color:#a6e22e">html</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">http</span><span style="color:#f92672">-</span><span style="color:#a6e22e">equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">title</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Document</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/title&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/vue@next&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/head&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">First</span> <span style="color:#a6e22e">name</span> {{ <span style="color:#a6e22e">firstName</span> }}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Last</span> <span style="color:#a6e22e">name</span> {{ <span style="color:#a6e22e">lastName</span> }}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">user</span><span style="color:#f92672">-</span><span style="color:#a6e22e">name</span> 
+            <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">model</span><span style="color:#f92672">:</span><span style="color:#a6e22e">first</span><span style="color:#f92672">-</span><span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">trans</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+            <span style="color:#a6e22e">v</span><span style="color:#f92672">-</span><span style="color:#a6e22e">model</span><span style="color:#f92672">:</span><span style="color:#a6e22e">last</span><span style="color:#f92672">-</span><span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">trans</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+        <span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/user-name&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/body&gt;</span>
+
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">createApp</span>({
+        <span style="color:#a6e22e">data</span>(){
+            <span style="color:#66d9ef">return</span> {
+                <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Frank&#39;</span>,
+                <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;John&#39;</span>
+            }
+        }
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;user-name&#39;</span>, {
+        <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> String,
+            <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> String,
+            <span style="color:#a6e22e">firstNameModifiers</span><span style="color:#f92672">:</span>{
+                <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> () =&gt; ({})
+            },
+            <span style="color:#a6e22e">lastNameModifiers</span><span style="color:#f92672">:</span> {
+                <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> () =&gt; ({})
+            }
+        },
+        <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">changeFirstName</span>(<span style="color:#a6e22e">e</span>){
+                <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>
+                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">value</span>)
+                <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstNameModifiers</span>.<span style="color:#a6e22e">trans</span>){
+                    <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">charAt</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">toUpperCase</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>)
+                }
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$emit</span>(<span style="color:#e6db74">&#39;update:firstName&#39;</span>, <span style="color:#a6e22e">value</span>)
+            },
+            <span style="color:#a6e22e">changeLastName</span>(<span style="color:#a6e22e">e</span>){
+                <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>
+                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">value</span>)
+                <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastNameModifiers</span>.<span style="color:#a6e22e">trans</span>){
+                    <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">charAt</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">toUpperCase</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>)
+                }
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$emit</span>(<span style="color:#e6db74">&#39;update:lastName&#39;</span>, <span style="color:#a6e22e">value</span>)
+            }
+        },
+      <span style="color:#75715e">/*   emits: [&#39;update:firstName&#39;,&#39;update:lastName&#39;], */</span>
+        <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">            &lt;input
+</span><span style="color:#e6db74">                :value=&#34;firstName&#34;
+</span><span style="color:#e6db74">                @input=&#34;changeFirstName&#34;
+</span><span style="color:#e6db74">            &gt;
+</span><span style="color:#e6db74">            &lt;input
+</span><span style="color:#e6db74">                :value=&#34;lastName&#34;
+</span><span style="color:#e6db74">                @input=&#34;changeLastName&#34;
+</span><span style="color:#e6db74">            &gt;
+</span><span style="color:#e6db74">             
+</span><span style="color:#e6db74">        `</span>
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">mount</span>(<span style="color:#e6db74">&#39;#app&#39;</span>)
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/html&gt;</span>
+</code></pre></div><h3 id="插槽-1">插槽</h3>
+<h4 id="插槽内容">插槽内容</h4>
+<p>插槽可以包含任何模板代码，包括 HTML、组件</p>
+<h4 id="渲染作用域">渲染作用域</h4>
+<p><strong>父级模板里的所有内容都是在父级作用域中编译的；</strong></p>
+<p><strong>子模板里的所有内容都是在子作用域中编译的。</strong></p>
+<h4 id="备用内容">备用内容</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;
+  &lt;<span style="color:#f92672">slot</span>&gt;Submit&lt;/<span style="color:#f92672">slot</span>&gt;
+&lt;/<span style="color:#f92672">button</span>&gt;
+
+&lt;<span style="color:#f92672">submit-button</span>&gt;&lt;/<span style="color:#f92672">submit-button</span>&gt;
+当组件中无内容时显示Submit，有内容时显示内容
+</code></pre></div><h4 id="具名插槽">具名插槽</h4>
+<p>具名插槽用于需要多插槽的场景</p>
+<p>插槽具有<code>name</code>属性，用<code>&lt;template&gt;</code>和<code>v-slot</code>来对应</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">//html
+&lt;<span style="color:#f92672">base-layout</span>&gt;
+  &lt;<span style="color:#f92672">template</span> <span style="color:#a6e22e">v-slot:header</span>&gt;
+    &lt;<span style="color:#f92672">h1</span>&gt;Here might be a page title&lt;/<span style="color:#f92672">h1</span>&gt;
+  &lt;/<span style="color:#f92672">template</span>&gt;
+
+  &lt;<span style="color:#f92672">template</span> <span style="color:#a6e22e">v-slot:default</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;A paragraph for the main content.&lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;And another one.&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">template</span>&gt;
+
+  &lt;<span style="color:#f92672">template</span> <span style="color:#a6e22e">v-slot:footer</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;Here&#39;s some contact info&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">template</span>&gt;
+&lt;/<span style="color:#f92672">base-layout</span>&gt;
+
+//组件
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+  &lt;<span style="color:#f92672">header</span>&gt;
+    &lt;<span style="color:#f92672">slot</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;header&#34;</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+  &lt;/<span style="color:#f92672">header</span>&gt;
+  &lt;<span style="color:#f92672">main</span>&gt;
+    &lt;<span style="color:#f92672">slot</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+  &lt;/<span style="color:#f92672">main</span>&gt;
+  &lt;<span style="color:#f92672">footer</span>&gt;
+    &lt;<span style="color:#f92672">slot</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;footer&#34;</span>&gt;&lt;/<span style="color:#f92672">slot</span>&gt;
+  &lt;/<span style="color:#f92672">footer</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><h3 id="provideinject">Provide/Inject</h3>
+<p>适用于跨级传参/接受参数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;todo-list&#39;</span>, {
+  <span style="color:#a6e22e">data</span>() {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">todos</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;Feed a cat&#39;</span>, <span style="color:#e6db74">&#39;Buy tickets&#39;</span>]
+    }
+  },
+  <span style="color:#a6e22e">provide</span>() {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">todoLength</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">todos</span>.<span style="color:#a6e22e">length</span>
+    }
+  },
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">    ...
+</span><span style="color:#e6db74">  `</span>
+})
+</code></pre></div><p><code>provide/inject</code> 绑定<em><strong>并不是</strong></em>响应式的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#39;todo-list&#39;</span>, {
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">provide</span>() {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">todoLength</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">todos</span>.<span style="color:#a6e22e">length</span>)
+    }
+  }
+})
+</code></pre></div><h3 id="动态组件异步组件">动态组件&amp;异步组件</h3>
+<h4 id="keep-alive">keep-alive</h4>
+<p>使用keep-alive可以让组件失活，即在第一次创建后缓存下来</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">keep-alive</span>&gt;
+    &lt;<span style="color:#f92672">component</span> <span style="color:#a6e22e">:is</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;getCurrentTag&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tag&#34;</span>&gt;&lt;/<span style="color:#f92672">component</span>&gt;
+&lt;/<span style="color:#f92672">keep-alive</span>&gt; 
+</code></pre></div><h4 id="异步组件待补">异步组件（待补）</h4>
+<p>待补</p>
+<h3 id="模板引用">模板引用</h3>
+<p><code>ref</code>为子组件的直接引用提供了id，其位于<code>$refs</code>上</p>
+<p><strong>Tips:</strong><code>$refs</code> 只会在组件渲染完成之后生效，应避免在模板或计算属性中使用</p>
+<h2 id="过渡动画待补">过渡&amp;动画（待补）</h2>
+<h3 id="单元素组件的过渡">单元素/组件的过渡</h3>
+<h4 id="过渡class">过渡class</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">transiton</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;name&#39;</span>&gt;&lt;/<span style="color:#f92672">transiton</span>&gt; 默认name为v
+</code></pre></div><p><img src="https://v3.cn.vuejs.org/images/transitions.svg" alt="Transition Diagram"></p>
+<h2 id="可复用组合">可复用&amp;组合</h2>
+<h2 id="axios">axios</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">axios</span>({
+    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;请求类型&#39;</span>,
+    <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;URL&#39;</span>
+    
+    <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> {
+
+	}
+}).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+    <span style="color:#75715e">//result为请求结果
+</span><span style="color:#75715e"></span>})
+
+<span style="color:#a6e22e">方法返回值为Promise可以用await</span>,<span style="color:#a6e22e">await将其转换为一个值</span>
+
+<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span>(){
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">data</span> } <span style="color:#f92672">=</span> ...
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">axios</span>({
+        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;GET&#39;</span>,
+        <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;URL&#39;</span>,
+        <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> {
+			<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;qwq&#39;</span>
+        }
+    })
+})
+<span style="color:#a6e22e">请求数据储存在result</span>.<span style="color:#a6e22e">data中</span>
+</code></pre></div><h3 id="解构赋值重命名">解构赋值(重命名)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span>(){
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">res</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">axios</span>({
+        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;GET&#39;</span>,
+        <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;URL&#39;</span>,
+        <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> {
+			<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;qwq&#39;</span>
+        }
+    })
+    <span style="color:#a6e22e">consolo</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>)
+})
+</code></pre></div><p>直接get or post</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#btn&#39;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span>(){
+    <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">res</span>} <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;http://www.liulongbin.top:3006/api/getbooks&#39;</span>,{
+        <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">bookname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;西游记&#39;</span>}
+    })
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>)
+})
+
+document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#btn&#39;</span>).<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span>(){
+    <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">res</span>} <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;http://www.liulongbin.top:3006/api/getbooks&#39;</span>,{
+        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">bookname</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;西游记&#39;</span>}
+    })
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>)
+})
+</code></pre></div><h2 id="生命周期">生命周期</h2>
               
             </div>
           </div>

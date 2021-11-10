@@ -263,7 +263,7 @@
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>RE:从0开始的前端生活</p>
-<h1 id="js学习笔记">JS学习笔记</h1>
+<h1 id="js">JS</h1>
 <!-- raw HTML omitted -->
 <h2 id="代理和反射">代理和反射</h2>
 <p>所谓代理，可以类比于C的指针，对代理对象的操作也会反映到目标对象上。但代理更有意义的作用在于可以实时捕获目标对象的行为。</p>
@@ -404,7 +404,43 @@
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">app</span>;
 }();
 </code></pre></div><p>模块增强模式的好处在于，可以额外添加属性或方法。</p>
-<h2 id="期约与异步函数">期约与异步函数</h2>
+<h2 id="关于this">关于This</h2>
+<h3 id="闭包中this丢失解决">闭包中this丢失解决</h3>
+<h4 id="箭头函数">箭头函数</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+  <span style="color:#a6e22e">cool</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span>() {
+    <span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span>);
+    }, <span style="color:#ae81ff">0</span>);
+  }
+}
+</code></pre></div><h4 id="const-self--this">const self = this</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+  <span style="color:#a6e22e">cool</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">self</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>
+    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span> () {
+      <span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">count</span>);
+    }, <span style="color:#ae81ff">0</span>);
+  }
+}
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">cool</span>()
+
+</code></pre></div><h4 id="bindthis">bind(this)</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+  <span style="color:#a6e22e">cool</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fn</span>() {
+    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span> () {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span>);
+    }.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>), <span style="color:#ae81ff">0</span>);
+  }
+}
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">cool</span>()
+</code></pre></div><h2 id="期约与异步函数">期约与异步函数</h2>
 <h3 id="期约">期约</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise(() =&gt; {});
 </code></pre></div><h4 id="期约的状态">期约的状态</h4>
