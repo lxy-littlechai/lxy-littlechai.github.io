@@ -57,8 +57,8 @@
 
 
 
-  <meta property="og:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
-  <meta property="twitter:image" content="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+  <meta property="og:image" content="https://lxy-littlechai.github.io/static/img/%E4%BA%94%E5%8D%81%E5%B2%9A.png">
+  <meta property="twitter:image" content="https://lxy-littlechai.github.io/static/img/%E4%BA%94%E5%8D%81%E5%B2%9A.png">
 
 
     <title>Vue Router</title>
@@ -101,7 +101,7 @@
     
     
       
-        <img class="header-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+        <img class="header-picture" src="https://lxy-littlechai.github.io/static/img/%E4%BA%94%E5%8D%81%E5%B2%9A.png" alt="Author&#39;s picture" />
       
     
     </a>
@@ -113,7 +113,7 @@
     
       <div class="sidebar-profile">
         <a href="https://lxy-littlechai.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://lxy-littlechai.github.io/static/img/%E4%BA%94%E5%8D%81%E5%B2%9A.png" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Littlechai</h4>
         
@@ -338,7 +338,24 @@
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">//next 是一个函数，调用next()表示放行，允许这次路由导航，也可以强制跳转next(&#39;/hash地址&#39;)
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">//不允放行next(false)
 </span><span style="color:#75715e"></span>})
-</code></pre></div><h2 id="进阶待补">进阶（待补）</h2>
+</code></pre></div><h2 id="路由传参">路由传参</h2>
+<h3 id="使用query">使用query</h3>
+<p><strong>注意传参不能传对象</strong>，要转成<strong>JSON</strong></p>
+<h4 id="router-link">router-link</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue"><span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{
+</span><span style="color:#e6db74">     path: &#39;/wizz-index&#39;,
+</span><span style="color:#e6db74">     query: {
+</span><span style="color:#e6db74">     indexData: [...this.userData],
+</span><span style="color:#e6db74">     },
+</span><span style="color:#e6db74">}&#34;</span>
+</code></pre></div><h4 id="thisrouterpush">this.$router.push</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$router</span>.<span style="color:#a6e22e">push</span>({
+   <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/wizz-index&#34;</span>,
+   <span style="color:#a6e22e">query</span><span style="color:#f92672">:</span> {
+     <span style="color:#a6e22e">indexData</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userData</span>[<span style="color:#e6db74">&#34;主页&#34;</span>]),
+   },
+});
+</code></pre></div>
               
             </div>
           </div>
@@ -549,7 +566,7 @@
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://lxy-littlechai.github.io/static/img/%E4%BA%94%E5%8D%81%E5%B2%9A.png" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Littlechai</h4>
     
