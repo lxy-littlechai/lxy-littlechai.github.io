@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title> | 小柴Yeah</title>
+    <title>CSS | 小柴Yeah</title>
 
     
 
@@ -20,12 +20,12 @@
 <link rel="canonical" href="https://lxy-littlechai.github.io/post/css/" />
 
 
-<meta property="og:title" content="" />
-<meta property="og:description" content="CSS 语法 1 2 3 4 5 6 7 8 9 &lt;head&gt; &lt;style&gt; p(标签名) { 各种属性 color: red; font-size: 12px; } &lt;/style&gt; &lt;/head&gt; CSS基础选择器 标签选择器 改变所有选择标签的样式 1 2 3 4 5 h1(标签名) { 各" />
+<meta property="og:title" content="CSS" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lxy-littlechai.github.io/post/css/" /><meta property="og:image" content="https://lxy-littlechai.github.io/img/background.jpg"/><meta property="article:section" content="post" />
-
-
+<meta property="article:published_time" content="2021-08-31T19:11:39+08:00" />
+<meta property="article:modified_time" content="2021-08-31T19:11:39+08:00" />
 
 
 
@@ -33,8 +33,8 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://lxy-littlechai.github.io/img/background.jpg"/>
 
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="CSS 语法 1 2 3 4 5 6 7 8 9 &lt;head&gt; &lt;style&gt; p(标签名) { 各种属性 color: red; font-size: 12px; } &lt;/style&gt; &lt;/head&gt; CSS基础选择器 标签选择器 改变所有选择标签的样式 1 2 3 4 5 h1(标签名) { 各"/>
+<meta name="twitter:title" content="CSS"/>
+<meta name="twitter:description" content=""/>
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
@@ -55,10 +55,6 @@
   
 
   
-  .inverted a:not(.item, .ui.button) {
-     color: darkseagreen !important;
-  }
-  
 
   
   body.default {
@@ -72,16 +68,6 @@
   }
   
 
-  
-  body.dark {
-    
-    background-color: #222;
-    
-
-    
-    background-image: url(/img/background.jpg);
-    
-  }
   
 </style>
 
@@ -108,10 +94,6 @@
   </a>
   <a class="item" href="https://lxy-littlechai.github.io/" title="首页">
     <i class="large link home icon"></i>
-  </a>
-  
-  <a class="item" onclick="themeSwitch(event)">
-    <i class="large link icon theme-switch"></i>
   </a>
   
   
@@ -275,7 +257,7 @@
   <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
     <section class="ui top attached segment">
       <header>
-        <h1 class="ui large header"><span class="sub header">
+        <h1 class="ui large header">CSS<span class="sub header">
             <span class="left">
               @
               
@@ -283,7 +265,7 @@
               
 
               | 
-                  <span data-format="luxon">0001-01-01T00:00:00Z</span>
+                  <span data-format="luxon">2021-08-31T19:11:39&#43;08:00</span>
                 
 
               | 15 分钟阅读
@@ -291,7 +273,7 @@
               
               | 更新于
                 
-                  <span data-format="luxon">0001-01-01T00:00:00Z</span>
+                  <span data-format="luxon">2021-08-31T19:11:39&#43;08:00</span>
                 
               
             </span>
@@ -301,7 +283,7 @@
   <a href="#" class="save-as-image" title="保存为图片" onclick="savePostAsImg()">
     <i class="save icon"></i>
   </a>
-  <a href="https://twitter.com/intent/tweet?text=&url=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fcss%2f" title="Twitter">
+  <a href="https://twitter.com/intent/tweet?text=CSS&url=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fcss%2f" title="Twitter">
     <i class="twitter icon"></i>
   </a>
   <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fcss%2f" title="Facebook">
@@ -2339,7 +2321,6 @@ transition: all .5s;
 </tr>
 </tbody>
 </table>
-
       </article>
     </section>
 
@@ -2426,10 +2407,16 @@ transition: all .5s;
           
           </div>
     
+         
+
 
     
-  </div>
+  
+
+    
+   
 </header>
+
 
 
 <div class="ui relaxed grid dream-grid dream-back">
@@ -2479,50 +2466,15 @@ transition: all .5s;
   </div>
 
   
-  
-
-  
   <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
     <article class="ui segment">
-      <div class="ui medium header">社交链接</div>
-      <nav class="ui secondary menu dream-menu dream-socials">
-  
-  <a class="item" href="/index.xml">
-    <i class="large rss square icon" title="RSS"></i>
-  </a>
-  
-
-  
-  <a class="item" href="mailto:lxy-littlechai@qq.com">
-    <i class="large mail icon" title="Email"></i>
-  </a>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
-    <i class="large github icon" title="GitHub"></i>
-  </a>
-  
-
-  
-
-  
-
-  
-</nav>
-
+      <div class="ui medium header">柴柴的uu们</div>
+      <a style="display: block" href="https://blog.wingszeng.top/">全能Wings</a>
+      <a href="https://blog.wingszeng.top/">qwq</a>
     </article>
   </div>
+  
+  
 
   
 </div>
@@ -2564,9 +2516,9 @@ transition: all .5s;
     <script>
   window.background = "#fff"
   window.defaultDark =  null 
-  window.backgroundDark = "#222"
-  window.backgroundImageDark = "/img/background.jpg"
-  window.darkNav =  true 
+  window.backgroundDark =  null 
+  window.backgroundImageDark =  null 
+  window.darkNav =  null 
   window.maxTags =  null 
   window.hasTwitterEmbed =  null 
   window.fixedNav =  null 
