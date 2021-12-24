@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hdu多校 | 小柴Yeah</title>
+
+    
+
+
+
+<meta name="author" content="guole" />
+<meta name="description" content="小柴&#39;s Blog" />
+
+
+
+<meta name="generator" content="Hugo 0.85.0" />
+
+<link rel="canonical" href="https://lxy-littlechai.github.io/post/hdu%E5%A4%9A%E6%A0%A1/" />
+
+
+<meta property="og:title" content="Hdu多校" />
+<meta property="og:description" content="Hdu多校补题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lxy-littlechai.github.io/post/hdu%E5%A4%9A%E6%A0%A1/" /><meta property="og:image" content="https://lxy-littlechai.github.io/img/background.jpg"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-24T20:20:28+08:00" />
+<meta property="article:modified_time" content="2021-07-24T20:20:28+08:00" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lxy-littlechai.github.io/img/background.jpg"/>
+
+<meta name="twitter:title" content="Hdu多校"/>
+<meta name="twitter:description" content="Hdu多校补题"/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.item, .ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.item, .ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.item, .ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/img/background.jpg);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: #222;
+    
+
+    
+    background-image: url(/img/background.jpg);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu dream-nav">
+
+  <a class="item dream-flip-toggle" title="翻转！">
+    <i class="large link bullseye icon"></i>
+  </a>
+  <a class="item" href="https://lxy-littlechai.github.io/" title="首页">
+    <i class="large link home icon"></i>
+  </a>
+  
+  <a class="item" onclick="themeSwitch(event)">
+    <i class="large link icon theme-switch"></i>
+  </a>
+  
+  
+  <a class="item" title="搜索" onclick="toggleSearch(event)">
+    <i class="large link search icon"></i>
+  </a>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第二场">第二场</a>
+      <ul>
+        <li><a href="#1002">1002</a></li>
+        <li><a href="#1004">1004</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">Hdu多校<span class="sub header">
+            <span class="left">
+              @
+              
+                guole
+              
+
+              | 
+                  <span data-format="luxon">2021-07-24T20:20:28&#43;08:00</span>
+                
+
+              | 4 分钟阅读
+
+              
+              | 更新于
+                
+                  <span data-format="luxon">2021-07-24T20:20:28&#43;08:00</span>
+                
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="保存为图片" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Hdu%e5%a4%9a%e6%a0%a1&url=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fhdu%25E5%25A4%259A%25E6%25A0%25A1%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fhdu%25E5%25A4%259A%25E6%25A0%25A1%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <h1 id="hdu多校补题">Hdu多校补题</h1>
+<h2 id="第二场">第二场</h2>
+<h3 id="1002">1002</h3>
+<h4 id="题意">题意</h4>
+<p>给出一颗树，支持下列两种操作</p>
+<p>1 a b: 将a-b这条路径上的点&lt;x1,x2,&hellip;,xn&gt;分别加$1^2,2^2&hellip;n^2$</p>
+<p>2 a: 查询点a的值</p>
+<h4 id="分析">分析</h4>
+<p>首先考虑一条链的情况，对于连续区间l~r，一操作对于每个点的贡献是$(id[x]-id[l]+1)^2$，计$val=id[l]-1$拆开后$id[x]^2 - 2*id[x]*val + val^2$至此我萌就能用线段树维护了。</p>
+<p>考虑树的情况，注意到在树上的区间是分割的，所以要动态维护L，R，x ~ lca上$val = id[l]-L$,lca ~ y上$val = id[l]+R$</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;bits/stdc++.h&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6">#define ll long long
+</span><span style="color:#ff79c6">#define lowbit(x) x&amp;(-x)
+</span><span style="color:#ff79c6">#define lson rt&lt;&lt;1, l, mid
+</span><span style="color:#ff79c6">#define rson rt&lt;&lt;1|1, mid+1, r
+</span><span style="color:#ff79c6"></span><span style="color:#ff79c6">using</span> <span style="color:#ff79c6">namespace</span> std;
+<span style="color:#ff79c6">const</span> <span style="color:#8be9fd">int</span> maxn <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">3e5</span><span style="color:#ff79c6">+</span><span style="color:#bd93f9">100</span>;
+<span style="color:#8be9fd">int</span> n, q;
+<span style="color:#8be9fd">int</span> tot, dep[maxn], siz[maxn], id[maxn], fa[maxn], top[maxn], son[maxn];
+vector<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;</span>vec[maxn];
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dfs1</span>(<span style="color:#8be9fd">int</span> x, <span style="color:#8be9fd">int</span> f){
+     fa[x] <span style="color:#ff79c6">=</span> f;
+     dep[x] <span style="color:#ff79c6">=</span> dep[f] <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>;
+     siz[x] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+     <span style="color:#ff79c6">for</span>(<span style="color:#ff79c6">auto</span> <span style="color:#8be9fd;font-style:italic">v</span>: vec[x]){
+          <span style="color:#ff79c6">if</span>(v <span style="color:#ff79c6">==</span> f) <span style="color:#ff79c6">continue</span>;
+          dfs1(v, x);
+          siz[x] <span style="color:#ff79c6">+=</span> siz[v];
+          <span style="color:#ff79c6">if</span>(siz[v] <span style="color:#ff79c6">&gt;</span> siz[son[x]])
+               son[x] <span style="color:#ff79c6">=</span> v;
+     }
+}
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dfs2</span>(<span style="color:#8be9fd">int</span> x, <span style="color:#8be9fd">int</span> tp){
+     id[x] <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">++</span> tot;
+     top[x] <span style="color:#ff79c6">=</span> tp;
+     <span style="color:#ff79c6">if</span>(son[x]) dfs2(son[x], tp);
+     <span style="color:#ff79c6">for</span>(<span style="color:#ff79c6">auto</span> <span style="color:#8be9fd;font-style:italic">v</span>: vec[x]){
+          <span style="color:#ff79c6">if</span>(v <span style="color:#ff79c6">==</span> fa[x] <span style="color:#ff79c6">||</span> v <span style="color:#ff79c6">==</span> son[x]) <span style="color:#ff79c6">continue</span>;
+          dfs2(v, v);
+     }
+}
+
+<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">tree</span> {
+     ll sum[<span style="color:#bd93f9">4</span>];
+     ll add[<span style="color:#bd93f9">4</span>];
+}z[maxn<span style="color:#ff79c6">*</span><span style="color:#bd93f9">4</span>];
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">pushdown</span>(<span style="color:#8be9fd">int</span> rt, <span style="color:#8be9fd">int</span> l, <span style="color:#8be9fd">int</span> r, <span style="color:#8be9fd">int</span> t){
+     <span style="color:#8be9fd">int</span> mid <span style="color:#ff79c6">=</span> (l <span style="color:#ff79c6">+</span> r) <span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#bd93f9">1</span>;
+     <span style="color:#ff79c6">if</span>(z[rt].add[t] <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span>){
+          ll k <span style="color:#ff79c6">=</span> z[rt].add[t];
+          z[rt<span style="color:#ff79c6">&lt;&lt;</span><span style="color:#bd93f9">1</span>].add[t] <span style="color:#ff79c6">+=</span> k;
+          z[rt<span style="color:#ff79c6">&lt;&lt;</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">|</span><span style="color:#bd93f9">1</span>].add[t] <span style="color:#ff79c6">+=</span> k;
+          z[rt<span style="color:#ff79c6">&lt;&lt;</span><span style="color:#bd93f9">1</span>].sum[t] <span style="color:#ff79c6">+=</span> k<span style="color:#ff79c6">*</span>(mid<span style="color:#ff79c6">-</span>l<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>);
+          z[rt<span style="color:#ff79c6">&lt;&lt;</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">|</span><span style="color:#bd93f9">1</span>].sum[t] <span style="color:#ff79c6">+=</span> k<span style="color:#ff79c6">*</span>(r<span style="color:#ff79c6">-</span>mid);
+          z[rt].add[t] <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+     }
+}
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">modify</span>(<span style="color:#8be9fd">int</span> rt, <span style="color:#8be9fd">int</span> l, <span style="color:#8be9fd">int</span> r, <span style="color:#8be9fd">int</span> t, <span style="color:#8be9fd">int</span> nowl, <span style="color:#8be9fd">int</span> nowr, ll val){
+     <span style="color:#ff79c6">if</span>(nowl <span style="color:#ff79c6">&lt;=</span> l <span style="color:#ff79c6">&amp;&amp;</span> r <span style="color:#ff79c6">&lt;=</span> nowr){
+          z[rt].sum[t] <span style="color:#ff79c6">+=</span> val<span style="color:#ff79c6">*</span>(r<span style="color:#ff79c6">-</span>l<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>);
+          z[rt].add[t] <span style="color:#ff79c6">+=</span> val;
+          <span style="color:#ff79c6">return</span> ;
+     }
+     <span style="color:#8be9fd">int</span> mid <span style="color:#ff79c6">=</span> (l <span style="color:#ff79c6">+</span> r) <span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#bd93f9">1</span>;
+     pushdown(rt, l, r, t);
+     <span style="color:#ff79c6">if</span>(nowl <span style="color:#ff79c6">&lt;=</span> mid) modify(lson, t, nowl, nowr, val);
+     <span style="color:#ff79c6">if</span>(nowr <span style="color:#ff79c6">&gt;</span> mid) modify(rson, t, nowl, nowr, val);
+     z[rt].sum[t] <span style="color:#ff79c6">=</span> z[rt<span style="color:#ff79c6">&lt;&lt;</span><span style="color:#bd93f9">1</span>].sum[t] <span style="color:#ff79c6">+</span> z[rt<span style="color:#ff79c6">&lt;&lt;</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">|</span><span style="color:#bd93f9">1</span>].sum[t];
+}
+
+
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getlca</span>(<span style="color:#8be9fd">int</span> x, <span style="color:#8be9fd">int</span> y){
+     <span style="color:#ff79c6">for</span>(;top[x] <span style="color:#ff79c6">!=</span> top[y];){
+          <span style="color:#ff79c6">if</span>(dep[top[x]] <span style="color:#ff79c6">&lt;</span> dep[top[y]]) swap(x, y);
+          x <span style="color:#ff79c6">=</span> fa[top[x]];
+     }
+     <span style="color:#ff79c6">if</span>(dep[x] <span style="color:#ff79c6">&gt;</span> dep[y]) swap(x, y);
+     <span style="color:#ff79c6">return</span> x;
+}
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">change</span>(<span style="color:#8be9fd">int</span> x, <span style="color:#8be9fd">int</span> y){
+<span style="color:#6272a4">//cout &lt;&lt; &#34;new change&#34; &lt;&lt; endl;
+</span><span style="color:#6272a4"></span>     <span style="color:#8be9fd">int</span> len <span style="color:#ff79c6">=</span> dep[x] <span style="color:#ff79c6">+</span> dep[y] <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>dep[getlca(x, y)] <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>;
+     <span style="color:#8be9fd">int</span> L <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>, R <span style="color:#ff79c6">=</span> len;
+<span style="color:#6272a4">//cout &lt;&lt; &#34;L R &#34; &lt;&lt; L &lt;&lt; &#34; &#34; &lt;&lt; R &lt;&lt; endl; 
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">for</span>(;top[x] <span style="color:#ff79c6">!=</span> top[y];){
+          <span style="color:#ff79c6">if</span>(dep[top[x]] <span style="color:#ff79c6">&gt;</span> dep[top[y]]){
+               ll val <span style="color:#ff79c6">=</span> id[top[x]] <span style="color:#ff79c6">-</span> L;
+               modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">1</span>, id[top[x]], id[x], <span style="color:#bd93f9">1</span>);
+               modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">2</span>, id[top[x]], id[x], val);
+               modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">3</span>, id[top[x]], id[x], val<span style="color:#ff79c6">*</span>val);
+               L <span style="color:#ff79c6">+=</span> dep[x] <span style="color:#ff79c6">-</span> dep[top[x]] <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>;
+               x <span style="color:#ff79c6">=</span> fa[top[x]];
+          }
+          <span style="color:#ff79c6">else</span> {
+               ll val <span style="color:#ff79c6">=</span> id[top[y]] <span style="color:#ff79c6">+</span> R;
+               modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">1</span>, id[top[y]], id[y], <span style="color:#bd93f9">1</span>);
+               modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">2</span>, id[top[y]], id[y], val);
+               modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">3</span>, id[top[y]], id[y], val<span style="color:#ff79c6">*</span>val);
+               R <span style="color:#ff79c6">-=</span> dep[y] <span style="color:#ff79c6">-</span> dep[top[y]] <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>;
+               y <span style="color:#ff79c6">=</span> fa[top[y]];
+          }
+     }
+     <span style="color:#ff79c6">if</span>(dep[x] <span style="color:#ff79c6">&lt;</span> dep[y]){
+          ll val <span style="color:#ff79c6">=</span> id[x] <span style="color:#ff79c6">-</span> L;
+          modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">1</span>, id[x], id[y], <span style="color:#bd93f9">1</span>);
+          modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">2</span>, id[x], id[y], val);
+          modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">3</span>, id[x], id[y], val<span style="color:#ff79c6">*</span>val);
+     }
+     <span style="color:#ff79c6">else</span> {
+          ll val <span style="color:#ff79c6">=</span> id[y] <span style="color:#ff79c6">+</span> R;
+          modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">1</span>, id[y], id[x], <span style="color:#bd93f9">1</span>);
+          modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">2</span>, id[y], id[x], val);
+          modify(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">3</span>, id[y], id[x], val<span style="color:#ff79c6">*</span>val);
+     }
+}
+ll <span style="color:#50fa7b">query</span>(<span style="color:#8be9fd">int</span> rt, <span style="color:#8be9fd">int</span> l, <span style="color:#8be9fd">int</span> r, <span style="color:#8be9fd">int</span> t, <span style="color:#8be9fd">int</span> pos){
+<span style="color:#6272a4">//cout &lt;&lt; &#34;query &#34; &lt;&lt; l &lt;&lt; &#34; &#34; &lt;&lt; r &lt;&lt; &#34; &#34; &lt;&lt; t &lt;&lt; &#34; &#34; &lt;&lt;z[rt].sumendl;
+</span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span>(l <span style="color:#ff79c6">==</span> r){
+          <span style="color:#ff79c6">return</span> z[rt].sum[t];
+     }
+     <span style="color:#8be9fd">int</span> mid <span style="color:#ff79c6">=</span> (l <span style="color:#ff79c6">+</span> r) <span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#bd93f9">1</span>;
+     pushdown(rt, l, r, t);
+     <span style="color:#ff79c6">if</span>(pos <span style="color:#ff79c6">&lt;=</span> mid) <span style="color:#ff79c6">return</span> query(lson, t, pos);
+     <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">return</span> query(rson, t, pos);
+}
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(){
+     scanf(<span style="color:#f1fa8c">&#34;%d&#34;</span>,<span style="color:#ff79c6">&amp;</span>n);
+     <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;i <span style="color:#ff79c6">&lt;</span> n;i <span style="color:#ff79c6">++</span>){
+          <span style="color:#8be9fd">int</span> x, y;
+          scanf(<span style="color:#f1fa8c">&#34;%d %d&#34;</span>,<span style="color:#ff79c6">&amp;</span>x,<span style="color:#ff79c6">&amp;</span>y);
+          vec[x].push_back(y);
+          vec[y].push_back(x);
+     }
+     dfs1(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>);
+     dfs2(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>);
+     scanf(<span style="color:#f1fa8c">&#34;%d&#34;</span>,<span style="color:#ff79c6">&amp;</span>q);
+     <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;i <span style="color:#ff79c6">&lt;=</span> q;i <span style="color:#ff79c6">++</span>){
+          <span style="color:#8be9fd">int</span> op, a, b, x;
+          scanf(<span style="color:#f1fa8c">&#34;%d&#34;</span>,<span style="color:#ff79c6">&amp;</span>op);
+          <span style="color:#ff79c6">if</span>(op <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>){
+               scanf(<span style="color:#f1fa8c">&#34;%d %d&#34;</span>,<span style="color:#ff79c6">&amp;</span>a,<span style="color:#ff79c6">&amp;</span>b);
+               change(a, b);
+          }
+          <span style="color:#ff79c6">if</span>(op <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">2</span>){
+               scanf(<span style="color:#f1fa8c">&#34;%d&#34;</span>,<span style="color:#ff79c6">&amp;</span>x);
+               ll ans1 <span style="color:#ff79c6">=</span> query(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">1</span>, id[x]);
+               ll ans2 <span style="color:#ff79c6">=</span> query(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">2</span>, id[x]);
+               ll ans3 <span style="color:#ff79c6">=</span> query(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>, n, <span style="color:#bd93f9">3</span>, id[x]);
+               printf(<span style="color:#f1fa8c">&#34;%lld</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>, ans1<span style="color:#ff79c6">*</span>id[x]<span style="color:#ff79c6">*</span>id[x] <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>ans2<span style="color:#ff79c6">*</span>id[x] <span style="color:#ff79c6">+</span> ans3);
+          }
+     }
+     <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="1004">1004</h3>
+<h4 id="题意-1">题意</h4>
+<p>给出n个数，q组询问，每组询问l,r,a,b问l~r间满足$c \ xor \ a \le \ b$不同大小的$c$的数量</p>
+<h4 id="分析-1">分析</h4>
+<p>对于不同大小的数量这种问题，很容易想到莫队，考虑用trie维护$c \ xor \ a \le \ b$就好了，然而这题超卡常（不会树套数的log做法</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#ff79c6">#include</span><span style="color:#ff79c6">&lt;bits/stdc++.h&gt;</span><span style="color:#ff79c6">
+</span><span style="color:#ff79c6">#define ll long long
+</span><span style="color:#ff79c6">#define lowbit(x) x&amp;(-x)
+</span><span style="color:#ff79c6"></span><span style="color:#ff79c6">using</span> <span style="color:#ff79c6">namespace</span> std;
+<span style="color:#ff79c6">const</span> <span style="color:#8be9fd">int</span> maxn <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">3e5</span><span style="color:#ff79c6">+</span><span style="color:#bd93f9">100</span>;
+<span style="color:#8be9fd">int</span> n, m;
+<span style="color:#8be9fd">int</span> a[maxn], ans[maxn], cnt[maxn], size;
+<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">node</span> {
+     <span style="color:#8be9fd">int</span> l, r, a, b, id;
+}q[maxn];
+<span style="color:#8be9fd">bool</span> <span style="color:#50fa7b">cmp</span>(node x, node y){
+     <span style="color:#ff79c6">if</span>(x.l<span style="color:#ff79c6">/</span>size <span style="color:#ff79c6">==</span> y.l<span style="color:#ff79c6">/</span>size) <span style="color:#ff79c6">return</span> x.r <span style="color:#ff79c6">&lt;</span> y.r;
+     <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">return</span> x.l <span style="color:#ff79c6">&lt;</span> y.l;
+}
+
+<span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">tree</span> {
+     <span style="color:#8be9fd">int</span> nxt[<span style="color:#bd93f9">3</span>], sum;
+}z[maxn<span style="color:#ff79c6">*</span><span style="color:#bd93f9">10</span>];
+<span style="color:#8be9fd">int</span> tot <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">re</span>(<span style="color:#8be9fd">int</span> <span style="color:#ff79c6">&amp;</span>x){
+     x <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+     <span style="color:#8be9fd">int</span> b <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+     <span style="color:#8be9fd">char</span> ch <span style="color:#ff79c6">=</span> getchar();
+     <span style="color:#ff79c6">while</span>(ch <span style="color:#ff79c6">&lt;</span> <span style="color:#f1fa8c">&#39;0&#39;</span> <span style="color:#ff79c6">||</span> ch <span style="color:#ff79c6">&gt;</span> <span style="color:#f1fa8c">&#39;9&#39;</span>){
+          <span style="color:#ff79c6">if</span>(ch <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;-&#39;</span>) b <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
+          ch <span style="color:#ff79c6">=</span> getchar();
+     }
+     <span style="color:#ff79c6">while</span>(ch <span style="color:#ff79c6">&gt;=</span> <span style="color:#f1fa8c">&#39;0&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span> ch <span style="color:#ff79c6">&lt;=</span> <span style="color:#f1fa8c">&#39;9&#39;</span>){
+          x <span style="color:#ff79c6">=</span> (x <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">+</span> (x <span style="color:#ff79c6">&lt;&lt;</span> <span style="color:#bd93f9">3</span>) <span style="color:#ff79c6">+</span> ch <span style="color:#ff79c6">-</span> <span style="color:#f1fa8c">&#39;0&#39;</span>;
+          ch <span style="color:#ff79c6">=</span> getchar();
+     }
+     <span style="color:#ff79c6">if</span>(b <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+          x <span style="color:#ff79c6">*=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>;
+}
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">insert</span>(<span style="color:#8be9fd">int</span> x, <span style="color:#8be9fd">int</span> v){
+     <span style="color:#8be9fd">int</span> rt <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+     <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">16</span>;i <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">0</span>;i <span style="color:#ff79c6">--</span>){
+          z[rt].sum <span style="color:#ff79c6">+=</span> v;
+          <span style="color:#8be9fd">int</span> ch <span style="color:#ff79c6">=</span> (x<span style="color:#ff79c6">&gt;&gt;</span>i)<span style="color:#ff79c6">&amp;</span><span style="color:#bd93f9">1</span>;
+          <span style="color:#ff79c6">if</span>(<span style="color:#ff79c6">!</span>z[rt].nxt[ch]){
+               z[rt].nxt[ch] <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">++</span> tot;
+          }
+          rt <span style="color:#ff79c6">=</span> z[rt].nxt[ch];
+     }
+     z[rt].sum <span style="color:#ff79c6">+=</span> v;
+
+}
+<span style="color:#8be9fd">void</span> <span style="color:#50fa7b">add</span>(<span style="color:#8be9fd">int</span> x, <span style="color:#8be9fd">int</span> v){
+     <span style="color:#ff79c6">if</span>(v <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>){
+          <span style="color:#ff79c6">if</span>(<span style="color:#ff79c6">!</span>cnt[x]) insert(x, v);
+          cnt[x] <span style="color:#ff79c6">++</span>;
+     }
+     <span style="color:#ff79c6">if</span>(v <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>){
+          cnt[x] <span style="color:#ff79c6">--</span>;
+          <span style="color:#ff79c6">if</span>(<span style="color:#ff79c6">!</span>cnt[x]) insert(x, v);
+     }
+}
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">query</span>(<span style="color:#8be9fd">int</span> a, <span style="color:#8be9fd">int</span> b){
+     <span style="color:#8be9fd">int</span> rt <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>, ans <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+     <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">16</span>;i <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">0</span>;i <span style="color:#ff79c6">--</span>){
+
+
+          <span style="color:#ff79c6">if</span>((a<span style="color:#ff79c6">&gt;&gt;</span>i)<span style="color:#ff79c6">&amp;</span><span style="color:#bd93f9">1</span>){
+               <span style="color:#ff79c6">if</span>((b<span style="color:#ff79c6">&gt;&gt;</span>i)<span style="color:#ff79c6">&amp;</span><span style="color:#bd93f9">1</span>){
+                    ans <span style="color:#ff79c6">+=</span> z[z[rt].nxt[<span style="color:#bd93f9">1</span>]].sum;
+                    rt <span style="color:#ff79c6">=</span> z[rt].nxt[<span style="color:#bd93f9">0</span>];
+               }
+               <span style="color:#ff79c6">else</span> rt <span style="color:#ff79c6">=</span> z[rt].nxt[<span style="color:#bd93f9">1</span>];
+          }
+          <span style="color:#ff79c6">else</span> {
+               <span style="color:#ff79c6">if</span>((b<span style="color:#ff79c6">&gt;&gt;</span>i)<span style="color:#ff79c6">&amp;</span><span style="color:#bd93f9">1</span>){
+                    ans <span style="color:#ff79c6">+=</span> z[z[rt].nxt[<span style="color:#bd93f9">0</span>]].sum;
+                    rt <span style="color:#ff79c6">=</span> z[rt].nxt[<span style="color:#bd93f9">1</span>];
+               }
+               <span style="color:#ff79c6">else</span> rt <span style="color:#ff79c6">=</span> z[rt].nxt[<span style="color:#bd93f9">0</span>];
+          }
+          <span style="color:#6272a4">// int ch = (a&gt;&gt;i)&amp;1;
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">// int cur = (b&gt;&gt;i)&amp;1;
+</span><span style="color:#6272a4"></span>
+          <span style="color:#6272a4">// if(ch == 0 &amp;&amp; cur == 0){
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">//      rt = z[rt].nxt[0];
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">// }
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">// else if(ch == 0 &amp;&amp; cur == 1){
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">//      ans += z[z[rt].nxt[0]].sum;
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">//      rt = z[rt].nxt[1];
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">// }
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">// else if(ch == 1 &amp;&amp; cur == 0){
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">//      rt = z[rt].nxt[1];
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">// }
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">// else if(ch == 1 &amp;&amp; cur == 1){
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">//      ans += z[z[rt].nxt[1]].sum;
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">//      rt = z[rt].nxt[0];
+</span><span style="color:#6272a4"></span>          <span style="color:#6272a4">// }
+</span><span style="color:#6272a4"></span>     }
+     ans <span style="color:#ff79c6">+=</span> z[rt].sum;
+     <span style="color:#ff79c6">return</span> ans;
+}
+<span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span>(){
+
+     <span style="color:#6272a4">//freopen(&#34;1.in&#34;,&#34;r&#34;,stdin);
+</span><span style="color:#6272a4"></span>     <span style="color:#6272a4">//freopen(&#34;wa.out&#34;,&#34;w&#34;,stdout);
+</span><span style="color:#6272a4"></span>     re(n);
+     <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;i <span style="color:#ff79c6">&lt;=</span> n;i <span style="color:#ff79c6">++</span>)
+          re(a[i]);
+
+     scanf(<span style="color:#f1fa8c">&#34;%d&#34;</span>,<span style="color:#ff79c6">&amp;</span>m);
+     <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;i <span style="color:#ff79c6">&lt;=</span> m;i <span style="color:#ff79c6">++</span>){
+          re(q[i].l);re(q[i].r);re(q[i].a);re(q[i].b);
+          q[i].id <span style="color:#ff79c6">=</span> i;
+     }
+     
+     size <span style="color:#ff79c6">=</span> sqrt(n)<span style="color:#ff79c6">+</span><span style="color:#bd93f9">10</span>;
+     sort(q<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span>,q<span style="color:#ff79c6">+</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">+</span>m,cmp);
+
+     <span style="color:#8be9fd">int</span> l <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>, r <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+     <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;i <span style="color:#ff79c6">&lt;=</span> m;i <span style="color:#ff79c6">++</span>){
+          <span style="color:#8be9fd">int</span> ql <span style="color:#ff79c6">=</span> q[i].l;
+          <span style="color:#8be9fd">int</span> qr <span style="color:#ff79c6">=</span> q[i].r;
+<span style="color:#6272a4">//cout &lt;&lt; &#34;new query &#34; &lt;&lt; ql &lt;&lt; &#34; &#34; &lt;&lt; qr &lt;&lt; &#34; &#34; &lt;&lt; q[i].a &lt;&lt; &#34; &#34; &lt;&lt; q[i].b &lt;&lt; endl;
+</span><span style="color:#6272a4"></span>          <span style="color:#ff79c6">while</span>(l <span style="color:#ff79c6">&lt;</span> ql) add(a[l <span style="color:#ff79c6">++</span>], <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
+          <span style="color:#ff79c6">while</span>(l <span style="color:#ff79c6">&gt;</span> ql) add(a[<span style="color:#ff79c6">--</span> l], <span style="color:#bd93f9">1</span>);
+          <span style="color:#ff79c6">while</span>(r <span style="color:#ff79c6">&gt;</span> qr) add(a[r <span style="color:#ff79c6">--</span>], <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>);
+          <span style="color:#ff79c6">while</span>(r <span style="color:#ff79c6">&lt;</span> qr) add(a[<span style="color:#ff79c6">++</span> r], <span style="color:#bd93f9">1</span>);
+
+          ans[q[i].id] <span style="color:#ff79c6">=</span> query(q[i].a, q[i].b);
+     }
+     <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;i <span style="color:#ff79c6">&lt;=</span> m;i <span style="color:#ff79c6">++</span>){
+          printf(<span style="color:#f1fa8c">&#34;%d</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>,ans[i]);
+     }
+     <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
+}
+
+</code></pre></td></tr></table>
+</div>
+</div>
+      </article>
+    </section>
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 小柴Yeah</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/img/wushilan.jpg" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">小柴Yeah<span class="sub header">The time is no time, when it is past</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="所有分类"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="所有标签"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/react/" title="React">
+              React
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tag1/" title="tag1">
+              tag1
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tag2/" title="tag2">
+              tag2
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+    
+
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:lxy-littlechai@qq.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  
+  
+
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:lxy-littlechai@qq.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="搜索" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/lxy-littlechai.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    
+
+    <script>
+  window.background = "#fff"
+  window.defaultDark =  null 
+  window.backgroundDark = "#222"
+  window.backgroundImageDark = "/img/background.jpg"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+  window.fixedNav =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
+
+<script>
+  format()
+
+  function format() {
+    $('span[data-format="luxon"]').each(function () {
+      var date = $(this).text()
+
+      $(this).text(luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日"))
+    })
+  }
+</script>
+
+
+
+<script src="/js/scrollToTop.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>

@@ -1,73 +1,74 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>category on Littlechai</title>
+    <title>category on 小柴Yeah</title>
     <link>https://lxy-littlechai.github.io/categories/category/</link>
-    <description>Recent content in category on Littlechai</description>
+    <description>Recent content in category on 小柴Yeah</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>zh-Hans</language>
+    <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;&lt;img alt=&#34;知识共享许可协议&#34; style=&#34;border-width:0&#34; src=&#34;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&#34; /&gt;&lt;/a&gt;&lt;br /&gt;本作品采用&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;进行许可。&lt;br /&gt;&lt;br /&gt;背景使用了 &lt;a href=&#34;https://www.pexels.com/zh-cn/&#34; target=&#34;_blank&#34;&gt;Pexels&lt;/a&gt; 上 &lt;a href=&#34;https://www.pexels.com/zh-cn/@minan1398&#34; target=&#34;_blank&#34;&gt;Min An&lt;/a&gt; 拍摄的&lt;a href=&#34;https://www.pexels.com/zh-cn/photo/1454794/&#34; target=&#34;_blank&#34;&gt;图片&lt;/a&gt;。</copyright>
     <lastBuildDate>Mon, 06 Dec 2021 21:23:51 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/categories/category/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React</title>
-      <link>https://lxy-littlechai.github.io/2021/12/react/</link>
+      <link>https://lxy-littlechai.github.io/post/react/</link>
       <pubDate>Mon, 06 Dec 2021 21:23:51 +0800</pubDate>
       
-      <guid>https://lxy-littlechai.github.io/2021/12/react/</guid>
+      <guid>https://lxy-littlechai.github.io/post/react/</guid>
       <description>&lt;p&gt;React&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Http</title>
-      <link>https://lxy-littlechai.github.io/2021/11/http/</link>
+      <link>https://lxy-littlechai.github.io/post/http/</link>
       <pubDate>Fri, 12 Nov 2021 13:51:55 +0800</pubDate>
       
-      <guid>https://lxy-littlechai.github.io/2021/11/http/</guid>
+      <guid>https://lxy-littlechai.github.io/post/http/</guid>
       <description>&lt;h1 id=&#34;http&#34;&gt;HTTP&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>Nuxtjs</title>
-      <link>https://lxy-littlechai.github.io/2021/11/nuxtjs/</link>
+      <link>https://lxy-littlechai.github.io/post/nuxtjs/</link>
       <pubDate>Sat, 06 Nov 2021 16:54:13 +0800</pubDate>
       
-      <guid>https://lxy-littlechai.github.io/2021/11/nuxtjs/</guid>
+      <guid>https://lxy-littlechai.github.io/post/nuxtjs/</guid>
       <description>&lt;h1 id=&#34;nuxtjs&#34;&gt;Nuxt.js&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>Npm</title>
-      <link>https://lxy-littlechai.github.io/2021/10/npm/</link>
+      <link>https://lxy-littlechai.github.io/post/npm/</link>
       <pubDate>Tue, 26 Oct 2021 19:48:47 +0800</pubDate>
       
-      <guid>https://lxy-littlechai.github.io/2021/10/npm/</guid>
+      <guid>https://lxy-littlechai.github.io/post/npm/</guid>
       <description>&lt;h1 id=&#34;npm&#34;&gt;NPM&lt;/h1&gt;
 &lt;h1 id=&#34;npm-1&#34;&gt;npm&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>Vue Router</title>
-      <link>https://lxy-littlechai.github.io/2021/10/vue-router/</link>
+      <link>https://lxy-littlechai.github.io/post/vue-router/</link>
       <pubDate>Wed, 06 Oct 2021 23:02:56 +0800</pubDate>
       
-      <guid>https://lxy-littlechai.github.io/2021/10/vue-router/</guid>
+      <guid>https://lxy-littlechai.github.io/post/vue-router/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ajax</title>
-      <link>https://lxy-littlechai.github.io/2021/09/ajax/</link>
+      <link>https://lxy-littlechai.github.io/post/ajax/</link>
       <pubDate>Sat, 11 Sep 2021 12:53:18 +0800</pubDate>
       
-      <guid>https://lxy-littlechai.github.io/2021/09/ajax/</guid>
+      <guid>https://lxy-littlechai.github.io/post/ajax/</guid>
       <description>&lt;h1 id=&#34;ajax&#34;&gt;Ajax&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>Vue</title>
-      <link>https://lxy-littlechai.github.io/2021/09/vue/</link>
+      <link>https://lxy-littlechai.github.io/post/vue/</link>
       <pubDate>Wed, 08 Sep 2021 18:38:10 +0800</pubDate>
       
-      <guid>https://lxy-littlechai.github.io/2021/09/vue/</guid>
+      <guid>https://lxy-littlechai.github.io/post/vue/</guid>
       <description></description>
     </item>
     

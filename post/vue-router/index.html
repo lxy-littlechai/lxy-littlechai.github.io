@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue Router | 小柴Yeah</title>
+
+    
+
+
+
+<meta name="author" content="guole" />
+<meta name="description" content="小柴&#39;s Blog" />
+
+
+
+<meta name="generator" content="Hugo 0.85.0" />
+
+<link rel="canonical" href="https://lxy-littlechai.github.io/post/vue-router/" />
+
+
+<meta property="og:title" content="Vue Router" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lxy-littlechai.github.io/post/vue-router/" /><meta property="og:image" content="https://lxy-littlechai.github.io/img/background.jpg"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-06T23:02:56+08:00" />
+<meta property="article:modified_time" content="2021-10-06T23:02:56+08:00" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lxy-littlechai.github.io/img/background.jpg"/>
+
+<meta name="twitter:title" content="Vue Router"/>
+<meta name="twitter:description" content=""/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.item, .ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.item, .ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.item, .ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/img/background.jpg);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: #222;
+    
+
+    
+    background-image: url(/img/background.jpg);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu dream-nav">
+
+  <a class="item dream-flip-toggle" title="翻转！">
+    <i class="large link bullseye icon"></i>
+  </a>
+  <a class="item" href="https://lxy-littlechai.github.io/" title="首页">
+    <i class="large link home icon"></i>
+  </a>
+  
+  <a class="item" onclick="themeSwitch(event)">
+    <i class="large link icon theme-switch"></i>
+  </a>
+  
+  
+  <a class="item" title="搜索" onclick="toggleSearch(event)">
+    <i class="large link search icon"></i>
+  </a>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本使用">基本使用</a></li>
+    <li><a href="#动态路由">动态路由</a>
+      <ul>
+        <li><a href="#props传参">props传参</a></li>
+        <li><a href="#tips">tips</a></li>
+      </ul>
+    </li>
+    <li><a href="#编程式导航">编程式导航</a></li>
+    <li><a href="#导航守卫">导航守卫</a></li>
+    <li><a href="#路由传参">路由传参</a>
+      <ul>
+        <li><a href="#使用query">使用query</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">Vue Router<span class="sub header">
+            <span class="left">
+              @
+              
+                guole
+              
+
+              | 
+                  <span data-format="luxon">2021-10-06T23:02:56&#43;08:00</span>
+                
+
+              | 2 分钟阅读
+
+              
+              | 更新于
+                
+                  <span data-format="luxon">2021-10-06T23:02:56&#43;08:00</span>
+                
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="保存为图片" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Vue%20Router&url=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fvue-router%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fvue-router%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <h2 id="基本使用">基本使用</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">import</span> Vue from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+<span style="color:#ff79c6">import</span> VueRouter, { RouteConfig } from <span style="color:#f1fa8c">&#39;vue-router&#39;</span>
+<span style="color:#ff79c6">import</span> Home from <span style="color:#f1fa8c">&#39;../components/Home.vue&#39;</span>
+<span style="color:#ff79c6">import</span> Movie from <span style="color:#f1fa8c">&#39;../components/Movie.vue&#39;</span>
+<span style="color:#ff79c6">import</span> Tab1 from <span style="color:#f1fa8c">&#39;../components/Tab1.vue&#39;</span>
+<span style="color:#ff79c6">import</span> Tab2 from <span style="color:#f1fa8c">&#39;../components/Tab2.vue&#39;</span>
+
+Vue.use(VueRouter)
+
+<span style="color:#ff79c6">const</span> routes<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">Array</span><span style="color:#ff79c6">&lt;</span>RouteConfig<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">=</span> [
+   <span style="color:#6272a4">//重定向
+</span><span style="color:#6272a4"></span>  { path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/&#39;</span>, redirect<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/home&#39;</span> },
+  {
+    path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/home&#39;</span>,
+    component<span style="color:#ff79c6">:</span> Home,
+    <span style="color:#6272a4">//路由嵌套
+</span><span style="color:#6272a4"></span>    children<span style="color:#ff79c6">:</span> [
+      { path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;tab1&#39;</span>, component<span style="color:#ff79c6">:</span> Tab1 },
+      { path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;tab2&#39;</span>, component<span style="color:#ff79c6">:</span> Tab2 }
+    ]
+  },
+  { path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/movie&#39;</span>, component<span style="color:#ff79c6">:</span> Movie }
+]
+
+<span style="color:#ff79c6">const</span> router <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> VueRouter({
+  routes
+})
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> router
+
+</code></pre></td></tr></table>
+</div>
+</div><p>重定向可以解决<strong>空页面 默认路由</strong>的问题</p>
+<p>**默认路由：**若path为空，则为默认路由</p>
+<h2 id="动态路由">动态路由</h2>
+<p>再path中用<code>:</code>来表示动态参数</p>
+<h3 id="props传参">props传参</h3>
+<p><code>props: true</code> 开启后可在vue中用props获得动态参数</p>
+<p>也可由 <code>this.$route.params.动态参数</code>来获得</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">import</span> Vue from <span style="color:#f1fa8c">&#39;vue&#39;</span>
+<span style="color:#ff79c6">import</span> VueRouter, { RouteConfig } from <span style="color:#f1fa8c">&#39;vue-router&#39;</span>
+<span style="color:#ff79c6">import</span> Home from <span style="color:#f1fa8c">&#39;../components/Home.vue&#39;</span>
+<span style="color:#ff79c6">import</span> Movie from <span style="color:#f1fa8c">&#39;../components/Movie.vue&#39;</span>
+<span style="color:#ff79c6">import</span> Tab1 from <span style="color:#f1fa8c">&#39;../components/Tab1.vue&#39;</span>
+<span style="color:#ff79c6">import</span> Tab2 from <span style="color:#f1fa8c">&#39;../components/Tab2.vue&#39;</span>
+
+Vue.use(VueRouter)
+
+<span style="color:#ff79c6">const</span> routes<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">Array</span><span style="color:#ff79c6">&lt;</span>RouteConfig<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">=</span> [
+
+  { path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;/movie/:id&#39;</span>, component<span style="color:#ff79c6">:</span> Movie, props<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>}
+]
+
+<span style="color:#ff79c6">const</span> router <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> VueRouter({
+  routes
+})
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> router
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="tips">tips</h3>
+<p><code>this.$route</code> 中 path 是路径部分， <code>fullpath</code> 为完整路径，包含 <code>query</code> 查询参数</p>
+<h2 id="编程式导航">编程式导航</h2>
+<p><code>this.$router.push('hash地址')</code>  <strong>增加</strong>一条历史记录</p>
+<p><code>this.$router.replace('hash地址')</code>  <strong>替换</strong>当前历史记录</p>
+<p><code>this.$router.go(数值 n)</code></p>
+<p>go的简化<code>this.$router.back()</code> <code>this.$router.forward()</code></p>
+<p><strong>Tips:</strong> 行内使用时 <code>this</code> 必须省略</p>
+<h2 id="导航守卫">导航守卫</h2>
+<p><code>router.beforEach((to, from, next) =&gt; {})</code> 只要发生跳转，就会触发回调函数</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">router.beforEach((to, from, next) =&gt; {
+	<span style="color:#6272a4">//to 将要访问的路由信息对象
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//from 将要离开的路由信息对象
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//next 是一个函数，调用next()表示放行，允许这次路由导航，也可以强制跳转next(&#39;/hash地址&#39;)
+</span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//不允放行next(false)
+</span><span style="color:#6272a4"></span>})
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="路由传参">路由传参</h2>
+<h3 id="使用query">使用query</h3>
+<p><strong>注意传参不能传对象</strong>，要转成<strong>JSON</strong></p>
+<h4 id="router-link">router-link</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">to<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{
+</span><span style="color:#f1fa8c">     path: &#39;/wizz-index&#39;,
+</span><span style="color:#f1fa8c">     query: {
+</span><span style="color:#f1fa8c">     indexData: [...this.userData],
+</span><span style="color:#f1fa8c">     },
+</span><span style="color:#f1fa8c">}&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="thisrouterpush">this.$router.push</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue"><span style="color:#ff79c6">this</span>.$router.push({
+   path<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;/wizz-index&#34;</span>,
+   query<span style="color:#ff79c6">:</span> {
+     indexData<span style="color:#ff79c6">:</span> JSON.stringify(<span style="color:#ff79c6">this</span>.userData[<span style="color:#f1fa8c">&#34;主页&#34;</span>]),
+   },
+});
+</code></pre></td></tr></table>
+</div>
+</div>
+      </article>
+    </section>
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 小柴Yeah</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/img/wushilan.jpg" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">小柴Yeah<span class="sub header">The time is no time, when it is past</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="所有分类"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="所有标签"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/react/" title="React">
+              React
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tag1/" title="tag1">
+              tag1
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tag2/" title="tag2">
+              tag2
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+    
+
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:lxy-littlechai@qq.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  
+  
+
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:lxy-littlechai@qq.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="搜索" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/lxy-littlechai.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    
+
+    <script>
+  window.background = "#fff"
+  window.defaultDark =  null 
+  window.backgroundDark = "#222"
+  window.backgroundImageDark = "/img/background.jpg"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+  window.fixedNav =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
+
+<script>
+  format()
+
+  function format() {
+    $('span[data-format="luxon"]').each(function () {
+      var date = $(this).text()
+
+      $(this).text(luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日"))
+    })
+  }
+</script>
+
+
+
+<script src="/js/scrollToTop.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>

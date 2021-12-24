@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue | 小柴Yeah</title>
+
+    
+
+
+
+<meta name="author" content="guole" />
+<meta name="description" content="小柴&#39;s Blog" />
+
+
+
+<meta name="generator" content="Hugo 0.85.0" />
+
+<link rel="canonical" href="https://lxy-littlechai.github.io/post/vue/" />
+
+
+<meta property="og:title" content="Vue" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lxy-littlechai.github.io/post/vue/" /><meta property="og:image" content="https://lxy-littlechai.github.io/img/background.jpg"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-08T18:38:10+08:00" />
+<meta property="article:modified_time" content="2021-09-08T18:38:10+08:00" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lxy-littlechai.github.io/img/background.jpg"/>
+
+<meta name="twitter:title" content="Vue"/>
+<meta name="twitter:description" content=""/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.item, .ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.item, .ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.item, .ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/img/background.jpg);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: #222;
+    
+
+    
+    background-image: url(/img/background.jpg);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu dream-nav">
+
+  <a class="item dream-flip-toggle" title="翻转！">
+    <i class="large link bullseye icon"></i>
+  </a>
+  <a class="item" href="https://lxy-littlechai.github.io/" title="首页">
+    <i class="large link home icon"></i>
+  </a>
+  
+  <a class="item" onclick="themeSwitch(event)">
+    <i class="large link icon theme-switch"></i>
+  </a>
+  
+  
+  <a class="item" title="搜索" onclick="toggleSearch(event)">
+    <i class="large link search icon"></i>
+  </a>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#模板语法">模板语法</a>
+      <ul>
+        <li><a href="#插值">插值</a></li>
+        <li><a href="#v-html">v-html</a></li>
+        <li><a href="#v-bind-用于html内的属性绑定">v-bind :用于html内的属性绑定</a></li>
+        <li><a href="#v-model">v-model</a></li>
+        <li><a href="#v-on-用于添加事件">v-on @用于添加事件</a></li>
+        <li><a href="#v-for-用于循环">v-for 用于循环</a></li>
+        <li><a href="#v-if-v-else-v-else-if">v-if v-else v-else-if</a></li>
+        <li><a href="#动态参数-避免大写">动态参数 避免大写</a></li>
+        <li><a href="#修饰符-1">修饰符</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-property">Data Property</a>
+      <ul>
+        <li><a href="#防抖与节流">防抖与节流</a></li>
+      </ul>
+    </li>
+    <li><a href="#组件-component">组件 component</a></li>
+    <li><a href="#计算属性与监听器">计算属性与监听器</a>
+      <ul>
+        <li><a href="#计算属性">计算属性</a></li>
+        <li><a href="#computed">computed</a></li>
+        <li><a href="#setter">Setter</a></li>
+        <li><a href="#监听器-watch">监听器 watch</a></li>
+      </ul>
+    </li>
+    <li><a href="#事件处理">事件处理</a>
+      <ul>
+        <li><a href="#内联处理器">内联处理器</a></li>
+        <li><a href="#多事件处理器">多事件处理器</a></li>
+        <li><a href="#事件修饰符">事件修饰符</a></li>
+        <li><a href="#按键修饰符">按键修饰符</a></li>
+        <li><a href="#系统修饰键">系统修饰键</a></li>
+      </ul>
+    </li>
+    <li><a href="#组件基础">组件基础</a>
+      <ul>
+        <li><a href="#基本实例">基本实例</a></li>
+        <li><a href="#传递数据">传递数据</a></li>
+        <li><a href="#监听子组件事件">监听子组件事件</a></li>
+        <li><a href="#插槽">插槽</a></li>
+        <li><a href="#动态组件">动态组件</a></li>
+        <li><a href="#解析dom模板时的注意事项">解析DOM模板时的注意事项</a></li>
+      </ul>
+    </li>
+    <li><a href="#深入组件">深入组件</a>
+      <ul>
+        <li><a href="#组件注册">组件注册</a></li>
+      </ul>
+    </li>
+    <li><a href="#props">Props</a>
+      <ul>
+        <li><a href="#prop类型">prop类型</a></li>
+        <li><a href="#传递静态或动态的prop">传递静态或动态的Prop</a></li>
+        <li><a href="#传入一个对象的所有property">传入一个对象的所有property</a></li>
+        <li><a href="#prop验证">Prop验证</a></li>
+        <li><a href="#非prop的attribute">非prop的Attribute</a></li>
+        <li><a href="#自定义事件">自定义事件</a></li>
+        <li><a href="#插槽-1">插槽</a></li>
+        <li><a href="#provideinject">Provide/Inject</a></li>
+        <li><a href="#动态组件异步组件">动态组件&amp;异步组件</a></li>
+        <li><a href="#模板引用">模板引用</a></li>
+      </ul>
+    </li>
+    <li><a href="#过渡动画待补">过渡&amp;动画（待补）</a>
+      <ul>
+        <li><a href="#单元素组件的过渡">单元素/组件的过渡</a></li>
+      </ul>
+    </li>
+    <li><a href="#可复用组合">可复用&amp;组合</a></li>
+    <li><a href="#axios">axios</a>
+      <ul>
+        <li><a href="#解构赋值重命名">解构赋值(重命名)</a></li>
+      </ul>
+    </li>
+    <li><a href="#生命周期">生命周期</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">Vue<span class="sub header">
+            <span class="left">
+              @
+              
+                guole
+              
+
+              | 
+                  <span data-format="luxon">2021-09-08T18:38:10&#43;08:00</span>
+                
+
+              | 10 分钟阅读
+
+              
+              | 更新于
+                
+                  <span data-format="luxon">2021-09-08T18:38:10&#43;08:00</span>
+                
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="保存为图片" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Vue&url=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fvue%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fvue%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <h1 id="vue3">Vue3</h1>
+<h2 id="模板语法">模板语法</h2>
+<h3 id="插值">插值</h3>
+<h4 id="文本">文本</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;app&#34;</span>&gt;
+    {{ message }}
+&lt;/<span style="color:#ff79c6">div</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="v-html">v-html</h3>
+<h3 id="v-bind-用于html内的属性绑定">v-bind :用于html内的属性绑定</h3>
+<h3 id="v-model">v-model</h3>
+<h5 id="text--textarea">Text &amp; Textarea</h5>
+<p>使用<code>value</code> property 和 <code>input</code>事件
+<code>v-model</code>绑定的值对应 内容</p>
+<h5 id="checkbox-和-radio">checkbox 和 radio</h5>
+<p>使用<code>radio</code> property 和<code>change</code>事件
+<code>v-model</code>绑定的值对应 <code>value</code></p>
+<p>而<code>checkbox</code>中<code>v-model</code>对应<code>bool</code></p>
+<p><strong>Tips</strong></p>
+<p>如果 <code>v-model</code> 表达式的初始值未能匹配任何选项，<code>&lt;select&gt;</code> 元素将被渲染为“未选中”状态。在 iOS 中，这会使用户无法选择第一个选项。因为这样的情况下，iOS 不会触发 <code>change</code> 事件。因此，更推荐像上面这样提供一个值为空的禁用选项</p>
+<p>多选绑定<strong>数组</strong></p>
+<h4 id="修饰符">修饰符</h4>
+<h5 id="lazy"><code>.lazy</code></h5>
+<p>默认情况下<code>v-model</code>在每次<code>input</code>事件触发后将输入框的值与数据进行同步。<code>.lazy</code>修饰符将其转换为<code>change</code>事件之后进行同步，即失去焦点或者<code>enter</code>后进行同步</p>
+<h5 id="number"><code>.number</code></h5>
+<p>自动将用户输入值转化为数值类型</p>
+<h5 id="trim"><code>.trim</code></h5>
+<p>自动过滤用户输入的首尾空白字符</p>
+<h3 id="v-on-用于添加事件">v-on @用于添加事件</h3>
+<h3 id="v-for-用于循环">v-for 用于循环</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">p</span> <span style="color:#50fa7b">v-for</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;item in items&#34;</span>&gt;&lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;<span style="color:#ff79c6">p</span> <span style="color:#50fa7b">v-for</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;(value, name) in items&#34;</span>&gt;&lt;/<span style="color:#ff79c6">p</span>&gt;
+&lt;<span style="color:#ff79c6">p</span> <span style="color:#50fa7b">v-for</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;(value, name, index) in items&#34;</span>&gt;&lt;/<span style="color:#ff79c6">p</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 <code>key</code> attribute：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">v-for</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;item in items&#34;</span> <span style="color:#50fa7b">:key</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;item.id&#34;</span>&gt;
+  <span style="color:#6272a4">&lt;!-- content --&gt;</span>
+&lt;/<span style="color:#ff79c6">div</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="v-if-v-else-v-else-if">v-if v-else v-else-if</h3>
+<h3 id="动态参数-避免大写">动态参数 避免大写</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">v-on:</span>[<span style="color:#50fa7b">eventname</span>]=&#34;<span style="color:#50fa7b">doSomething</span>&#34;&gt; ... &lt;/<span style="color:#ff79c6">a</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="修饰符-1">修饰符</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">form</span> <span style="color:#50fa7b">v-on:submit</span>.<span style="color:#50fa7b">prevent</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;onSubmit&#34;</span>&gt;...&lt;/<span style="color:#ff79c6">form</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="data-property">Data Property</h2>
+<p>组件的 <code>data</code> 选项是一个函数。Vue 在创建新组件实例的过程中调用此函数。它应该返回一个对象，然后 Vue 会通过响应性系统将其包裹起来，并以 <code>$data</code> 的形式存储在组件实例中</p>
+<h3 id="防抖与节流">防抖与节流</h3>
+<p>防抖与节流都是为了优化性能，避免同一函数被频繁访问</p>
+<p>打个比方：电梯15s上一次楼，防抖就规定15s运行一次，节流是没上来一个人重新计时15s，15s电梯运行</p>
+<h4 id="防抖">防抖</h4>
+<p>Vue 没有内置支持防抖和节流，但可以使用 <a href="https://lodash.com/">Lodash</a> 等库来实现。</p>
+<p>如果某个组件仅使用一次，可以在 <code>methods</code> 中直接应用防抖：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://unpkg.com/lodash@4.17.20/lodash.min.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+&lt;<span style="color:#ff79c6">script</span>&gt;
+  Vue.createApp({
+    methods<span style="color:#ff79c6">:</span> {
+      <span style="color:#6272a4">// 用 Lodash 的防抖函数
+</span><span style="color:#6272a4"></span>      click<span style="color:#ff79c6">:</span> _.debounce(<span style="color:#8be9fd;font-style:italic">function</span>() {
+        <span style="color:#6272a4">// ... 响应点击 ...
+</span><span style="color:#6272a4"></span>      }, <span style="color:#bd93f9">500</span>)
+    }
+  }).mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+&lt;/<span style="color:#ff79c6">script</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>但是，这种方法对于可复用组件有潜在的问题，因为它们都共享相同的防抖函数。为了使组件实例彼此独立，可以在生命周期钩子的 <code>created</code> 里添加该防抖函数:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">app.component(<span style="color:#f1fa8c">&#39;save-button&#39;</span>, {
+  created() {
+    <span style="color:#6272a4">// 用 Lodash 的防抖函数
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">this</span>.debouncedClick <span style="color:#ff79c6">=</span> _.debounce(<span style="color:#ff79c6">this</span>.click, <span style="color:#bd93f9">500</span>)
+  },
+  unmounted() {
+    <span style="color:#6272a4">// 移除组件时，取消定时器
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">this</span>.debouncedClick.cancel()
+  },
+  methods<span style="color:#ff79c6">:</span> {
+    click() {
+      <span style="color:#6272a4">// ... 响应点击 ...
+</span><span style="color:#6272a4"></span>    }
+  },
+  template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">    &lt;button @click=&#34;debouncedClick&#34;&gt;
+</span><span style="color:#f1fa8c">      Save
+</span><span style="color:#f1fa8c">    &lt;/button&gt;
+</span><span style="color:#f1fa8c">  `</span>
+})
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="组件-component">组件 component</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue"><span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> Vue.createApp({});
+
+app.component(<span style="color:#f1fa8c">&#39;组件名&#39;</span>, {
+    template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&lt;h1&gt;自定义组件&lt;/h1&gt;&#39;</span>
+})
+
+app.mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+
+使用方法
+&lt;<span style="color:#ff79c6">组件名</span>&gt;&lt;/<span style="color:#ff79c6">组件名</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="计算属性与监听器">计算属性与监听器</h2>
+<h3 id="计算属性">计算属性</h3>
+<h3 id="computed">computed</h3>
+<p>computed 也可以写在 methods 中，但computed<strong>是基于它们的响应依赖关系缓存的</strong>，也就是说，只要computed中的值不发生改变，就不会重新求值。</p>
+<h3 id="setter">Setter</h3>
+<h3 id="监听器-watch">监听器 watch</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">watch<span style="color:#ff79c6">:</span> {
+    <span style="color:#6272a4">//对象写法
+</span><span style="color:#6272a4"></span>	name<span style="color:#ff79c6">:</span> {<span style="color:#6272a4">//监听对象
+</span><span style="color:#6272a4"></span>		handel() {<span style="color:#6272a4">//调用函数
+</span><span style="color:#6272a4"></span>
+		},
+		immediate<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">/</span><span style="color:#ff79c6">false</span>, <span style="color:#6272a4">//是否立刻触发一次
+</span><span style="color:#6272a4"></span>        deep<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">/</span><span style="color:#ff79c6">false</span> <span style="color:#6272a4">//对象中任何属性变化都可以监听，否则无法监听对象内容
+</span><span style="color:#6272a4"></span>	}
+    <span style="color:#6272a4">//函数写法
+</span><span style="color:#6272a4"></span>    name(newValue, oldeValue){
+	
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="事件处理">事件处理</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> @<span style="color:#50fa7b">click</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;greet&#34;</span>&gt;&lt;/<span style="color:#ff79c6">div</span>&gt;
+
+Vue.createApp({
+  data() {
+    return {
+      name: &#39;Vue.js&#39;
+    }
+  },
+  methods: {
+    greet(event) {
+      // `methods` 内部的 `this` 指向当前活动实例
+      alert(&#39;Hello &#39; + this.name + &#39;!&#39;)
+      // `event` 是原生 DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}).mount(&#39;#event-with-method&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="内联处理器">内联处理器</h3>
+<p>使用$event</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> @<span style="color:#50fa7b">click</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;say(&#39;hi&#39;, $event)&#34;</span>&gt;&lt;/<span style="color:#ff79c6">div</span>&gt;
+
+Vue.createApp({
+  data() {
+    return {
+      name: &#39;Vue.js&#39;
+    }
+  },
+  methods: {
+    say(message, event) {
+      // `methods` 内部的 `this` 指向当前活动实例
+      alert(&#39;Hello &#39; + this.name + &#39;!&#39;)
+      // `event` 是原生 DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}).mount(&#39;#event-with-method&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="多事件处理器">多事件处理器</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">button</span> @<span style="color:#50fa7b">click</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;one($event), two($event)&#34;</span>&gt;
+  Submit
+&lt;/<span style="color:#ff79c6">button</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="事件修饰符">事件修饰符</h3>
+<ul>
+<li><code>.stop</code></li>
+<li><code>.prevent</code></li>
+<li><code>.capture</code></li>
+<li><code>.self</code></li>
+<li><code>.once</code></li>
+<li><code>.passive</code></li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#6272a4">&lt;!-- 阻止单击事件继续传播 --&gt;</span>
+&lt;<span style="color:#ff79c6">a</span> @<span style="color:#50fa7b">click</span>.<span style="color:#50fa7b">stop</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;doThis&#34;</span>&gt;&lt;/<span style="color:#ff79c6">a</span>&gt;
+
+<span style="color:#6272a4">&lt;!-- 提交事件不再重载页面 --&gt;</span>
+&lt;<span style="color:#ff79c6">form</span> @<span style="color:#50fa7b">submit</span>.<span style="color:#50fa7b">prevent</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;onSubmit&#34;</span>&gt;&lt;/<span style="color:#ff79c6">form</span>&gt;
+
+<span style="color:#6272a4">&lt;!-- 修饰符可以串联 --&gt;</span>
+&lt;<span style="color:#ff79c6">a</span> @<span style="color:#50fa7b">click</span>.<span style="color:#50fa7b">stop</span>.<span style="color:#50fa7b">prevent</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;doThat&#34;</span>&gt;&lt;/<span style="color:#ff79c6">a</span>&gt;
+
+<span style="color:#6272a4">&lt;!-- 只有修饰符 --&gt;</span>
+&lt;<span style="color:#ff79c6">form</span> @<span style="color:#50fa7b">submit</span>.<span style="color:#50fa7b">prevent</span>&gt;&lt;/<span style="color:#ff79c6">form</span>&gt;
+
+<span style="color:#6272a4">&lt;!-- 添加事件监听器时使用事件捕获模式 --&gt;</span>
+<span style="color:#6272a4">&lt;!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 --&gt;</span>
+&lt;<span style="color:#ff79c6">div</span> @<span style="color:#50fa7b">click</span>.<span style="color:#50fa7b">capture</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;doThis&#34;</span>&gt;...&lt;/<span style="color:#ff79c6">div</span>&gt;
+
+<span style="color:#6272a4">&lt;!-- 只当在 event.target 是当前元素自身时触发处理函数 --&gt;</span>
+<span style="color:#6272a4">&lt;!-- 即事件不是从内部元素触发的 --&gt;</span>
+&lt;<span style="color:#ff79c6">div</span> @<span style="color:#50fa7b">click</span>.<span style="color:#50fa7b">self</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;doThat&#34;</span>&gt;...&lt;/<span style="color:#ff79c6">div</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="按键修饰符">按键修饰符</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">input</span> @<span style="color:#50fa7b">keyup</span>.<span style="color:#50fa7b">enter</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;submit&#34;</span>/&gt;
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">input</span> @<span style="color:#50fa7b">keyup</span>.<span style="color:#50fa7b">page-down</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;onPageDown&#34;</span>/&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="按键别名">按键别名</h4>
+<p>Vue 为最常用的键提供了别名：</p>
+<ul>
+<li><code>.enter</code></li>
+<li><code>.tab</code></li>
+<li><code>.delete</code> (捕获“删除”和“退格”键)</li>
+<li><code>.esc</code></li>
+<li><code>.space</code></li>
+<li><code>.up</code></li>
+<li><code>.down</code></li>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+</ul>
+<h3 id="系统修饰键">系统修饰键</h3>
+<p>可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。</p>
+<ul>
+<li><code>.ctrl</code></li>
+<li><code>.alt</code></li>
+<li><code>.shift</code></li>
+<li><code>.meta</code></li>
+</ul>
+<p><strong>Tips</strong>： Mac中meta对应command键(⌘)，Windows中meta对应徽标键 (⊞)，</p>
+<p><strong>Tips</strong>：必须修饰键的情况下释放其它按键，才能出发keyup，而单单释放修饰键也不会触发事件</p>
+<h4 id="exact"><code>.exact</code></h4>
+<p>.exact保证了只有确定的修饰符组合才能触发按键， 例如</p>
+<p>当且仅当按下ctrl时才触发，同时按其他键不会触发</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">button</span> @<span style="color:#50fa7b">click</span>.<span style="color:#50fa7b">ctrl</span>.<span style="color:#50fa7b">exact</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;onCtrlClick&#34;</span>&gt;A&lt;/<span style="color:#ff79c6">button</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="鼠标按钮修饰符">鼠标按钮修饰符</h4>
+<ul>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+<li><code>.middle</code></li>
+</ul>
+<h2 id="组件基础">组件基础</h2>
+<h3 id="基本实例">基本实例</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> Vue.createApp({})
+
+app.component(<span style="color:#f1fa8c">&#39;button-counter&#39;</span>,{
+	data() {
+		<span style="color:#ff79c6">return</span> {
+			count<span style="color:#ff79c6">:</span> <span style="color:#bd93f9">0</span>
+		}
+	},
+	template<span style="color:#ff79c6">:</span><span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">		&lt;button @click=&#34;count++&#34;&gt;
+</span><span style="color:#f1fa8c">			You clicked me {{ count }} times.
+</span><span style="color:#f1fa8c">		&lt;/button&gt;
+</span><span style="color:#f1fa8c">	`</span>
+})
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="传递数据">传递数据</h3>
+<h4 id="props--emits">props &amp; emits</h4>
+<h3 id="监听子组件事件">监听子组件事件</h3>
+<h4 id="使用事件抛出一个值">使用事件抛出一个值</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">button</span> @<span style="color:#50fa7b">click</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;$emit(&#39;enlargeText&#39;, 0.1)&#34;</span>&gt;
+  Enlarge text
+&lt;/<span style="color:#ff79c6">button</span>&gt;
+抛出值可用$event接受
+
+&lt;<span style="color:#ff79c6">blog-post</span> ... @<span style="color:#50fa7b">enlarge-text</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;onEnlargeText&#34;</span>&gt;&lt;/<span style="color:#ff79c6">blog-post</span>&gt;
+methods: {
+  onEnlargeText(enlargeAmount) {
+    this.postFontSize += enlargeAmount
+  }
+}
+抛出值用参数接受
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="在组件上使用v-model">在组件上使用v-model</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">v-model</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;searchText&#34;</span>&gt;
+等价于
+&lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">:value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;searchText&#34;</span> @<span style="color:#50fa7b">input</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;searchText = $event.target.value&#34;</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>在组件上使用时，v-model等价于</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">custom-input</span>
+    <span style="color:#50fa7b">:model-value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;searchText&#34;</span>
+    @<span style="color:#50fa7b">update:model-value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;searchText = $event&#34;</span>
+&gt;&lt;/<span style="color:#ff79c6">custom-input</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>为了让它正常工作，这个组件内的 <code>&lt;input&gt;</code> 必须：</p>
+<ul>
+<li>将其 <code>value</code> attribute 绑定到一个名叫 <code>modelValue</code> 的 prop 上</li>
+<li>在其 <code>input</code> 事件被触发时，将新的值通过自定义的 <code>update:modelValue</code> 事件抛出</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">&lt;</span>div id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;app&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>custom<span style="color:#ff79c6">-</span>input
+        v<span style="color:#ff79c6">-</span>model<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;searchText&#34;</span>
+    <span style="color:#ff79c6">&gt;&lt;</span>/custom-input&gt;
+    <span style="color:#ff79c6">&lt;</span>span<span style="color:#ff79c6">&gt;</span> {{ searchText }} <span style="color:#ff79c6">&lt;</span>/span&gt;
+<span style="color:#ff79c6">&lt;</span>/div&gt;
+
+<span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> Vue.createApp({
+        data() {
+            <span style="color:#ff79c6">return</span> {
+                searchText<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;&#34;</span>
+            }
+        }
+    })
+    
+app.component(<span style="color:#f1fa8c">&#39;custom-input&#39;</span>, {
+    props<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;modelValue&#39;</span>],
+    emits<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;update:modelValue&#39;</span>],
+    template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">        &lt;input
+</span><span style="color:#f1fa8c">            :value=&#34;modelValue&#34;
+</span><span style="color:#f1fa8c">            @input=&#34;$emit(&#39;update:modelValue&#39;, $event.target.value)&#34;
+</span><span style="color:#f1fa8c">        &gt;
+</span><span style="color:#f1fa8c">    `</span>
+
+})
+app.mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以使用computed来实现</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">&lt;</span>div id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;app&#34;</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span>custom<span style="color:#ff79c6">-</span>input<span style="color:#ff79c6">&gt;&lt;</span>/custom-input&gt;
+    <span style="color:#ff79c6">&lt;</span>/div&gt;
+
+<span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> Vue.createApp({
+})
+
+app.component(<span style="color:#f1fa8c">&#39;custom-input&#39;</span>, {
+    data() {
+        <span style="color:#ff79c6">return</span> {
+            value<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;&#34;</span>
+        }
+    },
+    props<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;modelValue&#39;</span>],
+    emits<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;update:modelValue&#39;</span>],
+
+    template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">        &lt;input v-model=&#34;value&#34;&gt;
+</span><span style="color:#f1fa8c">        &lt;span&gt; {{ value }} &lt;/span&gt;
+</span><span style="color:#f1fa8c">    `</span>,
+
+    computed<span style="color:#ff79c6">:</span> {
+        value<span style="color:#ff79c6">:</span> {
+            get() {
+                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.modelValue
+            },
+            set(value) {
+                <span style="color:#ff79c6">this</span>.$emit(<span style="color:#f1fa8c">&#39;update:modelValue&#39;</span>, value)
+            }
+        }
+    }
+})
+app.mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="插槽">插槽</h3>
+<p>我们时常在html中添加内容，在模板中我们应该使用插槽来指出内容的位置</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">alert-box</span>&gt;
+	There is something wrong
+&lt;/<span style="color:#ff79c6">alert-box</span>&gt;
+
+app.component(&#39;alert-box&#39;,{
+    template: `
+        &lt;<span style="color:#ff79c6">strong</span>&gt;Error!&lt;/<span style="color:#ff79c6">strong</span>&gt;
+        &lt;<span style="color:#ff79c6">slot</span>&gt;&lt;/<span style="color:#ff79c6">slot</span>&gt;
+
+    `
+})
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="动态组件">动态组件</h3>
+<p>实现不同组件的动态切换，使用<code>is</code>attribute</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">component</span> <span style="color:#50fa7b">:is</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;getCurrentTag&#34;</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;tag&#34;</span>&gt;&lt;/<span style="color:#ff79c6">component</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="C:%5CUsers%5C16117%5Cblog%5Ccontent%5Cpost%5Cvue.assets%5Cimage-20210914162525721.png" alt="image-20210914162525721"></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">&lt;</span>body<span style="color:#ff79c6">&gt;</span>
+    
+    <span style="color:#ff79c6">&lt;</span>div id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;app&#34;</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span>button
+            v<span style="color:#ff79c6">-</span><span style="color:#ff79c6">for</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;tag in tags&#34;</span>
+            <span style="color:#ff79c6">:</span>key<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;tag&#34;</span>
+            <span style="color:#ff79c6">:</span><span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;[&#39;tag-button&#39;, {active: tag == currentTag}]&#34;</span> 
+            @click<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;currentTag = tag&#34;</span>
+        <span style="color:#ff79c6">&gt;</span>
+        {{ tag }}
+        <span style="color:#ff79c6">&lt;</span>/button&gt;
+        <span style="color:#ff79c6">&lt;</span>component <span style="color:#ff79c6">:</span>is<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;getCurrentTag&#34;</span> <span style="color:#ff79c6">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;tag&#34;</span><span style="color:#ff79c6">&gt;&lt;</span>/component&gt;
+    <span style="color:#ff79c6">&lt;</span>/div&gt;
+
+<span style="color:#ff79c6">&lt;</span>/body&gt;
+
+
+<span style="color:#ff79c6">&lt;</span>script<span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> Vue.createApp({
+        data() {
+            <span style="color:#ff79c6">return</span> {
+                currentTag<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Home&#34;</span>,
+                tags<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#34;Home&#34;</span>, <span style="color:#f1fa8c">&#34;Posts&#34;</span>, <span style="color:#f1fa8c">&#34;Archive&#34;</span>]
+            }
+        },
+        computed<span style="color:#ff79c6">:</span> {
+            getCurrentTag(){
+                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">this</span>.currentTag.toLowerCase()
+            }
+        }
+    })
+    app.component(<span style="color:#f1fa8c">&#39;home&#39;</span>, {
+        template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">            &lt;div&gt;Home&lt;div&gt;
+</span><span style="color:#f1fa8c">        `</span>
+    })
+    app.component(<span style="color:#f1fa8c">&#39;posts&#39;</span>, {
+        template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">            &lt;div&gt;Posts&lt;div&gt;
+</span><span style="color:#f1fa8c">        `</span>
+    })
+    app.component(<span style="color:#f1fa8c">&#39;archive&#39;</span>, {
+        template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">            &lt;div&gt;Archive&lt;div&gt;
+</span><span style="color:#f1fa8c">        `</span>
+    })
+    app.mount(<span style="color:#f1fa8c">&#34;#app&#34;</span>)
+
+
+<span style="color:#ff79c6">&lt;</span>/script&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="解析dom模板时的注意事项">解析DOM模板时的注意事项</h3>
+<h4 id="element-placement-restrictions">Element Placement Restrictions</h4>
+<p>有些 HTML 元素，诸如 <code>&lt;ul&gt;</code>、<code>&lt;ol&gt;</code>、<code>&lt;table&gt;</code> 和 <code>&lt;select&gt;</code>，对于哪些元素可以出现在其内部是有严格限制的。而有些元素，诸如 <code>&lt;li&gt;</code>、<code>&lt;tr&gt;</code> 和 <code>&lt;option&gt;</code>，只能出现在其它某些特定的元素内部。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">不合法
+&lt;<span style="color:#ff79c6">table</span>&gt;
+  &lt;<span style="color:#ff79c6">blog-post-row</span>&gt;&lt;/<span style="color:#ff79c6">blog-post-row</span>&gt;
+&lt;/<span style="color:#ff79c6">table</span>&gt;
+
+合法
+&lt;<span style="color:#ff79c6">table</span>&gt;
+  &lt;<span style="color:#ff79c6">tr</span> <span style="color:#50fa7b">is</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;vue:blog-post-row&#34;</span>&gt;&lt;/<span style="color:#ff79c6">tr</span>&gt;
+&lt;/<span style="color:#ff79c6">table</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="case-insensitivity">Case Insensitivity</h4>
+<p>js中的大写字母，要在html中使用 kebab-cased (横线字符分隔)</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">postTitle &lt;=&gt; post-title
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="深入组件">深入组件</h2>
+<h3 id="组件注册">组件注册</h3>
+<h4 id="全局注册">全局注册</h4>
+<h4 id="局部注册">局部注册</h4>
+<p>注意局部注册的组件在其子组件中不可用</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> ComponentA <span style="color:#ff79c6">=</span> {
+
+}
+<span style="color:#ff79c6">const</span> ComponentB <span style="color:#ff79c6">=</span> {
+
+}
+
+<span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> Vue.creat({
+    components<span style="color:#ff79c6">:</span> {
+        <span style="color:#f1fa8c">&#39;component-a&#39;</span><span style="color:#ff79c6">:</span> ComponentA,
+        <span style="color:#f1fa8c">&#39;component-b&#39;</span><span style="color:#ff79c6">:</span> ComponentB
+    }
+})
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> ComponentA <span style="color:#ff79c6">=</span> {
+
+}
+<span style="color:#ff79c6">const</span> ComponentB <span style="color:#ff79c6">=</span> {
+	components<span style="color:#ff79c6">:</span> {
+		<span style="color:#f1fa8c">&#39;component-a&#39;</span><span style="color:#ff79c6">:</span> ComponentA
+	}
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="props">Props</h2>
+<h3 id="prop类型">prop类型</h3>
+<h4 id="字符串数组">字符串数组</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">props<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;value&#39;</span>, <span style="color:#f1fa8c">&#39;message&#39;</span>, <span style="color:#f1fa8c">&#39;title&#39;</span>]
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="对象">对象</h4>
+<p>以<code>值+数据类型</code>给出</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">props<span style="color:#ff79c6">:</span> {
+	value<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">Number</span>,
+	message<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">String</span>,
+	title<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">String</span>
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="传递静态或动态的prop">传递静态或动态的Prop</h3>
+<p>使用<code>v-bind</code>来传递动态的Prop，同时<code>v-bind</code>可以告诉这是一个JavaScript表达式，而不是字符串</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">blog</span> <span style="color:#50fa7b">:ids</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;[123,456]&#34;</span>&gt;&lt;/<span style="color:#ff79c6">blog</span>&gt;
+使用v-bind vue才能识别这是一个数组
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="传入一个对象的所有property">传入一个对象的所有property</h3>
+<p>可以使用不带参数的<code>v-bind</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">peo: {
+	name: &#39;Frank&#39;,
+	age: 17
+}
+
+&lt;<span style="color:#ff79c6">blog</span> <span style="color:#50fa7b">v-bind</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;peo&#34;</span>&gt;&lt;/<span style="color:#ff79c6">blog</span>&gt;
+等价于
+&lt;<span style="color:#ff79c6">blog</span> <span style="color:#50fa7b">:name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;peo.name&#34;</span> <span style="color:#50fa7b">:age</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;peo.age&#34;</span>&gt;&lt;/<span style="color:#ff79c6">blog</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="prop验证">Prop验证</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">app.component(<span style="color:#f1fa8c">&#39;&#39;</span>, {
+    <span style="color:#6272a4">//数据类型检测，null和undefined可以通过任意数据类型检测
+</span><span style="color:#6272a4"></span>	propA<span style="color:#ff79c6">:</span> 数据类型,
+    <span style="color:#6272a4">//多个可能的类型
+</span><span style="color:#6272a4"></span>    propB<span style="color:#ff79c6">:</span> [数据类型,数据类型],
+    
+    propC<span style="color:#ff79c6">:</span> {
+		required<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>, <span style="color:#6272a4">//必填
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">default</span><span style="color:#ff79c6">:</span> property <span style="color:#6272a4">//默认值
+</span><span style="color:#6272a4"></span>    },
+    
+    propD<span style="color:#ff79c6">:</span> {
+        <span style="color:#6272a4">//对象或数组默认值必须从一个工厂函数获取
+</span><span style="color:#6272a4"></span>		type<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">Object</span>,
+        <span style="color:#ff79c6">default</span>() {
+			<span style="color:#ff79c6">return</span> {
+                message<span style="color:#ff79c6">:</span> <span style="color:#bd93f9">1</span>
+            }
+        }
+    }
+    
+    <span style="color:#6272a4">//自定义验证函数
+</span><span style="color:#6272a4"></span>    propE<span style="color:#ff79c6">:</span> {
+		validator(value){
+    		<span style="color:#ff79c6">return</span> [<span style="color:#f1fa8c">&#39;success&#39;</span>,<span style="color:#f1fa8c">&#39;failure&#39;</span>].includes(value)
+		}
+	}
+    
+})
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="非prop的attribute">非prop的Attribute</h3>
+<h4 id="atrribute继承">Atrribute继承</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">my-component</span> <span style="color:#50fa7b">status</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;actived&#34;</span>&gt;&lt;/<span style="color:#ff79c6">my-component</span>&gt;
+
+app.component(&#39;my-component&#39;,{
+	template: `
+		&lt;<span style="color:#ff79c6">div</span>&gt;
+        	&lt;<span style="color:#ff79c6">input</span>&gt;    
+		&lt;/<span style="color:#ff79c6">div</span>&gt;
+	`
+})
+
+渲染后,status会继承在div上，也就是root山
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="禁用atrribute继承">禁用Atrribute继承</h4>
+<p>如果你<strong>不</strong>希望组件的根元素继承 attribute，你可以在组件的选项中设置 <code>inheritAttrs: false</code>。</p>
+<p>禁用继承的常见情况是需要atrribute应用在除根节点外的所有其它元素</p>
+<p>通过将 <code>inheritAttrs</code> 选项设置为 <code>false</code>，你可以访问组件的 <code>$attrs</code> property，该 property 包括组件 <code>props</code> 和 <code>emits</code> property 中未包含的所有属性 (例如，<code>class</code>、<code>style</code>、<code>v-on</code> 监听器等)。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">&lt;</span>my<span style="color:#ff79c6">-</span>component status<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;actived&#34;</span><span style="color:#ff79c6">&gt;&lt;</span>/my-component&gt;
+
+app.component(<span style="color:#f1fa8c">&#39;my-component&#39;</span>,{
+	inheritAttrs<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">false</span>,
+	template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">		&lt;div&gt;
+</span><span style="color:#f1fa8c">        	&lt;input v-bind=&#34;$attrs&#34;&gt;    
+</span><span style="color:#f1fa8c">		&lt;/div&gt;
+</span><span style="color:#f1fa8c">	`</span>
+})
+
+渲染后，status会在input上
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="多个根节点上的-attribute-继承">多个根节点上的 Attribute 继承</h4>
+<p>多根节点的组件不具有自动fallthrough行为。若为显式绑定<code>$attrs</code>,运行时会给予警告</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">app.component(<span style="color:#f1fa8c">&#39;custom-layout&#39;</span>, {
+  template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">    &lt;header&gt;...&lt;/header&gt;
+</span><span style="color:#f1fa8c">    &lt;main&gt;...&lt;/main&gt;
+</span><span style="color:#f1fa8c">    &lt;footer&gt;...&lt;/footer&gt;`</span>
+})
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="自定义事件">自定义事件</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">&lt;</span>div v<span style="color:#ff79c6">-</span>color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;color&#34;</span><span style="color:#ff79c6">&gt;&lt;</span>/div&gt;
+
+
+<span style="color:#ff79c6">export</span> <span style="color:#ff79c6">default</span> {
+    directives<span style="color:#ff79c6">:</span> {
+		color<span style="color:#ff79c6">:</span> {
+            <span style="color:#6272a4">//第一次被绑定时立即触发
+</span><span style="color:#6272a4"></span>			bind(el, binding) {
+				el.style.color <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;red&#39;</span>
+            },
+            <span style="color:#6272a4">//每次dom更新时触发
+</span><span style="color:#6272a4"></span>            update(el, binding){
+                el.style.color <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;red&#39;</span>
+			}
+        }
+        
+        <span style="color:#6272a4">//若bind和update相同，可简写为
+</span><span style="color:#6272a4"></span>        color(el, binding){
+    		el.style.color <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;red&#39;</span>
+		}
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="定义自定义事件">定义自定义事件</h4>
+<p>可以通过<code>emits</code>选项在组件上定义发出的事件</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">app.component(<span style="color:#f1fa8c">&#39;custom-form&#39;</span>,{
+	emits<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;click&#39;</span>, <span style="color:#f1fa8c">&#39;submit&#39;</span>]
+})
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="验证抛出的事件">验证抛出的事件</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">app.component(<span style="color:#f1fa8c">&#39;custom-form&#39;</span>,{
+	emits<span style="color:#ff79c6">:</span> {
+        <span style="color:#6272a4">//无验证
+</span><span style="color:#6272a4"></span>        click<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">null</span>,
+        
+        submit<span style="color:#ff79c6">:</span> ({mail, password}) =&gt; {
+			<span style="color:#ff79c6">if</span>(mail <span style="color:#ff79c6">&amp;&amp;</span> password){
+                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>
+            } <span style="color:#ff79c6">else</span> {
+                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>
+            }
+        }
+    }
+})
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="多个v-model绑定">多个v-model绑定</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">&lt;</span>div id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;app&#34;</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span>p<span style="color:#ff79c6">&gt;</span>First name {{ firstName }}<span style="color:#ff79c6">&lt;</span>/p&gt;
+        <span style="color:#ff79c6">&lt;</span>p<span style="color:#ff79c6">&gt;</span>Last name {{ lastName }}<span style="color:#ff79c6">&lt;</span>/p&gt;
+        <span style="color:#ff79c6">&lt;</span>user<span style="color:#ff79c6">-</span>name 
+            v<span style="color:#ff79c6">-</span>model<span style="color:#ff79c6">:</span>first<span style="color:#ff79c6">-</span>name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;firstName&#34;</span>
+            v<span style="color:#ff79c6">-</span>model<span style="color:#ff79c6">:</span>last<span style="color:#ff79c6">-</span>name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;lastName&#34;</span>
+        <span style="color:#ff79c6">&gt;&lt;</span>/user-name&gt;
+    <span style="color:#ff79c6">&lt;</span>/div&gt;
+
+    <span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> Vue.createApp({
+        data(){
+            <span style="color:#ff79c6">return</span> {
+                firstName<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;Frank&#39;</span>,
+                lastName<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;John&#39;</span>
+            }
+        }
+    })
+    app.component(<span style="color:#f1fa8c">&#39;user-name&#39;</span>, {
+        props<span style="color:#ff79c6">:</span> {
+            firstName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">String</span>,
+            lastName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">String</span>
+        },
+      <span style="color:#6272a4">/*   emits: [&#39;update:firstName&#39;,&#39;update:lastName&#39;], */</span>
+        template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">            &lt;input
+</span><span style="color:#f1fa8c">                :value=&#34;firstName&#34;
+</span><span style="color:#f1fa8c">                @input=&#34;$emit(&#39;update:firstName&#39;,$event.target.value)&#34;
+</span><span style="color:#f1fa8c">            &gt;
+</span><span style="color:#f1fa8c">            &lt;input
+</span><span style="color:#f1fa8c">                :value=&#34;lastName&#34;
+</span><span style="color:#f1fa8c">                @input=&#34;$emit(&#39;update:lastName&#39;,$event.target.value)&#34;
+</span><span style="color:#f1fa8c">            &gt;
+</span><span style="color:#f1fa8c">        `</span>
+    })
+    app.mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="处理v-model修饰符">处理v-model修饰符</h4>
+<p>v-model修饰符在<code>modelModifiers</code>prop中,若为带参数的<code>v-model</code>绑定，则在<code>args+Modifiers</code>中，实际上v-model修饰符的作用在于<code>if</code>判定，对于有<strong>修饰符</strong>进行特殊处理</p>
+<p>以下实现了首字母大写</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">&lt;!</span>DOCTYPE html<span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span>html lang<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span><span style="color:#ff79c6">&gt;</span>
+<span style="color:#ff79c6">&lt;</span>head<span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>meta charset<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;UTF-8&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>meta http<span style="color:#ff79c6">-</span>equiv<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;X-UA-Compatible&#34;</span> content<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;IE=edge&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>meta name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;viewport&#34;</span> content<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;width=device-width, initial-scale=1.0&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>title<span style="color:#ff79c6">&gt;</span>Document<span style="color:#ff79c6">&lt;</span>/title&gt;
+    <span style="color:#ff79c6">&lt;</span>script src<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://unpkg.com/vue@next&#34;</span><span style="color:#ff79c6">&gt;&lt;</span>/script&gt;
+    <span style="color:#ff79c6">&lt;</span>script src<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js&#34;</span><span style="color:#ff79c6">&gt;&lt;</span>/script&gt;
+<span style="color:#ff79c6">&lt;</span>/head&gt;
+<span style="color:#ff79c6">&lt;</span>body<span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;</span>div id<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;app&#34;</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;</span>p<span style="color:#ff79c6">&gt;</span>First name {{ firstName }}<span style="color:#ff79c6">&lt;</span>/p&gt;
+        <span style="color:#ff79c6">&lt;</span>p<span style="color:#ff79c6">&gt;</span>Last name {{ lastName }}<span style="color:#ff79c6">&lt;</span>/p&gt;
+        <span style="color:#ff79c6">&lt;</span>user<span style="color:#ff79c6">-</span>name 
+            v<span style="color:#ff79c6">-</span>model<span style="color:#ff79c6">:</span>first<span style="color:#ff79c6">-</span>name.trans<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;firstName&#34;</span>
+            v<span style="color:#ff79c6">-</span>model<span style="color:#ff79c6">:</span>last<span style="color:#ff79c6">-</span>name.trans<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;lastName&#34;</span>
+        <span style="color:#ff79c6">&gt;&lt;</span>/user-name&gt;
+    <span style="color:#ff79c6">&lt;</span>/div&gt;
+<span style="color:#ff79c6">&lt;</span>/body&gt;
+
+<span style="color:#ff79c6">&lt;</span>script<span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">const</span> app <span style="color:#ff79c6">=</span> Vue.createApp({
+        data(){
+            <span style="color:#ff79c6">return</span> {
+                firstName<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;Frank&#39;</span>,
+                lastName<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;John&#39;</span>
+            }
+        }
+    })
+    app.component(<span style="color:#f1fa8c">&#39;user-name&#39;</span>, {
+        props<span style="color:#ff79c6">:</span> {
+            firstName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">String</span>,
+            lastName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">String</span>,
+            firstNameModifiers<span style="color:#ff79c6">:</span>{
+                <span style="color:#ff79c6">default</span><span style="color:#ff79c6">:</span> () =&gt; ({})
+            },
+            lastNameModifiers<span style="color:#ff79c6">:</span> {
+                <span style="color:#ff79c6">default</span><span style="color:#ff79c6">:</span> () =&gt; ({})
+            }
+        },
+        methods<span style="color:#ff79c6">:</span> {
+            changeFirstName(e){
+                <span style="color:#8be9fd;font-style:italic">let</span> value <span style="color:#ff79c6">=</span> e.target.value
+                console.log(value)
+                <span style="color:#ff79c6">if</span>(<span style="color:#ff79c6">this</span>.firstNameModifiers.trans){
+                    value <span style="color:#ff79c6">=</span> value.charAt(<span style="color:#bd93f9">0</span>).toUpperCase() <span style="color:#ff79c6">+</span> value.slice(<span style="color:#bd93f9">1</span>)
+                }
+                <span style="color:#ff79c6">this</span>.$emit(<span style="color:#f1fa8c">&#39;update:firstName&#39;</span>, value)
+            },
+            changeLastName(e){
+                <span style="color:#8be9fd;font-style:italic">let</span> value <span style="color:#ff79c6">=</span> e.target.value
+                console.log(value)
+                <span style="color:#ff79c6">if</span>(<span style="color:#ff79c6">this</span>.lastNameModifiers.trans){
+                    value <span style="color:#ff79c6">=</span> value.charAt(<span style="color:#bd93f9">0</span>).toUpperCase() <span style="color:#ff79c6">+</span> value.slice(<span style="color:#bd93f9">1</span>)
+                }
+                <span style="color:#ff79c6">this</span>.$emit(<span style="color:#f1fa8c">&#39;update:lastName&#39;</span>, value)
+            }
+        },
+      <span style="color:#6272a4">/*   emits: [&#39;update:firstName&#39;,&#39;update:lastName&#39;], */</span>
+        template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">            &lt;input
+</span><span style="color:#f1fa8c">                :value=&#34;firstName&#34;
+</span><span style="color:#f1fa8c">                @input=&#34;changeFirstName&#34;
+</span><span style="color:#f1fa8c">            &gt;
+</span><span style="color:#f1fa8c">            &lt;input
+</span><span style="color:#f1fa8c">                :value=&#34;lastName&#34;
+</span><span style="color:#f1fa8c">                @input=&#34;changeLastName&#34;
+</span><span style="color:#f1fa8c">            &gt;
+</span><span style="color:#f1fa8c">             
+</span><span style="color:#f1fa8c">        `</span>
+    })
+    app.mount(<span style="color:#f1fa8c">&#39;#app&#39;</span>)
+<span style="color:#ff79c6">&lt;</span>/script&gt;
+<span style="color:#ff79c6">&lt;</span>/html&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="插槽-1">插槽</h3>
+<h4 id="插槽内容">插槽内容</h4>
+<p>插槽可以包含任何模板代码，包括 HTML、组件</p>
+<h4 id="渲染作用域">渲染作用域</h4>
+<p><strong>父级模板里的所有内容都是在父级作用域中编译的；</strong></p>
+<p><strong>子模板里的所有内容都是在子作用域中编译的。</strong></p>
+<h4 id="备用内容">备用内容</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">button</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;submit&#34;</span>&gt;
+  &lt;<span style="color:#ff79c6">slot</span>&gt;Submit&lt;/<span style="color:#ff79c6">slot</span>&gt;
+&lt;/<span style="color:#ff79c6">button</span>&gt;
+
+&lt;<span style="color:#ff79c6">submit-button</span>&gt;&lt;/<span style="color:#ff79c6">submit-button</span>&gt;
+当组件中无内容时显示Submit，有内容时显示内容
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="具名插槽">具名插槽</h4>
+<p>具名插槽用于需要多插槽的场景</p>
+<p>插槽具有<code>name</code>属性，用<code>&lt;template&gt;</code>和<code>v-slot</code>来对应</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">//html
+&lt;<span style="color:#ff79c6">base-layout</span>&gt;
+  &lt;<span style="color:#ff79c6">template</span> <span style="color:#50fa7b">v-slot:header</span>&gt;
+    &lt;<span style="color:#ff79c6">h1</span>&gt;Here might be a page title&lt;/<span style="color:#ff79c6">h1</span>&gt;
+  &lt;/<span style="color:#ff79c6">template</span>&gt;
+
+  &lt;<span style="color:#ff79c6">template</span> <span style="color:#50fa7b">v-slot:default</span>&gt;
+    &lt;<span style="color:#ff79c6">p</span>&gt;A paragraph for the main content.&lt;/<span style="color:#ff79c6">p</span>&gt;
+    &lt;<span style="color:#ff79c6">p</span>&gt;And another one.&lt;/<span style="color:#ff79c6">p</span>&gt;
+  &lt;/<span style="color:#ff79c6">template</span>&gt;
+
+  &lt;<span style="color:#ff79c6">template</span> <span style="color:#50fa7b">v-slot:footer</span>&gt;
+    &lt;<span style="color:#ff79c6">p</span>&gt;Here&#39;s some contact info&lt;/<span style="color:#ff79c6">p</span>&gt;
+  &lt;/<span style="color:#ff79c6">template</span>&gt;
+&lt;/<span style="color:#ff79c6">base-layout</span>&gt;
+
+//组件
+&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;container&#34;</span>&gt;
+  &lt;<span style="color:#ff79c6">header</span>&gt;
+    &lt;<span style="color:#ff79c6">slot</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;header&#34;</span>&gt;&lt;/<span style="color:#ff79c6">slot</span>&gt;
+  &lt;/<span style="color:#ff79c6">header</span>&gt;
+  &lt;<span style="color:#ff79c6">main</span>&gt;
+    &lt;<span style="color:#ff79c6">slot</span>&gt;&lt;/<span style="color:#ff79c6">slot</span>&gt;
+  &lt;/<span style="color:#ff79c6">main</span>&gt;
+  &lt;<span style="color:#ff79c6">footer</span>&gt;
+    &lt;<span style="color:#ff79c6">slot</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;footer&#34;</span>&gt;&lt;/<span style="color:#ff79c6">slot</span>&gt;
+  &lt;/<span style="color:#ff79c6">footer</span>&gt;
+&lt;/<span style="color:#ff79c6">div</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="provideinject">Provide/Inject</h3>
+<p>适用于跨级传参/接受参数</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">app.component(<span style="color:#f1fa8c">&#39;todo-list&#39;</span>, {
+  data() {
+    <span style="color:#ff79c6">return</span> {
+      todos<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;Feed a cat&#39;</span>, <span style="color:#f1fa8c">&#39;Buy tickets&#39;</span>]
+    }
+  },
+  provide() {
+    <span style="color:#ff79c6">return</span> {
+      todoLength<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">this</span>.todos.length
+    }
+  },
+  template<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">`
+</span><span style="color:#f1fa8c">    ...
+</span><span style="color:#f1fa8c">  `</span>
+})
+</code></pre></td></tr></table>
+</div>
+</div><p><code>provide/inject</code> 绑定<em><strong>并不是</strong></em>响应式的</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">app.component(<span style="color:#f1fa8c">&#39;todo-list&#39;</span>, {
+  <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>  provide() {
+    <span style="color:#ff79c6">return</span> {
+      todoLength<span style="color:#ff79c6">:</span> Vue.computed(() =&gt; <span style="color:#ff79c6">this</span>.todos.length)
+    }
+  }
+})
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="动态组件异步组件">动态组件&amp;异步组件</h3>
+<h4 id="keep-alive">keep-alive</h4>
+<p>使用keep-alive可以让组件失活，即在第一次创建后缓存下来</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">keep-alive</span>&gt;
+    &lt;<span style="color:#ff79c6">component</span> <span style="color:#50fa7b">:is</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;getCurrentTag&#34;</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;tag&#34;</span>&gt;&lt;/<span style="color:#ff79c6">component</span>&gt;
+&lt;/<span style="color:#ff79c6">keep-alive</span>&gt; 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="异步组件待补">异步组件（待补）</h4>
+<p>待补</p>
+<h3 id="模板引用">模板引用</h3>
+<p><code>ref</code>为子组件的直接引用提供了id，其位于<code>$refs</code>上</p>
+<p><strong>Tips:</strong><code>$refs</code> 只会在组件渲染完成之后生效，应避免在模板或计算属性中使用</p>
+<h2 id="过渡动画待补">过渡&amp;动画（待补）</h2>
+<h3 id="单元素组件的过渡">单元素/组件的过渡</h3>
+<h4 id="过渡class">过渡class</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">transiton</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;name&#39;</span>&gt;&lt;/<span style="color:#ff79c6">transiton</span>&gt; 默认name为v
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://v3.cn.vuejs.org/images/transitions.svg" alt="Transition Diagram"></p>
+<h2 id="可复用组合">可复用&amp;组合</h2>
+<h2 id="axios">axios</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">axios({
+    method<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;请求类型&#39;</span>,
+    url<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;URL&#39;</span>
+    
+    params<span style="color:#ff79c6">:</span> {
+
+	}
+}).then((result) =&gt; {
+    <span style="color:#6272a4">//result为请求结果
+</span><span style="color:#6272a4"></span>})
+
+方法返回值为Promise可以用await,await将其转换为一个值
+
+addEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>,<span style="color:#ff79c6">async</span> <span style="color:#8be9fd;font-style:italic">function</span>(){
+    <span style="color:#ff79c6">const</span> { data } <span style="color:#ff79c6">=</span> ...
+    <span style="color:#ff79c6">const</span> result <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> axios({
+        method<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;GET&#39;</span>,
+        url<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;URL&#39;</span>,
+        params<span style="color:#ff79c6">:</span> {
+			name<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;qwq&#39;</span>
+        }
+    })
+})
+请求数据储存在result.data中
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="解构赋值重命名">解构赋值(重命名)</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">addEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>,<span style="color:#ff79c6">async</span> <span style="color:#8be9fd;font-style:italic">function</span>(){
+    <span style="color:#ff79c6">const</span> { data<span style="color:#ff79c6">:</span> res } <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> axios({
+        method<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;GET&#39;</span>,
+        url<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;URL&#39;</span>,
+        params<span style="color:#ff79c6">:</span> {
+			name<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;qwq&#39;</span>
+        }
+    })
+    consolo.log(res.data)
+})
+</code></pre></td></tr></table>
+</div>
+</div><p>直接get or post</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">document</span>.querySelector(<span style="color:#f1fa8c">&#39;#btn&#39;</span>).addEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>,<span style="color:#ff79c6">async</span> <span style="color:#8be9fd;font-style:italic">function</span>(){
+    <span style="color:#ff79c6">const</span> {data<span style="color:#ff79c6">:</span> res} <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> axios.get(<span style="color:#f1fa8c">&#39;http://www.liulongbin.top:3006/api/getbooks&#39;</span>,{
+        params<span style="color:#ff79c6">:</span> {bookname<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;西游记&#39;</span>}
+    })
+    console.log(res.data)
+})
+
+<span style="color:#8be9fd;font-style:italic">document</span>.querySelector(<span style="color:#f1fa8c">&#39;#btn&#39;</span>).addEventListener(<span style="color:#f1fa8c">&#39;click&#39;</span>,<span style="color:#ff79c6">async</span> <span style="color:#8be9fd;font-style:italic">function</span>(){
+    <span style="color:#ff79c6">const</span> {data<span style="color:#ff79c6">:</span> res} <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> axios.get(<span style="color:#f1fa8c">&#39;http://www.liulongbin.top:3006/api/getbooks&#39;</span>,{
+        data<span style="color:#ff79c6">:</span> {bookname<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;西游记&#39;</span>}
+    })
+    console.log(res.data)
+})
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="生命周期">生命周期</h2>
+      </article>
+    </section>
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 小柴Yeah</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/img/wushilan.jpg" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">小柴Yeah<span class="sub header">The time is no time, when it is past</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="所有分类"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="所有标签"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/react/" title="React">
+              React
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tag1/" title="tag1">
+              tag1
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tag2/" title="tag2">
+              tag2
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+    
+
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:lxy-littlechai@qq.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  
+  
+
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:lxy-littlechai@qq.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="搜索" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/lxy-littlechai.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    
+
+    <script>
+  window.background = "#fff"
+  window.defaultDark =  null 
+  window.backgroundDark = "#222"
+  window.backgroundImageDark = "/img/background.jpg"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+  window.fixedNav =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
+
+<script>
+  format()
+
+  function format() {
+    $('span[data-format="luxon"]').each(function () {
+      var date = $(this).text()
+
+      $(this).text(luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日"))
+    })
+  }
+</script>
+
+
+
+<script src="/js/scrollToTop.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>

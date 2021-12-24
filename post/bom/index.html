@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bom | 小柴Yeah</title>
+
+    
+
+
+
+<meta name="author" content="guole" />
+<meta name="description" content="小柴&#39;s Blog" />
+
+
+
+<meta name="generator" content="Hugo 0.85.0" />
+
+<link rel="canonical" href="https://lxy-littlechai.github.io/post/bom/" />
+
+
+<meta property="og:title" content="Bom" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lxy-littlechai.github.io/post/bom/" /><meta property="og:image" content="https://lxy-littlechai.github.io/img/background.jpg"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-31T19:11:39+08:00" />
+<meta property="article:modified_time" content="2021-08-31T19:11:39+08:00" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lxy-littlechai.github.io/img/background.jpg"/>
+
+<meta name="twitter:title" content="Bom"/>
+<meta name="twitter:description" content=""/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.item, .ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.item, .ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.item, .ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #fff;
+    
+
+    
+    background-image: url(/img/background.jpg);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: #222;
+    
+
+    
+    background-image: url(/img/background.jpg);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu dream-nav">
+
+  <a class="item dream-flip-toggle" title="翻转！">
+    <i class="large link bullseye icon"></i>
+  </a>
+  <a class="item" href="https://lxy-littlechai.github.io/" title="首页">
+    <i class="large link home icon"></i>
+  </a>
+  
+  <a class="item" onclick="themeSwitch(event)">
+    <i class="large link icon theme-switch"></i>
+  </a>
+  
+  
+  <a class="item" title="搜索" onclick="toggleSearch(event)">
+    <i class="large link search icon"></i>
+  </a>
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#窗口大小">窗口大小</a></li>
+        <li><a href="#视口位置">视口位置</a></li>
+        <li><a href="#导航与打开新窗口">导航与打开新窗口</a></li>
+        <li><a href="#弹窗屏蔽程序">弹窗屏蔽程序</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#查询字符串">查询字符串</a></li>
+        <li><a href="#修改地址">修改地址</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#检测插件">检测插件</a></li>
+        <li><a href="#注册处理程序">注册处理程序</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#导航">导航</a></li>
+        <li><a href="#历史状态管理-">历史状态管理 ？？？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui top attached segment">
+      <header>
+        <h1 class="ui large header">Bom<span class="sub header">
+            <span class="left">
+              @
+              
+                guole
+              
+
+              | 
+                  <span data-format="luxon">2021-08-31T19:11:39&#43;08:00</span>
+                
+
+              | 3 分钟阅读
+
+              
+              | 更新于
+                
+                  <span data-format="luxon">2021-08-31T19:11:39&#43;08:00</span>
+                
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="保存为图片" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=Bom&url=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fbom%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fbom%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+
+        <h1 id="window对象">Window对象</h1>
+<h3 id="窗口大小">窗口大小</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">outerWidth 和 outerHeight返回浏览器窗口自身的大小
+innerWidth 和 innerHeight返回浏览器窗口中页面视口的大小（不包括浏览器边框和工具栏）
+<span style="color:#8be9fd;font-style:italic">document</span>.documentElement.clientWidth 和 <span style="color:#8be9fd;font-style:italic">document</span>.documentElement.clientHeight 返回页面视口的宽高
+</code></pre></td></tr></table>
+</div>
+</div><p>确定页面视口大小</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">let</span> pageHeight <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.innerHeight;
+        <span style="color:#8be9fd;font-style:italic">let</span> pageWidth <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.innerWidth;
+
+        <span style="color:#ff79c6">if</span>(<span style="color:#ff79c6">typeof</span> pageHeight <span style="color:#ff79c6">!=</span> <span style="color:#f1fa8c">&#34;number&#34;</span>) {<span style="color:#6272a4">//检查页面是否处于标准模式
+</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">if</span>(<span style="color:#8be9fd;font-style:italic">document</span>.compatMode <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;CSS1Compat&#34;</span>) {<span style="color:#6272a4">//移动设备浏览器兼容处理
+</span><span style="color:#6272a4"></span>                pageHeight <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.documentElement.clientHeight;
+                pageWidth <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.documentElement.clientWidth;
+            } <span style="color:#ff79c6">else</span> {
+                pageHeight <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.body.clientHeight;
+                pageWidth <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">document</span>.body.clientWidth;
+            }
+        }
+</code></pre></td></tr></table>
+</div>
+</div><p>缩放方法</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">window</span>.resizeTo(x, y);缩放到
+<span style="color:#8be9fd;font-style:italic">window</span>.resizeBy(x, y);缩放<span style="color:#ff79c6">+</span>
+可能被浏览器禁用
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="视口位置">视口位置</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">window</span>.scrollBy(x, y);相对当前视口滑动
+<span style="color:#8be9fd;font-style:italic">window</span>.scrollTo(x, y);滚到据屏幕左边x顶边y的位置
+
+平滑活动设置 behavior
+正常滚动：
+<span style="color:#8be9fd;font-style:italic">window</span>.scrollBy({
+	left<span style="color:#ff79c6">:</span> x,
+	top<span style="color:#ff79c6">:</span> y,
+	behavior<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;auto&#39;</span>
+});
+平滑滑动
+<span style="color:#8be9fd;font-style:italic">window</span>.scrollBy({
+	left<span style="color:#ff79c6">:</span> x,
+	top<span style="color:#ff79c6">:</span> y,
+	behavior<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;smooth&#39;</span>
+});
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="导航与打开新窗口">导航与打开新窗口</h3>
+<p>window.open(<strong>URL</strong>、目标窗口、<strong>特性字符串</strong>、表示新窗口在浏览器历史记录中是否替代当前加载页的bool值)，通常只用前三个参数，最后一个只有在不打开新窗口时才会使用</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">window.open(&#34;http://www.wrox.com&#34;,&#34;topFrame&#34;); 等价于
+&lt;a href=&#34;http://www.wrox.com&#34; target=&#34;topFrame&#34;&gt;&lt;/a&gt;相同
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>特性字符串</strong></p>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fullscreen</td>
+<td>yes 或 no</td>
+<td>表示窗口是否最大化，<strong>仅IE支持</strong></td>
+</tr>
+<tr>
+<td>height</td>
+<td></td>
+<td>值必须大于等于100</td>
+</tr>
+<tr>
+<td>left</td>
+<td></td>
+<td>x轴坐标</td>
+</tr>
+<tr>
+<td>location</td>
+<td></td>
+<td>是否显示地址栏，各浏览器默认不同</td>
+</tr>
+<tr>
+<td>Menubar</td>
+<td>yes 或 no</td>
+<td>是否显示菜单栏，默认为no</td>
+</tr>
+</tbody>
+</table>
+<p>等等</p>
+<p>一个例子</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">window</span>.open(<span style="color:#f1fa8c">&#34;http://www.wrox.com&#34;</span>,<span style="color:#f1fa8c">&#34;topFrame&#34;</span>,
+                    <span style="color:#f1fa8c">&#34;height=400, width=400, top=10, left=10, resizeable=yes&#34;</span>);
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="windowclose">window.close</h4>
+<p>只能用于关闭window.open()创建的窗口，关闭窗口后，窗口的引用虽然还在，但只能用于检查其**closed(是否已关闭)**属性。</p>
+<h4 id="windowopener">window.opener</h4>
+<p>指向打开它的窗口的指针，将其设为null，表示新打开的标签页可以运行在独立的进程中。</p>
+<h3 id="弹窗屏蔽程序">弹窗屏蔽程序</h3>
+<h4 id="检查弹窗是否被屏蔽">检查弹窗是否被屏蔽</h4>
+<p>如果被屏蔽，window.open()很可能返回null</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">let</span> wrox <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.open(<span style="color:#f1fa8c">&#34;http://www.wrox.com&#34;</span>,<span style="color:#f1fa8c">&#34;topFrame&#34;</span>);
+<span style="color:#ff79c6">if</span>(wrox <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span>) {
+    alert(<span style="color:#f1fa8c">&#34;the popup was blocked!&#34;</span>);
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>但实际上，在浏览器扩展或其他程序屏蔽弹窗时window.open()通常会抛出错误。因此要准确检测弹窗是否被屏蔽，还要用try/catch包装起来</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">let</span> blocked <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">false</span>;
+<span style="color:#ff79c6">try</span> {
+    <span style="color:#8be9fd;font-style:italic">let</span> wrox <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">window</span>.open(<span style="color:#f1fa8c">&#34;http://www.wrox.com&#34;</span>,<span style="color:#f1fa8c">&#34;topFrame&#34;</span>);
+    <span style="color:#ff79c6">if</span>(wrox <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span>) {
+        blocked <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span>;
+    }
+} <span style="color:#ff79c6">catch</span>(ex) {
+    blocked <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span>;
+}
+<span style="color:#ff79c6">if</span>(blocked) {
+    alert(<span style="color:#f1fa8c">&#34;the popup was blocked!&#34;</span>);
+}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="location对象">location对象</h1>
+<h3 id="查询字符串">查询字符串</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">let</span> getQueryStringArgs <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>() {
+	<span style="color:#8be9fd;font-style:italic">let</span> qs <span style="color:#ff79c6">=</span> (location.search.length <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">?</span> location.search.substring(<span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;&#34;</span>);
+    <span style="color:#8be9fd;font-style:italic">let</span> args <span style="color:#ff79c6">=</span> {};
+    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd;font-style:italic">let</span> item <span style="color:#ff79c6">of</span> qs.split(<span style="color:#f1fa8c">&#34;&amp;&#34;</span>).map(kv =&gt; kv.split(<span style="color:#f1fa8c">&#34;=&#34;</span>))) {
+		<span style="color:#8be9fd;font-style:italic">let</span> name <span style="color:#ff79c6">=</span> item[<span style="color:#bd93f9">0</span>];
+        <span style="color:#8be9fd;font-style:italic">let</span> value <span style="color:#ff79c6">=</span> item[<span style="color:#bd93f9">1</span>];
+        <span style="color:#ff79c6">if</span>(name.length) {
+			args[name] <span style="color:#ff79c6">=</span> value;
+        }
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>URLSearchParams支持检查和修改查询字符串，给其传入一个查询字符串就可以创造一个实例，该实例上有get(), set(), has(), delete()等方法</p>
+<h3 id="修改地址">修改地址</h3>
+<h4 id="hrefassign">href,assign</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">location.href <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;http://www.wrox.com&#34;</span>;
+location.assign(<span style="color:#f1fa8c">&#34;http://www.wrox.com&#34;</span>);
+<span style="color:#8be9fd;font-style:italic">window</span>.location <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;http://www.wrox.com&#34;</span>;
+修改location的属性也会修改当前加载的页面
+tips：修改hash的值会在浏览器历史中增加一条新纪录
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="replace">replace</h4>
+<p>若不希望增加历史记录，可使用location.replace(),但调用后用户不能回到前一页</p>
+<h4 id="reload">reload()</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">location.reload(); 重新加载，可能从缓存加载
+location.reload(<span style="color:#ff79c6">true</span>); 重新加载，从服务器加载
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="navigator对象">navigator对象</h1>
+<h3 id="检测插件">检测插件</h3>
+<p>IE11及以上可用plugins数组确定，包括一下属性</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">name 插件名称
+description 插件介绍
+filename 插件的文件名
+length 由当前插件处理的MIME类型数量
+</code></pre></td></tr></table>
+</div>
+</div><p>插件检测</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8be9fd;font-style:italic">let</span> hasPlugin <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(name) {
+    name <span style="color:#ff79c6">=</span> name.toLowerCase();
+    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd;font-style:italic">let</span> plugin <span style="color:#ff79c6">of</span> <span style="color:#8be9fd;font-style:italic">window</span>.navigator.plugins) {
+        <span style="color:#ff79c6">if</span>(plugin.name.toLowerCase().indexOf(name) <span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>){
+            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+        }
+    }
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="注册处理程序">注册处理程序</h3>
+<p>registerProtocolHandler();</p>
+<h1 id="screen对象">screen对象</h1>
+<p>显示器信息</p>
+<h1 id="history对象">history对象</h1>
+<h3 id="导航">导航</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">history.go(<span style="color:#bd93f9">2</span>) 前进2页
+history.go(<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2</span>) 后退2页
+history.forward() 前进1页
+history.back() 后退1页
+history.length 表示历史记录中有多少个条目
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="历史状态管理-">历史状态管理 ？？？</h3>
+      </article>
+    </section>
+
+    
+
+    
+
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2021 小柴Yeah</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/img/wushilan.jpg" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">小柴Yeah<span class="sub header">The time is no time, when it is past</span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="所有分类"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="所有标签"></i>
+      </a>
+    </article>
+
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+    
+
+    
+
+    
+    
+    
+          <div class="dream-tags">
+          
+          
+          
+            <a class="ui label" href="/tags/react/" title="React">
+              React
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tag1/" title="tag1">
+              tag1
+            </a>
+          
+          
+          
+            <a class="ui label" href="/tags/tag2/" title="tag2">
+              tag2
+            </a>
+          
+          </div>
+    
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+    
+
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:lxy-littlechai@qq.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  
+  
+
+  
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:lxy-littlechai@qq.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a class="item" href="https://github.com/https://github.com/lxy-littlechai" target="_blank">
+    <i class="large github icon" title="GitHub"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    
+    <div class="ui segment" id="dream-search">
+  <div class="ui search">
+    <div class="ui transparent input">
+      <input class="prompt" type="text" placeholder="搜索" />
+    </div>
+    <div class="results"></div>
+  </div>
+</div>
+<script>
+  $(document).ready(function () {
+    $.getJSON('https:\/\/lxy-littlechai.github.io\//index.json', function (data) {
+      $('.ui.search').search({
+        source: data,
+        searchFields: ['title'],
+        showNoResults: false,
+      })
+    })
+  })
+</script>
+<script src="/js/search.js"></script>
+
+    
+
+    
+
+    <script>
+  window.background = "#fff"
+  window.defaultDark =  null 
+  window.backgroundDark = "#222"
+  window.backgroundImageDark = "/img/background.jpg"
+  window.darkNav =  true 
+  window.maxTags =  null 
+  window.hasTwitterEmbed =  null 
+  window.fixedNav =  null 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
+
+<script>
+  format()
+
+  function format() {
+    $('span[data-format="luxon"]').each(function () {
+      var date = $(this).text()
+
+      $(this).text(luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日"))
+    })
+  }
+</script>
+
+
+
+<script src="/js/scrollToTop.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>
