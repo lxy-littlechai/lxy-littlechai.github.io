@@ -17,23 +17,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>tag1</title>
-      <link>https://lxy-littlechai.github.io/tags/tag1/</link>
-      <pubDate>Sat, 06 Nov 2021 16:54:13 +0800</pubDate>
-      
-      <guid>https://lxy-littlechai.github.io/tags/tag1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag2</title>
-      <link>https://lxy-littlechai.github.io/tags/tag2/</link>
-      <pubDate>Sat, 06 Nov 2021 16:54:13 +0800</pubDate>
-      
-      <guid>https://lxy-littlechai.github.io/tags/tag2/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
