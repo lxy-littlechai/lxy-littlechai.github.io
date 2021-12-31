@@ -122,6 +122,20 @@
   <ul>
     <li><a href="#虚拟dom">虚拟DOM</a></li>
     <li><a href="#jsx语法">JSX语法</a></li>
+    <li><a href="#生命周期">生命周期</a></li>
+    <li><a href="#dom的diff算法">DOM的diff算法</a>
+      <ul>
+        <li><a href="#key的作用">key的作用</a></li>
+        <li><a href="#用index作为key可能引发的问题">用index作为key可能引发的问题</a></li>
+        <li><a href="#开发中如何选择key">开发中如何选择key</a></li>
+      </ul>
+    </li>
+    <li><a href="#react脚手架配置代理">React脚手架配置代理</a>
+      <ul>
+        <li><a href="#1packagejson配置proxy">1.package.json配置proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#2setupproxyjs">2.setupProxy.js</a></li>
   </ul>
 </nav>
     </div>
@@ -144,7 +158,7 @@
                   <span data-format="luxon">2021-12-06T21:23:51&#43;08:00</span>
                 
 
-              | 1 分钟阅读
+              | 3 分钟阅读
 
               
               | 更新于
@@ -174,6 +188,8 @@
 
       <article class="main">
         
+        <img class="cover" src="#ZgotmplZ" />
+        
 
         <p>React</p>
 <h2 id="虚拟dom">虚拟DOM</h2>
@@ -191,6 +207,160 @@
 <li>标签必须闭合</li>
 <li>标签首字母自定义的要大写</li>
 </ul>
+<h2 id="生命周期">生命周期</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-react" data-lang="react">#初始化阶段
+<span style="color:#bd93f9">1</span>、constructor()
+<span style="color:#bd93f9">2</span>、componentWillMount() <span style="color:#ff79c6">-&gt;</span> getDerivedStateFromProps()
+<span style="color:#bd93f9">3</span>、render()
+<span style="color:#bd93f9">4</span>、componentDidMount()
+#更新阶段
+<span style="color:#bd93f9">1</span>、shouldComponentUpdate()
+<span style="color:#bd93f9">2</span>、componentWillUpdate() <span style="color:#ff79c6">-&gt;</span> getDerivedStateFromProps()
+<span style="color:#bd93f9">3</span>、render()
+<span style="color:#bd93f9">4</span>、componentDidUpdate(preProps, preState) <span style="color:#ff79c6">-&gt;</span> getSnapshotUpdate()
+#卸载阶段<span style="color:#ff79c6">:</span> ReactDOM.unmountComponentAtNode()
+<span style="color:#bd93f9">1</span>、componentWillUnmount()
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="dom的diff算法">DOM的diff算法</h2>
+<h3 id="key的作用">key的作用</h3>
+<p>key是虚拟DOM对象的标识，在更新显示时key非常重要</p>
+<p>具体的，当状态中数据发生变化时，React会根据【新数据】生成【新虚拟DOM】，随后React进行<strong>新旧DOM的diff比较</strong>，规则如下：</p>
+<ul>
+<li>
+<p>旧虚拟DOM中找到了与新虚拟DOM相同的key：</p>
+<ul>
+<li>虚拟DOM中内容没变，则使用之前的真实DOM</li>
+<li>虚拟DOM中内容改变，则生成新的真实DOM，随后替换掉页面中之前的真实DOM</li>
+</ul>
+</li>
+<li>
+<p>旧虚拟DOM中未找到与新虚拟DOM相同的key</p>
+<ul>
+<li>根据数据创建新的真实DOM，随后渲染</li>
+</ul>
+</li>
+</ul>
+<h3 id="用index作为key可能引发的问题">用index作为key可能引发的问题</h3>
+<ul>
+<li>
+<p>若对数据进行：逆序添加删除等破坏顺序的操作：</p>
+<p>​	会导致不必要的DOM更新 =&gt;界面无问题，效率低</p>
+</li>
+<li>
+<p>若结构中包括输入类的DOM：</p>
+<p>​	会产生错误DOM更新 =&gt;界面有问题</p>
+</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">虚拟dom
+&lt;<span style="color:#ff79c6">li</span> <span style="color:#50fa7b">key</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">0</span>&gt;小王 &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span>&gt;&lt;/<span style="color:#ff79c6">li</span>&gt;
+
+更新后虚拟dom
+&lt;<span style="color:#ff79c6">li</span> <span style="color:#50fa7b">key</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">0</span>&gt;小张 &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span>&gt;&lt;/<span style="color:#ff79c6">li</span>&gt;
+&lt;<span style="color:#ff79c6">li</span> <span style="color:#50fa7b">key</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">1</span>&gt;小王 &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span>&gt;&lt;/<span style="color:#ff79c6">li</span>&gt;
+
+此时key=0中input标签相同未改变，所以小王的input复用在小张中，但其内容有残留
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="开发中如何选择key">开发中如何选择key</h3>
+<ul>
+<li>最好使用唯一标识</li>
+</ul>
+<h2 id="react脚手架配置代理">React脚手架配置代理</h2>
+<h3 id="1packagejson配置proxy">1.package.json配置proxy</h3>
+<p><strong>配置一个代理！</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">#package.json中
+<span style="color:#f1fa8c">&#34;proxy&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5000&#34;</span>
+
+#当在<span style="color:#bd93f9">3000</span>中未发现该文件时，会向<span style="color:#bd93f9">5000</span>请求
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">axios.get(<span style="color:#f1fa8c">&#39;http://localhost:3000/students&#39;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2setupproxyjs">2.setupProxy.js</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">const</span> proxy <span style="color:#ff79c6">=</span> require(<span style="color:#f1fa8c">&#39;http-proxy-middleware&#39;</span>)
+
+module.exports <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span> (app) {
+  app.use(
+    proxy(<span style="color:#f1fa8c">&#39;/api1&#39;</span>, {<span style="color:#6272a4">//遇见/api1前缀的请求。就会触发该代理
+</span><span style="color:#6272a4"></span>      target<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;http://localhost:5000&#39;</span>,<span style="color:#6272a4">//转发目标
+</span><span style="color:#6272a4"></span>      changeOrigin<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>,<span style="color:#6272a4">//控制服务器收到的响应头中Host字段的值
+</span><span style="color:#6272a4"></span>      pathRewrite<span style="color:#ff79c6">:</span> { <span style="color:#f1fa8c">&#39;^/api1&#39;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span> }
+    }),
+    proxy(<span style="color:#f1fa8c">&#39;/api2&#39;</span>, {
+      target<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;http://localhost:5001&#39;</span>,
+      changeOrigin<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">true</span>,
+      pathRewrite<span style="color:#ff79c6">:</span> { <span style="color:#f1fa8c">&#39;^/api1&#39;</span><span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span> }
+    }),
+  )
+}
+</code></pre></td></tr></table>
+</div>
+</div>
       </article>
     </section>
 
@@ -205,7 +375,7 @@
 
             <footer class="ui basic center aligned segment" style="background-color: transparent;">
               
-              <p>© 2021 小柴Yeah</p>
+              <p>© 2021 - 2022 小柴Yeah</p>
               
 
               <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
