@@ -136,6 +136,11 @@
       </ul>
     </li>
     <li><a href="#2setupproxyjs">2.setupProxy.js</a></li>
+    <li><a href="#消息订阅-发布机制">消息订阅-发布机制</a>
+      <ul>
+        <li><a href="#pubsub">PubSub</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -358,6 +363,44 @@ module.exports <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;f
     }),
   )
 }
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="消息订阅-发布机制">消息订阅-发布机制</h2>
+<h3 id="pubsub">PubSub</h3>
+<h4 id="安装">安装</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">npm install pubsub-js
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="使用">使用</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ff79c6">import</span> PubSub from <span style="color:#f1fa8c">&#39;pubsub-js&#39;</span>
+#创建订阅
+<span style="color:#8be9fd;font-style:italic">var</span> token <span style="color:#ff79c6">=</span> Pubsub.subscribe(name, <span style="color:#8be9fd;font-style:italic">function</span>)
+#发布订阅
+PubSub.publish(name, content)
+#取消订阅
+根据name
+PubSub.unsubscribe(token)
+根据function
+PubSub.unsubscribe(<span style="color:#8be9fd;font-style:italic">function</span>)
 </code></pre></td></tr></table>
 </div>
 </div>
