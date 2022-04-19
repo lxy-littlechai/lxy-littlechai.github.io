@@ -120,17 +120,11 @@
     <div class="ui segment toc">
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-replace-software-sources">1. Replace Software Sources</a></li>
-    <li><a href="#2-clone-picoscenes">2. Clone PicoScenes</a></li>
-    <li><a href="#3install-kernel-linux-image-5140-1024-oem">3.Install kernel linux-image-5.14.0-1024-oem</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#4-install-dependencies">4. Install Dependencies</a></li>
-    <li><a href="#5-install-driver">5. Install Driver</a></li>
-    <li><a href="#6-clone-plugins">6. clone plugins</a></li>
-    <li><a href="#7-build">7. Build</a>
+    <li><a href="#1-clone-picoscenes">1. Clone PicoScenes</a></li>
+    <li><a href="#2-install-dependencies">2. Install Dependencies</a></li>
+    <li><a href="#3-install-driver">3. Install Driver</a></li>
+    <li><a href="#4-clone-plugins">4. clone plugins</a></li>
+    <li><a href="#5-build">5. Build</a>
       <ul>
         <li></li>
       </ul>
@@ -168,7 +162,7 @@
                   <span data-format="luxon">2022-04-01T12:55:56&#43;08:00</span>
                 
 
-              | 2 分钟阅读
+              | 1 分钟阅读
 
               
               | 更新于
@@ -203,27 +197,18 @@
 
         <p>Poor installation instruction will drive users crazy!!!</p>
 <h1 id="installation">Installation</h1>
-<h2 id="1-replace-software-sources">1. Replace Software Sources</h2>
-<h2 id="2-clone-picoscenes">2. Clone PicoScenes</h2>
+<h2 id="1-clone-picoscenes">1. Clone PicoScenes</h2>
 <p>Make sure you have been invited to join the gitlab group then run  <code>git clone --recursive https://gitlab.com/wifisensing/PicoScenes.git </code> to clone the project</p>
-<h2 id="3install-kernel-linux-image-5140-1024-oem">3.Install kernel linux-image-5.14.0-1024-oem</h2>
-<h5 id="tips-the-version-of-kernel-needs-to-fit-in-the-picoscenes-ask-teacher-the-version"><strong>Tips: the version of kernel needs to fit in the PicoScenes, ask teacher the version</strong></h5>
-<p>run <code>sudo apt-get install linux-image-</code> and press  <code>Tab </code> to show all avaliable kernel</p>
-<p>run <code>sudo apt-get install sudo apt-get install linux-image-5.14.0-1024-oem</code></p>
-<p>run  <code>dpkg --get-selections | grep linux-image </code> to check if the installation is successful</p>
-<p>run  <code>sudo gedit /etc/default/grub </code> to change the grub: GRUB_CMDLINE_LINUX_DEFAULT= <code>text </code></p>
-<p>run  <code>sudo update-grub </code> to update grub</p>
-<p>run  <code>sudo reboot </code> to reboot your computer</p>
-<h2 id="4-install-dependencies">4. Install Dependencies</h2>
+<h2 id="2-install-dependencies">2. Install Dependencies</h2>
 <p>follow the part of before_script on  <code>https://gitlab.com/wifisensing/release/PicoScenes-Release/-/blob/master/.gitlab-ci.yml </code></p>
-<h2 id="5-install-driver">5. Install Driver</h2>
+<h2 id="3-install-driver">3. Install Driver</h2>
 <p>open <a href="https://ps.zpj.io/installation.html">https://ps.zpj.io/installation.html</a> and go to 5.2.2 section， follow the first four directives</p>
-<h2 id="6-clone-plugins">6. clone plugins</h2>
+<h2 id="4-clone-plugins">4. clone plugins</h2>
 <p>run  <code>git clone https://gitlab.com/wifisensing/PicoScenes-PDK.git </code> to clone the plugins</p>
-<h2 id="7-build">7. Build</h2>
-<h5 id="71-build-picoscenes-pdk">7.1 Build PicoScenes-PDK</h5>
+<h2 id="5-build">5. Build</h2>
+<h5 id="51-build-picoscenes-pdk">5.1 Build PicoScenes-PDK</h5>
 <p>move to the path of PicoScenes-PDK, run <code>./Fast_Build_Install_Plugin.sh</code></p>
-<h5 id="72-build-picoscenes">7.2 Build PicoScenes</h5>
+<h5 id="52-build-picoscenes">5.2 Build PicoScenes</h5>
 <p>move to the path of PicoScenes, run <code>./Fast_Build_Install_PicoScenes.sh</code></p>
 <p><img src="/img/PicoScenes_Install_Instruction.assets/image-20220401132300137.png" alt="image-20220401132300137"></p>
 <p>when you see the interface, press  <code>tab </code> and  <code>enter </code>, then you succeed in installation.
