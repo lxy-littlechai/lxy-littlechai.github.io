@@ -346,3 +346,6 @@ body {
 #dream-search.inverted .results .description {
   color: rgba(255, 255, 255, .6) !important
 }
+.my-card-radius {
+  border-radius: 10px!important;
+}
