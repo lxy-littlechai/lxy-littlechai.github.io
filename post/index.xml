@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;&lt;img alt=&#34;知识共享许可协议&#34; style=&#34;border-width:0&#34; src=&#34;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&#34; /&gt;&lt;/a&gt;&lt;br /&gt;本作品采用&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;进行许可。&lt;br /&gt;&lt;br /&gt;背景使用了 &lt;a href=&#34;https://www.pexels.com/zh-cn/&#34; target=&#34;_blank&#34;&gt;Pexels&lt;/a&gt; 上 &lt;a href=&#34;https://www.pexels.com/zh-cn/@minan1398&#34; target=&#34;_blank&#34;&gt;Min An&lt;/a&gt; 拍摄的&lt;a href=&#34;https://www.pexels.com/zh-cn/photo/1454794/&#34; target=&#34;_blank&#34;&gt;图片&lt;/a&gt;。</copyright>
-    <lastBuildDate>Mon, 06 Dec 2021 21:23:51 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jul 2022 21:54:42 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>html</title>
+      <link>https://lxy-littlechai.github.io/post/html/</link>
+      <pubDate>Sun, 10 Jul 2022 21:54:42 +0800</pubDate>
+      
+      <guid>https://lxy-littlechai.github.io/post/html/</guid>
+      <description>Week 1 HTML tips：想看视频的小伙伴可以b站看一下黑马前端 vscode插件安装 由于我个人是使用vscode写前端代码的，在这里我也只推荐vsco</description>
+    </item>
+    
     <item>
       <title>React</title>
       <link>https://lxy-littlechai.github.io/post/react/</link>
