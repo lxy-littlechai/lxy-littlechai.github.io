@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='RE:从0开始的前端生活
+'><title>Js</title>
+
+<link rel='canonical' href='https://lxy-littlechai.github.io/p/js/'>
+
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='Js'>
+<meta property='og:description' content='RE:从0开始的前端生活
+'>
+<meta property='og:url' content='https://lxy-littlechai.github.io/p/js/'>
+<meta property='og:site_name' content='Example Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-07-15T21:47:29&#43;08:00'/><meta property='article:modified_time' content='2021-07-15T21:47:29&#43;08:00'/>
+<meta name="twitter:title" content="Js">
+<meta name="twitter:description" content="RE:从0开始的前端生活
+">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://lxy-littlechai.github.io/" selected>English</option>
+                        
+                            <option value="https://lxy-littlechai.github.io/zh-cn/" >中文</option>
+                        
+                            <option value="https://lxy-littlechai.github.io/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/web/" >
+                Web
+            </a>
+        
+            <a href="/categories/js/" >
+                js
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/js/">Js</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 15, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>RE:从0开始的前端生活</p>
+<h1 id="js">JS</h1>
+<!-- raw HTML omitted -->
+<h2 id="代理和反射">代理和反射</h2>
+<p>所谓代理，可以类比于C的指针，对代理对象的操作也会反映到目标对象上。但代理更有意义的作用在于可以实时捕获目标对象的行为。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">handle</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="捕获器trap">捕获器trap</h3>
+<p>捕获器为内置，如get(), set()等</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">handle</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">get</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s1">&#39;handle override&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">handle</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span><span class="c1">//bar
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">proxy</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span><span class="c1">//handle override
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="捕获器参数和反射api">捕获器参数和反射API</h3>
+<p>捕获器参数可以捕获操作的值，并借此重建并输出行为，反射API可捕获原方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">handle</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">get</span><span class="p">(</span><span class="nx">trapTarget</span><span class="p">,</span> <span class="nx">property</span><span class="p">,</span> <span class="nx">receiver</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">trapTarget</span><span class="p">[</span><span class="nx">property</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">handle</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">get</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//console what you want
+</span><span class="c1"></span>		<span class="k">return</span> <span class="nx">Reflect</span><span class="p">.</span><span class="nx">get</span><span class="p">(...</span><span class="nx">arguments</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">设置空代理</span>
+<span class="kr">const</span> <span class="nx">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Proxy</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">Reflect</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="代理撤销">代理撤销</h3>
+<p>使用revoke和revocable​</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="p">{</span><span class="nx">proxy</span><span class="p">,</span> <span class="nx">revoke</span><span class="p">}</span> <span class="o">=</span> <span class="nb">Proxy</span><span class="p">.</span><span class="nx">revocable</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">Reflect</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">proxy</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span>
+<span class="nx">revoke</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意，revoke()是幂等的，执行一次后再执行会TyepError</p>
+<h3 id="代理模式">代理模式</h3>
+<p>总之就是在捕获器中写一些骚操作</p>
+<p>例如：属性验证，函数参数验证等</p>
+<h2 id="函数">函数</h2>
+<h3 id="闭包">闭包</h3>
+<p>闭包指的是那些引用了另一个函数作用域中变量的函数</p>
+<p>据我理解，闭包可以简单认为是function套function，为什么要这样做呢？让我们想下函数执行时发生了什么</p>
+<p>————从全局到局部创建相应的上下文</p>
+<p>也就是说，在内部function执行时，会创建外部function的对象，即内部可以引用外部变量（他们在同一条作用域链上</p>
+<h3 id="私有变量">私有变量</h3>
+<h4 id="私有变量放在实例中">私有变量放在实例中</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">Myobject</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="kr">private</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">setprivate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">private</span> <span class="o">=</span> <span class="nx">num</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">getprivate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kr">private</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>该方法将私有变量储存在实例中，各实例私有变量互不干扰。</p>
+<h4 id="静态私有变量">静态私有变量</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="kr">private</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">getprivate</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="kr">private</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nx">setprivate</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>
+        <span class="kr">private</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">MyObject</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){};</span>
+    <span class="nx">MyObject</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">publicMethod</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">getprivate</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="nx">MyObject</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">SetPrivate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setprivate</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})();</span>
+
+<span class="kd">let</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyObject</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyObject</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">publicMethod</span><span class="p">());</span>
+<span class="nx">person2</span><span class="p">.</span><span class="nx">SetPrivate</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="nx">publicMethod</span><span class="p">());</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>该方法将私有变量储存在原型上，各实例私有变量相互干扰。</p>
+<p>ps：我看不懂qwq</p>
+<h3 id="模块模式">模块模式</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">application</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//私有变量和私有函数
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">components</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+
+    <span class="c1">//初始化
+</span><span class="c1"></span>    <span class="nx">components</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">BaseComponent</span><span class="p">());</span>
+
+    <span class="c1">//公共接口
+</span><span class="c1"></span>    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">getComponentCount</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="nx">components</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="nx">registerCompnent</span><span class="p">(</span><span class="nx">component</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">component</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">){</span>
+                <span class="nx">components</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">component</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="模块增强模式">模块增强模式</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">application</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//私有变量和私有函数
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">components</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+
+    <span class="c1">//初始化
+</span><span class="c1"></span>    <span class="nx">components</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">BaseComponent</span><span class="p">());</span>
+
+    <span class="c1">//创建局部变量并保存实例
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BaseComponent</span><span class="p">();</span>
+
+    <span class="c1">//公共接口
+</span><span class="c1"></span>    <span class="nx">app</span><span class="p">.</span><span class="nx">getComponentCount</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">components</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">registerCompnent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">component</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">component</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">){</span>
+            <span class="nx">components</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">component</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="c1">//返回实例
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">app</span><span class="p">;</span>
+<span class="p">}();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>模块增强模式的好处在于，可以额外添加属性或方法。</p>
+<h2 id="关于this">关于This</h2>
+<h3 id="闭包中this丢失解决">闭包中this丢失解决</h3>
+<h4 id="箭头函数">箭头函数</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">cool</span><span class="o">:</span> <span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="const-self--this">const self = this</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">cool</span><span class="o">:</span> <span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">cool</span><span class="p">()</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="bindthis">bind(this)</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">cool</span><span class="o">:</span> <span class="kd">function</span> <span class="nx">fn</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">cool</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="期约与异步函数">期约与异步函数</h2>
+<h3 id="期约">期约</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="期约的状态">期约的状态</h4>
+<ul>
+<li>待定 pending</li>
+<li>兑现 fulfilled/resolved</li>
+<li>拒绝 rejected</li>
+</ul>
+<h4 id="通过执行函数控制期约状态">通过执行函数控制期约状态</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span>
+<span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;ErrorInformation&#39;</span><span class="p">));</span>
+<span class="kd">let</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;ErrorInformation&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：Promise.resolve()是幂等的，但Promise.reject()不是，后者会将其当作错误信息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p1</span> <span class="o">===</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">p1</span><span class="p">));</span><span class="c1">//true
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">()));</span>
+<span class="c1">//Promise { &lt;rejected&gt; Promise { &lt;rejected&gt; undefined } }
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="同步异步执行的二元性">同步/异步执行的二元性</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="k">try</span> <span class="p">{</span>
+	<span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">;)</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span><span class="c1">// Error: foo
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="k">try</span> <span class="p">{</span>
+	<span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">//Uncaught (in promise) Error: bar
+</span></code></pre></td></tr></table>
+</div>
+</div><p>异步错误必须用异步捕获方式</p>
+<h4 id="一些api">一些API</h4>
+<h5 id="promiseprototypethen">Promise.prototype.then()</h5>
+<p>为期约实例添加处理程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{});</span>
+<span class="nx">p1</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">兑现状态处理函数</span><span class="err">，</span><span class="nx">拒绝状态处理函数</span><span class="p">)</span>
+
+<span class="nx">若无返回值</span><span class="err">，</span><span class="nx">则原样后传</span>
+<span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">p2</span> <span class="o">=</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">then</span><span class="p">();</span><span class="c1">//Promise &lt;resolved&gt;: foo
+</span></code></pre></td></tr></table>
+</div>
+</div><h5 id="promiseprototypecatch">Promise.prototype.catch()</h5>
+<p>为reject状态添加处理程序，等价于调用Promise.then(null, onRejected),返回一个新的期约实例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">onRejected</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;rejected&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">p</span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">onRejected</span><span class="p">);</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">onRejected</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{});</span>
+<span class="kd">let</span> <span class="nx">p2</span> <span class="o">=</span> <span class="nx">p1</span><span class="p">.</span><span class="k">catch</span><span class="p">();</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">p2</span><span class="p">);</span><span class="c1">//Promise &lt;pending&gt;
+</span><span class="c1"></span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">p1</span><span class="p">);</span><span class="c1">//Promise &lt;pending&gt;
+</span><span class="c1"></span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">p1</span> <span class="o">==</span> <span class="nx">p2</span><span class="p">);</span> <span class="c1">//false
+</span></code></pre></td></tr></table>
+</div>
+</div><h5 id="promiseprotypefinally">Promise.protype.finally()</h5>
+<p>给期约添加onFinally处理程序，其在期约转换为解决或拒绝状态时都会执行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">p1</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+<span class="nx">p1</span><span class="p">.</span><span class="k">finally</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Finally&#39;</span><span class="p">));</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>finally()的返回值大多数情况下表现为父期约的传递。若返回的是待定期约获知onfinally()处理程序抛出错误（显式抛出或返回拒绝期约），则会返回相应期约。</p>
+<h5 id="promiseall-合成期约">promise.all() 合成期约</h5>
+<p>promise,all()返回一个新期约，其会在一组期约全部解决完后再解决。</p>
+<p>如果所有期约都解决，那么合成期约的解决值就是所有包含期约解决值得数组。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">function1</span><span class="p">,</span> <span class="nx">function2</span><span class="p">]);</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">()</span>
+<span class="p">]);</span>
+<span class="nx">p</span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">values</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">values</span><span class="p">));</span>
+<span class="c1">//[ 1, 2, undefined ]
+</span></code></pre></td></tr></table>
+</div>
+</div><p>如果有期约拒绝，则第一个期约拒绝的reason为合成期约拒绝得reason，且不影响后续的期约。合成期约会<strong>静默处理</strong>包含期约的拒绝操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">reject</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)),</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">]);</span>
+<span class="nx">p</span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">reason</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">reason</span><span class="p">));</span>
+<span class="c1">//3
+</span></code></pre></td></tr></table>
+</div>
+</div><h5 id="promiserace">promise.race()</h5>
+<p>返回一个包装期约，是一组期约中最先解决或拒绝的期约的镜像，其它静默处理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">function1</span><span class="p">,</span> <span class="nx">function2</span><span class="p">]);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/bom/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Bom</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 Example Site
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.12.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#代理和反射">代理和反射</a>
+      <ol>
+        <li><a href="#捕获器trap">捕获器trap</a></li>
+        <li><a href="#捕获器参数和反射api">捕获器参数和反射API</a></li>
+        <li><a href="#代理撤销">代理撤销</a></li>
+        <li><a href="#代理模式">代理模式</a></li>
+      </ol>
+    </li>
+    <li><a href="#函数">函数</a>
+      <ol>
+        <li><a href="#闭包">闭包</a></li>
+        <li><a href="#私有变量">私有变量</a>
+          <ol>
+            <li><a href="#私有变量放在实例中">私有变量放在实例中</a></li>
+            <li><a href="#静态私有变量">静态私有变量</a></li>
+          </ol>
+        </li>
+        <li><a href="#模块模式">模块模式</a></li>
+        <li><a href="#模块增强模式">模块增强模式</a></li>
+      </ol>
+    </li>
+    <li><a href="#关于this">关于This</a>
+      <ol>
+        <li><a href="#闭包中this丢失解决">闭包中this丢失解决</a>
+          <ol>
+            <li><a href="#箭头函数">箭头函数</a></li>
+            <li><a href="#const-self--this">const self = this</a></li>
+            <li><a href="#bindthis">bind(this)</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#期约与异步函数">期约与异步函数</a>
+      <ol>
+        <li><a href="#期约">期约</a>
+          <ol>
+            <li><a href="#期约的状态">期约的状态</a></li>
+            <li><a href="#通过执行函数控制期约状态">通过执行函数控制期约状态</a></li>
+            <li><a href="#同步异步执行的二元性">同步/异步执行的二元性</a></li>
+            <li><a href="#一些api">一些API</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,21 +1,81 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Sciences on 小柴Yeah</title>
-    <link>https://lxy-littlechai.github.io/science/</link>
-    <description>Recent content in Sciences on 小柴Yeah</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hans</language>
-    <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;&lt;img alt=&#34;知识共享许可协议&#34; style=&#34;border-width:0&#34; src=&#34;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&#34; /&gt;&lt;/a&gt;&lt;br /&gt;本作品采用&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;进行许可。&lt;br /&gt;&lt;br /&gt;背景使用了 &lt;a href=&#34;https://www.pexels.com/zh-cn/&#34; target=&#34;_blank&#34;&gt;Pexels&lt;/a&gt; 上 &lt;a href=&#34;https://www.pexels.com/zh-cn/@minan1398&#34; target=&#34;_blank&#34;&gt;Min An&lt;/a&gt; 拍摄的&lt;a href=&#34;https://www.pexels.com/zh-cn/photo/1454794/&#34; target=&#34;_blank&#34;&gt;图片&lt;/a&gt;。</copyright>
-    <lastBuildDate>Fri, 01 Apr 2022 12:55:56 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/science/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>PicoScenes</title>
-      <link>https://lxy-littlechai.github.io/science/picoscenes_install_instruction/</link>
-      <pubDate>Fri, 01 Apr 2022 12:55:56 +0800</pubDate>
-      
-      <guid>https://lxy-littlechai.github.io/science/picoscenes_install_instruction/</guid>
-      <description>&lt;p&gt;Poor installation instruction will drive users crazy!!!&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Sciences on Example Site</title>
+        <link>https://lxy-littlechai.github.io/science/</link>
+        <description>Recent content in Sciences on Example Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 01 Apr 2022 12:55:56 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/science/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>PicoScenes</title>
+        <link>https://lxy-littlechai.github.io/science/picoscenes_install_instruction/</link>
+        <pubDate>Fri, 01 Apr 2022 12:55:56 +0800</pubDate>
+        
+        <guid>https://lxy-littlechai.github.io/science/picoscenes_install_instruction/</guid>
+        <description>&lt;p&gt;Poor installation instruction will drive users crazy!!!&lt;/p&gt;
+&lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+&lt;h2 id=&#34;1-clone-picoscenes&#34;&gt;1. Clone PicoScenes&lt;/h2&gt;
+&lt;p&gt;Make sure you have been invited to join the gitlab group then run  &lt;code&gt;git clone --recursive https://gitlab.com/wifisensing/PicoScenes.git &lt;/code&gt; to clone the project&lt;/p&gt;
+&lt;h2 id=&#34;2-install-dependencies&#34;&gt;2. Install Dependencies&lt;/h2&gt;
+&lt;p&gt;follow the part of before_script on  &lt;code&gt;https://gitlab.com/wifisensing/release/PicoScenes-Release/-/blob/master/.gitlab-ci.yml &lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3-install-driver&#34;&gt;3. Install Driver&lt;/h2&gt;
+&lt;p&gt;open &lt;a href=&#34;https://ps.zpj.io/installation.html&#34;&gt;https://ps.zpj.io/installation.html&lt;/a&gt; and go to 5.2.2 section， follow the first four directives&lt;/p&gt;
+&lt;h2 id=&#34;4-clone-plugins&#34;&gt;4. clone plugins&lt;/h2&gt;
+&lt;p&gt;run  &lt;code&gt;git clone https://gitlab.com/wifisensing/PicoScenes-PDK.git &lt;/code&gt; to clone the plugins&lt;/p&gt;
+&lt;h2 id=&#34;5-build&#34;&gt;5. Build&lt;/h2&gt;
+&lt;h3 id=&#34;51-build-picoscenes-pdk&#34;&gt;5.1 Build PicoScenes-PDK&lt;/h3&gt;
+&lt;p&gt;move to the path of PicoScenes-PDK, run &lt;code&gt;./Fast_Build_Install_Plugin.sh&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;52-build-picoscenes&#34;&gt;5.2 Build PicoScenes&lt;/h3&gt;
+&lt;p&gt;move to the path of PicoScenes, run &lt;code&gt;./Fast_Build_Install_PicoScenes.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://lxy-littlechai.github.io/img/PicoScenes_Install_Instruction.assets/image-20220401132300137.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220401132300137&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;when you see the interface, press  &lt;code&gt;tab &lt;/code&gt; and  &lt;code&gt;enter &lt;/code&gt;, then you succeed in installation.
+Then run  &lt;code&gt;PicoScenes &lt;/code&gt; two times to run the software&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tips: if you first install the PicoScenes Platform, you need to follow the error information to improve your personal information&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;debug-environment-configuration&#34;&gt;Debug Environment configuration&lt;/h1&gt;
+&lt;h2 id=&#34;1-compiler-configuration&#34;&gt;1. Compiler Configuration&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://lxy-littlechai.github.io/img/PicoScenes_Install_Instruction.assets/image-20220401132939758.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220401132939758&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2-plugins-cath-configuration&#34;&gt;2. Plugins Cath Configuration&lt;/h2&gt;
+&lt;h3 id=&#34;21-select-picoscenesdebug-and-edit-configuration&#34;&gt;2.1 select PicoScenes|Debug and edit configuration&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://lxy-littlechai.github.io/img/PicoScenes_Install_Instruction.assets/image-20220401133544522.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220401133544522&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;22-add-run-external-tools&#34;&gt;2.2 add run external tools&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://lxy-littlechai.github.io/img/PicoScenes_Install_Instruction.assets/image-20220401133922417.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20220401133922417&#34;
+	
+	
+&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
 </rss>

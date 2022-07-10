@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=''><title>Vue</title>
+
+<link rel='canonical' href='https://lxy-littlechai.github.io/p/vue/'>
+
+<link rel="stylesheet" href="/scss/style.min.5a8e892f6fa14515e9065eee1f5d2e05302606ec7f11750b2fb95198f9cdcbfd.css"><meta property='og:title' content='Vue'>
+<meta property='og:description' content=''>
+<meta property='og:url' content='https://lxy-littlechai.github.io/p/vue/'>
+<meta property='og:site_name' content='Example Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2021-09-08T18:38:10&#43;08:00'/><meta property='article:modified_time' content='2021-09-08T18:38:10&#43;08:00'/>
+<meta name="twitter:title" content="Vue">
+<meta name="twitter:description" content="">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
+            <h2 class="site-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="https://lxy-littlechai.github.io/" selected>English</option>
+                        
+                            <option value="https://lxy-littlechai.github.io/zh-cn/" >中文</option>
+                        
+                            <option value="https://lxy-littlechai.github.io/ar/" >عربي</option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/category/" >
+                category
+            </a>
+        
+            <a href="/categories/subcategory/" >
+                subcategory
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/vue/">Vue</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 08, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    10 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="vue3">Vue3</h1>
+<h2 id="模板语法">模板语法</h2>
+<h3 id="插值">插值</h3>
+<h4 id="文本">文本</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+    <span class="p">{{</span> <span class="nx">message</span> <span class="p">}}</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="v-html">v-html</h3>
+<h3 id="v-bind-用于html内的属性绑定">v-bind :用于html内的属性绑定</h3>
+<h3 id="v-model">v-model</h3>
+<h5 id="text--textarea">Text &amp; Textarea</h5>
+<p>使用<code>value</code> property 和 <code>input</code>事件
+<code>v-model</code>绑定的值对应 内容</p>
+<h5 id="checkbox-和-radio">checkbox 和 radio</h5>
+<p>使用<code>radio</code> property 和<code>change</code>事件
+<code>v-model</code>绑定的值对应 <code>value</code></p>
+<p>而<code>checkbox</code>中<code>v-model</code>对应<code>bool</code></p>
+<p><strong>Tips</strong></p>
+<p>如果 <code>v-model</code> 表达式的初始值未能匹配任何选项，<code>&lt;select&gt;</code> 元素将被渲染为“未选中”状态。在 iOS 中，这会使用户无法选择第一个选项。因为这样的情况下，iOS 不会触发 <code>change</code> 事件。因此，更推荐像上面这样提供一个值为空的禁用选项</p>
+<p>多选绑定<strong>数组</strong></p>
+<h4 id="修饰符">修饰符</h4>
+<h5 id="lazy"><code>.lazy</code></h5>
+<p>默认情况下<code>v-model</code>在每次<code>input</code>事件触发后将输入框的值与数据进行同步。<code>.lazy</code>修饰符将其转换为<code>change</code>事件之后进行同步，即失去焦点或者<code>enter</code>后进行同步</p>
+<h5 id="number"><code>.number</code></h5>
+<p>自动将用户输入值转化为数值类型</p>
+<h5 id="trim"><code>.trim</code></h5>
+<p>自动过滤用户输入的首尾空白字符</p>
+<h3 id="v-on-用于添加事件">v-on @用于添加事件</h3>
+<h3 id="v-for-用于循环">v-for 用于循环</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;item in items&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;(value, name) in items&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;(value, name, index) in items&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 <code>key</code> attribute：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;item in items&#34;</span> <span class="na">:key</span><span class="o">=</span><span class="s">&#34;item.id&#34;</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- content --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="v-if-v-else-v-else-if">v-if v-else v-else-if</h3>
+<h3 id="动态参数-避免大写">动态参数 避免大写</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">v-on:</span><span class="err">[</span><span class="na">eventname</span><span class="err">]=&#34;</span><span class="na">doSomething</span><span class="err">&#34;</span><span class="p">&gt;</span> ... <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="修饰符-1">修饰符</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">v-on:submit</span><span class="err">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">&#34;onSubmit&#34;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="data-property">Data Property</h2>
+<p>组件的 <code>data</code> 选项是一个函数。Vue 在创建新组件实例的过程中调用此函数。它应该返回一个对象，然后 Vue 会通过响应性系统将其包裹起来，并以 <code>$data</code> 的形式存储在组件实例中</p>
+<h3 id="防抖与节流">防抖与节流</h3>
+<p>防抖与节流都是为了优化性能，避免同一函数被频繁访问</p>
+<p>打个比方：电梯15s上一次楼，防抖就规定15s运行一次，节流是没上来一个人重新计时15s，15s电梯运行</p>
+<h4 id="防抖">防抖</h4>
+<p>Vue 没有内置支持防抖和节流，但可以使用 <a class="link" href="https://lodash.com/"  target="_blank" rel="noopener"
+    >Lodash</a> 等库来实现。</p>
+<p>如果某个组件仅使用一次，可以在 <code>methods</code> 中直接应用防抖：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/lodash@4.17.20/lodash.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({</span>
+    <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// 用 Lodash 的防抖函数
+</span><span class="c1"></span>      <span class="nx">click</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">debounce</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// ... 响应点击 ...
+</span><span class="c1"></span>      <span class="p">},</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}).</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>但是，这种方法对于可复用组件有潜在的问题，因为它们都共享相同的防抖函数。为了使组件实例彼此独立，可以在生命周期钩子的 <code>created</code> 里添加该防抖函数:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;save-button&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 用 Lodash 的防抖函数
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">debouncedClick</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">debounce</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+  <span class="p">},</span>
+  <span class="nx">unmounted</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 移除组件时，取消定时器
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">debouncedClick</span><span class="p">.</span><span class="nx">cancel</span><span class="p">()</span>
+  <span class="p">},</span>
+  <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">click</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// ... 响应点击 ...
+</span><span class="c1"></span>    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">    &lt;button @click=&#34;debouncedClick&#34;&gt;
+</span><span class="sb">      Save
+</span><span class="sb">    &lt;/button&gt;
+</span><span class="sb">  `</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="组件-component">组件 component</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;组件名&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;h1&gt;自定义组件&lt;/h1&gt;&#39;</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+
+<span class="nx">使用方法</span>
+<span class="p">&lt;</span><span class="nt">组件名</span><span class="p">&gt;&lt;/</span><span class="nt">组件名</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="计算属性与监听器">计算属性与监听器</h2>
+<h3 id="计算属性">计算属性</h3>
+<h3 id="computed">computed</h3>
+<p>computed 也可以写在 methods 中，但computed<strong>是基于它们的响应依赖关系缓存的</strong>，也就是说，只要computed中的值不发生改变，就不会重新求值。</p>
+<h3 id="setter">Setter</h3>
+<h3 id="监听器-watch">监听器 watch</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+    <span class="c1">//对象写法
+</span><span class="c1"></span>	<span class="nx">name</span><span class="o">:</span> <span class="p">{</span><span class="c1">//监听对象
+</span><span class="c1"></span>		<span class="nx">handel</span><span class="p">()</span> <span class="p">{</span><span class="c1">//调用函数
+</span><span class="c1"></span>
+		<span class="p">},</span>
+		<span class="nx">immediate</span><span class="o">:</span> <span class="kc">true</span><span class="o">/</span><span class="kc">false</span><span class="p">,</span> <span class="c1">//是否立刻触发一次
+</span><span class="c1"></span>        <span class="nx">deep</span><span class="o">:</span> <span class="kc">true</span><span class="o">/</span><span class="kc">false</span> <span class="c1">//对象中任何属性变化都可以监听，否则无法监听对象内容
+</span><span class="c1"></span>	<span class="p">}</span>
+    <span class="c1">//函数写法
+</span><span class="c1"></span>    <span class="nx">name</span><span class="p">(</span><span class="nx">newValue</span><span class="p">,</span> <span class="nx">oldeValue</span><span class="p">){</span>
+	
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="事件处理">事件处理</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;greet&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+Vue.createApp({
+  data() {
+    return {
+      name: &#39;Vue.js&#39;
+    }
+  },
+  methods: {
+    greet(event) {
+      // `methods` 内部的 `this` 指向当前活动实例
+      alert(&#39;Hello &#39; + this.name + &#39;!&#39;)
+      // `event` 是原生 DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}).mount(&#39;#event-with-method&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="内联处理器">内联处理器</h3>
+<p>使用$event</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;say(&#39;hi&#39;, $event)&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+Vue.createApp({
+  data() {
+    return {
+      name: &#39;Vue.js&#39;
+    }
+  },
+  methods: {
+    say(message, event) {
+      // `methods` 内部的 `this` 指向当前活动实例
+      alert(&#39;Hello &#39; + this.name + &#39;!&#39;)
+      // `event` 是原生 DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+}).mount(&#39;#event-with-method&#39;)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="多事件处理器">多事件处理器</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;one($event), two($event)&#34;</span><span class="p">&gt;</span>
+  Submit
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="事件修饰符">事件修饰符</h3>
+<ul>
+<li><code>.stop</code></li>
+<li><code>.prevent</code></li>
+<li><code>.capture</code></li>
+<li><code>.self</code></li>
+<li><code>.once</code></li>
+<li><code>.passive</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 阻止单击事件继续传播 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">stop</span><span class="o">=</span><span class="s">&#34;doThis&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 提交事件不再重载页面 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="err">@</span><span class="na">submit</span><span class="err">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">&#34;onSubmit&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 修饰符可以串联 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">stop</span><span class="err">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">&#34;doThat&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 只有修饰符 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="err">@</span><span class="na">submit</span><span class="err">.</span><span class="na">prevent</span><span class="p">&gt;&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 添加事件监听器时使用事件捕获模式 --&gt;</span>
+<span class="c">&lt;!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">capture</span><span class="o">=</span><span class="s">&#34;doThis&#34;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 只当在 event.target 是当前元素自身时触发处理函数 --&gt;</span>
+<span class="c">&lt;!-- 即事件不是从内部元素触发的 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">self</span><span class="o">=</span><span class="s">&#34;doThat&#34;</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="按键修饰符">按键修饰符</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="err">@</span><span class="na">keyup</span><span class="err">.</span><span class="na">enter</span><span class="o">=</span><span class="s">&#34;submit&#34;</span><span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="err">@</span><span class="na">keyup</span><span class="err">.</span><span class="na">page-down</span><span class="o">=</span><span class="s">&#34;onPageDown&#34;</span><span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="按键别名">按键别名</h4>
+<p>Vue 为最常用的键提供了别名：</p>
+<ul>
+<li><code>.enter</code></li>
+<li><code>.tab</code></li>
+<li><code>.delete</code> (捕获“删除”和“退格”键)</li>
+<li><code>.esc</code></li>
+<li><code>.space</code></li>
+<li><code>.up</code></li>
+<li><code>.down</code></li>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+</ul>
+<h3 id="系统修饰键">系统修饰键</h3>
+<p>可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。</p>
+<ul>
+<li><code>.ctrl</code></li>
+<li><code>.alt</code></li>
+<li><code>.shift</code></li>
+<li><code>.meta</code></li>
+</ul>
+<p><strong>Tips</strong>： Mac中meta对应command键(⌘)，Windows中meta对应徽标键 (⊞)，</p>
+<p><strong>Tips</strong>：必须修饰键的情况下释放其它按键，才能出发keyup，而单单释放修饰键也不会触发事件</p>
+<h4 id="exact"><code>.exact</code></h4>
+<p>.exact保证了只有确定的修饰符组合才能触发按键， 例如</p>
+<p>当且仅当按下ctrl时才触发，同时按其他键不会触发</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="err">.</span><span class="na">ctrl</span><span class="err">.</span><span class="na">exact</span><span class="o">=</span><span class="s">&#34;onCtrlClick&#34;</span><span class="p">&gt;</span>A<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="鼠标按钮修饰符">鼠标按钮修饰符</h4>
+<ul>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+<li><code>.middle</code></li>
+</ul>
+<h2 id="组件基础">组件基础</h2>
+<h3 id="基本实例">基本实例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;button-counter&#39;</span><span class="p">,{</span>
+	<span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="p">{</span>
+			<span class="nx">count</span><span class="o">:</span> <span class="mi">0</span>
+		<span class="p">}</span>
+	<span class="p">},</span>
+	<span class="nx">template</span><span class="o">:</span><span class="sb">`
+</span><span class="sb">		&lt;button @click=&#34;count++&#34;&gt;
+</span><span class="sb">			You clicked me {{ count }} times.
+</span><span class="sb">		&lt;/button&gt;
+</span><span class="sb">	`</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="传递数据">传递数据</h3>
+<h4 id="props--emits">props &amp; emits</h4>
+<h3 id="监听子组件事件">监听子组件事件</h3>
+<h4 id="使用事件抛出一个值">使用事件抛出一个值</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;$emit(&#39;enlargeText&#39;, 0.1)&#34;</span><span class="p">&gt;</span>
+  Enlarge text
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+抛出值可用$event接受
+
+<span class="p">&lt;</span><span class="nt">blog-post</span> <span class="err">...</span> <span class="err">@</span><span class="na">enlarge-text</span><span class="o">=</span><span class="s">&#34;onEnlargeText&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">blog-post</span><span class="p">&gt;</span>
+methods: {
+  onEnlargeText(enlargeAmount) {
+    this.postFontSize += enlargeAmount
+  }
+}
+抛出值用参数接受
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="在组件上使用v-model">在组件上使用v-model</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;searchText&#34;</span><span class="p">&gt;</span>
+等价于
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">:value</span><span class="o">=</span><span class="s">&#34;searchText&#34;</span> <span class="err">@</span><span class="na">input</span><span class="o">=</span><span class="s">&#34;searchText = $event.target.value&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在组件上使用时，v-model等价于</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">custom-input</span>
+    <span class="na">:model-value</span><span class="o">=</span><span class="s">&#34;searchText&#34;</span>
+    <span class="err">@</span><span class="na">update:model-value</span><span class="o">=</span><span class="s">&#34;searchText = $event&#34;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">custom-input</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>为了让它正常工作，这个组件内的 <code>&lt;input&gt;</code> 必须：</p>
+<ul>
+<li>将其 <code>value</code> attribute 绑定到一个名叫 <code>modelValue</code> 的 prop 上</li>
+<li>在其 <code>input</code> 事件被触发时，将新的值通过自定义的 <code>update:modelValue</code> 事件抛出</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;app&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">custom</span><span class="o">-</span><span class="nx">input</span>
+        <span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="s2">&#34;searchText&#34;</span>
+    <span class="o">&gt;&lt;</span><span class="err">/custom-input&gt;</span>
+    <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span> <span class="p">{{</span> <span class="nx">searchText</span> <span class="p">}}</span> <span class="o">&lt;</span><span class="err">/span&gt;</span>
+<span class="o">&lt;</span><span class="err">/div&gt;</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({</span>
+        <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="nx">searchText</span><span class="o">:</span> <span class="s2">&#34;&#34;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    
+<span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;custom-input&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">props</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;modelValue&#39;</span><span class="p">],</span>
+    <span class="nx">emits</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;update:modelValue&#39;</span><span class="p">],</span>
+    <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">        &lt;input
+</span><span class="sb">            :value=&#34;modelValue&#34;
+</span><span class="sb">            @input=&#34;$emit(&#39;update:modelValue&#39;, $event.target.value)&#34;
+</span><span class="sb">        &gt;
+</span><span class="sb">    `</span>
+
+<span class="p">})</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以使用computed来实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;app&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">custom</span><span class="o">-</span><span class="nx">input</span><span class="o">&gt;&lt;</span><span class="err">/custom-input&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;custom-input&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">value</span><span class="o">:</span> <span class="s2">&#34;&#34;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">props</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;modelValue&#39;</span><span class="p">],</span>
+    <span class="nx">emits</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;update:modelValue&#39;</span><span class="p">],</span>
+
+    <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">        &lt;input v-model=&#34;value&#34;&gt;
+</span><span class="sb">        &lt;span&gt; {{ value }} &lt;/span&gt;
+</span><span class="sb">    `</span><span class="p">,</span>
+
+    <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">get</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">modelValue</span>
+            <span class="p">},</span>
+            <span class="nx">set</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;update:modelValue&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="插槽">插槽</h3>
+<p>我们时常在html中添加内容，在模板中我们应该使用插槽来指出内容的位置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">alert-box</span><span class="p">&gt;</span>
+	There is something wrong
+<span class="p">&lt;/</span><span class="nt">alert-box</span><span class="p">&gt;</span>
+
+app.component(&#39;alert-box&#39;,{
+    template: `
+        <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Error!<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">slot</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+
+    `
+})
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="动态组件">动态组件</h3>
+<p>实现不同组件的动态切换，使用<code>is</code>attribute</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">component</span> <span class="na">:is</span><span class="o">=</span><span class="s">&#34;getCurrentTag&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;tag&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">component</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/C:%5cUsers%5c16117%5cblog%5ccontent%5cpost%5cvue.assets%5cimage-20210914162525721.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20210914162525721"
+	
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;app&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">button</span>
+            <span class="nx">v</span><span class="o">-</span><span class="k">for</span><span class="o">=</span><span class="s2">&#34;tag in tags&#34;</span>
+            <span class="o">:</span><span class="nx">key</span><span class="o">=</span><span class="s2">&#34;tag&#34;</span>
+            <span class="o">:</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;[&#39;tag-button&#39;, {active: tag == currentTag}]&#34;</span> 
+            <span class="err">@</span><span class="nx">click</span><span class="o">=</span><span class="s2">&#34;currentTag = tag&#34;</span>
+        <span class="o">&gt;</span>
+        <span class="p">{{</span> <span class="nx">tag</span> <span class="p">}}</span>
+        <span class="o">&lt;</span><span class="err">/button&gt;</span>
+        <span class="o">&lt;</span><span class="nx">component</span> <span class="o">:</span><span class="nx">is</span><span class="o">=</span><span class="s2">&#34;getCurrentTag&#34;</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;tag&#34;</span><span class="o">&gt;&lt;</span><span class="err">/component&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+
+<span class="o">&lt;</span><span class="err">/body&gt;</span>
+
+
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+    <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({</span>
+        <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="nx">currentTag</span><span class="o">:</span> <span class="s2">&#34;Home&#34;</span><span class="p">,</span>
+                <span class="nx">tags</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;Home&#34;</span><span class="p">,</span> <span class="s2">&#34;Posts&#34;</span><span class="p">,</span> <span class="s2">&#34;Archive&#34;</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">getCurrentTag</span><span class="p">(){</span>
+                <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">currentTag</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">            &lt;div&gt;Home&lt;div&gt;
+</span><span class="sb">        `</span>
+    <span class="p">})</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">            &lt;div&gt;Posts&lt;div&gt;
+</span><span class="sb">        `</span>
+    <span class="p">})</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;archive&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">            &lt;div&gt;Archive&lt;div&gt;
+</span><span class="sb">        `</span>
+    <span class="p">})</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s2">&#34;#app&#34;</span><span class="p">)</span>
+
+
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="解析dom模板时的注意事项">解析DOM模板时的注意事项</h3>
+<h4 id="element-placement-restrictions">Element Placement Restrictions</h4>
+<p>有些 HTML 元素，诸如 <code>&lt;ul&gt;</code>、<code>&lt;ol&gt;</code>、<code>&lt;table&gt;</code> 和 <code>&lt;select&gt;</code>，对于哪些元素可以出现在其内部是有严格限制的。而有些元素，诸如 <code>&lt;li&gt;</code>、<code>&lt;tr&gt;</code> 和 <code>&lt;option&gt;</code>，只能出现在其它某些特定的元素内部。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">不合法
+<span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">blog-post-row</span><span class="p">&gt;&lt;/</span><span class="nt">blog-post-row</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+
+合法
+<span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">tr</span> <span class="na">is</span><span class="o">=</span><span class="s">&#34;vue:blog-post-row&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="case-insensitivity">Case Insensitivity</h4>
+<p>js中的大写字母，要在html中使用 kebab-cased (横线字符分隔)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">postTitle &lt;=&gt; post-title
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="深入组件">深入组件</h2>
+<h3 id="组件注册">组件注册</h3>
+<h4 id="全局注册">全局注册</h4>
+<h4 id="局部注册">局部注册</h4>
+<p>注意局部注册的组件在其子组件中不可用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">ComponentA</span> <span class="o">=</span> <span class="p">{</span>
+
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">ComponentB</span> <span class="o">=</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">creat</span><span class="p">({</span>
+    <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;component-a&#39;</span><span class="o">:</span> <span class="nx">ComponentA</span><span class="p">,</span>
+        <span class="s1">&#39;component-b&#39;</span><span class="o">:</span> <span class="nx">ComponentB</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">ComponentA</span> <span class="o">=</span> <span class="p">{</span>
+
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">ComponentB</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+		<span class="s1">&#39;component-a&#39;</span><span class="o">:</span> <span class="nx">ComponentA</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="props">Props</h2>
+<h3 id="prop类型">prop类型</h3>
+<h4 id="字符串数组">字符串数组</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">props</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="对象">对象</h4>
+<p>以<code>值+数据类型</code>给出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+	<span class="nx">value</span><span class="o">:</span> <span class="nb">Number</span><span class="p">,</span>
+	<span class="nx">message</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+	<span class="nx">title</span><span class="o">:</span> <span class="nb">String</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="传递静态或动态的prop">传递静态或动态的Prop</h3>
+<p>使用<code>v-bind</code>来传递动态的Prop，同时<code>v-bind</code>可以告诉这是一个JavaScript表达式，而不是字符串</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">blog</span> <span class="na">:ids</span><span class="o">=</span><span class="s">&#34;[123,456]&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">blog</span><span class="p">&gt;</span>
+使用v-bind vue才能识别这是一个数组
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="传入一个对象的所有property">传入一个对象的所有property</h3>
+<p>可以使用不带参数的<code>v-bind</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">peo: {
+	name: &#39;Frank&#39;,
+	age: 17
+}
+
+<span class="p">&lt;</span><span class="nt">blog</span> <span class="na">v-bind</span><span class="o">=</span><span class="s">&#34;peo&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">blog</span><span class="p">&gt;</span>
+等价于
+<span class="p">&lt;</span><span class="nt">blog</span> <span class="na">:name</span><span class="o">=</span><span class="s">&#34;peo.name&#34;</span> <span class="na">:age</span><span class="o">=</span><span class="s">&#34;peo.age&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">blog</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="prop验证">Prop验证</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="c1">//数据类型检测，null和undefined可以通过任意数据类型检测
+</span><span class="c1"></span>	<span class="nx">propA</span><span class="o">:</span> <span class="nx">数据类型</span><span class="p">,</span>
+    <span class="c1">//多个可能的类型
+</span><span class="c1"></span>    <span class="nx">propB</span><span class="o">:</span> <span class="p">[</span><span class="nx">数据类型</span><span class="p">,</span><span class="nx">数据类型</span><span class="p">],</span>
+    
+    <span class="nx">propC</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">required</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//必填
+</span><span class="c1"></span>        <span class="k">default</span><span class="o">:</span> <span class="nx">property</span> <span class="c1">//默认值
+</span><span class="c1"></span>    <span class="p">},</span>
+    
+    <span class="nx">propD</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//对象或数组默认值必须从一个工厂函数获取
+</span><span class="c1"></span>		<span class="nx">type</span><span class="o">:</span> <span class="nb">Object</span><span class="p">,</span>
+        <span class="k">default</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="p">{</span>
+                <span class="nx">message</span><span class="o">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="c1">//自定义验证函数
+</span><span class="c1"></span>    <span class="nx">propE</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">validator</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>
+    		<span class="k">return</span> <span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">,</span><span class="s1">&#39;failure&#39;</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+    
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="非prop的attribute">非prop的Attribute</h3>
+<h4 id="atrribute继承">Atrribute继承</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">my-component</span> <span class="na">status</span><span class="o">=</span><span class="s">&#34;actived&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">my-component</span><span class="p">&gt;</span>
+
+app.component(&#39;my-component&#39;,{
+	template: `
+		<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        	<span class="p">&lt;</span><span class="nt">input</span><span class="p">&gt;</span>    
+		<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+	`
+})
+
+渲染后,status会继承在div上，也就是root山
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="禁用atrribute继承">禁用Atrribute继承</h4>
+<p>如果你<strong>不</strong>希望组件的根元素继承 attribute，你可以在组件的选项中设置 <code>inheritAttrs: false</code>。</p>
+<p>禁用继承的常见情况是需要atrribute应用在除根节点外的所有其它元素</p>
+<p>通过将 <code>inheritAttrs</code> 选项设置为 <code>false</code>，你可以访问组件的 <code>$attrs</code> property，该 property 包括组件 <code>props</code> 和 <code>emits</code> property 中未包含的所有属性 (例如，<code>class</code>、<code>style</code>、<code>v-on</code> 监听器等)。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">my</span><span class="o">-</span><span class="nx">component</span> <span class="nx">status</span><span class="o">=</span><span class="s2">&#34;actived&#34;</span><span class="o">&gt;&lt;</span><span class="err">/my-component&gt;</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;my-component&#39;</span><span class="p">,{</span>
+	<span class="nx">inheritAttrs</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+	<span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">		&lt;div&gt;
+</span><span class="sb">        	&lt;input v-bind=&#34;$attrs&#34;&gt;    
+</span><span class="sb">		&lt;/div&gt;
+</span><span class="sb">	`</span>
+<span class="p">})</span>
+
+<span class="nx">渲染后</span><span class="err">，</span><span class="nx">status会在input上</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="多个根节点上的-attribute-继承">多个根节点上的 Attribute 继承</h4>
+<p>多根节点的组件不具有自动fallthrough行为。若为显式绑定<code>$attrs</code>,运行时会给予警告</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;custom-layout&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">    &lt;header&gt;...&lt;/header&gt;
+</span><span class="sb">    &lt;main&gt;...&lt;/main&gt;
+</span><span class="sb">    &lt;footer&gt;...&lt;/footer&gt;`</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="自定义事件">自定义事件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">v</span><span class="o">-</span><span class="nx">color</span><span class="o">=</span><span class="s2">&#34;color&#34;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
+
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="nx">directives</span><span class="o">:</span> <span class="p">{</span>
+		<span class="nx">color</span><span class="o">:</span> <span class="p">{</span>
+            <span class="c1">//第一次被绑定时立即触发
+</span><span class="c1"></span>			<span class="nx">bind</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">binding</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">el</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+            <span class="p">},</span>
+            <span class="c1">//每次dom更新时触发
+</span><span class="c1"></span>            <span class="nx">update</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">binding</span><span class="p">){</span>
+                <span class="nx">el</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+			<span class="p">}</span>
+        <span class="p">}</span>
+        
+        <span class="c1">//若bind和update相同，可简写为
+</span><span class="c1"></span>        <span class="nx">color</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">binding</span><span class="p">){</span>
+    		<span class="nx">el</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+		<span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="定义自定义事件">定义自定义事件</h4>
+<p>可以通过<code>emits</code>选项在组件上定义发出的事件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;custom-form&#39;</span><span class="p">,{</span>
+	<span class="nx">emits</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="s1">&#39;submit&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="验证抛出的事件">验证抛出的事件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;custom-form&#39;</span><span class="p">,{</span>
+	<span class="nx">emits</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//无验证
+</span><span class="c1"></span>        <span class="nx">click</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        
+        <span class="nx">submit</span><span class="o">:</span> <span class="p">({</span><span class="nx">mail</span><span class="p">,</span> <span class="nx">password</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">mail</span> <span class="o">&amp;&amp;</span> <span class="nx">password</span><span class="p">){</span>
+                <span class="k">return</span> <span class="kc">true</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="多个v-model绑定">多个v-model绑定</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;app&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">name</span> <span class="p">{{</span> <span class="nx">firstName</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Last</span> <span class="nx">name</span> <span class="p">{{</span> <span class="nx">lastName</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">user</span><span class="o">-</span><span class="nx">name</span> 
+            <span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">:</span><span class="nx">first</span><span class="o">-</span><span class="nx">name</span><span class="o">=</span><span class="s2">&#34;firstName&#34;</span>
+            <span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">:</span><span class="nx">last</span><span class="o">-</span><span class="nx">name</span><span class="o">=</span><span class="s2">&#34;lastName&#34;</span>
+        <span class="o">&gt;&lt;</span><span class="err">/user-name&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+
+    <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({</span>
+        <span class="nx">data</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;Frank&#39;</span><span class="p">,</span>
+                <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;user-name&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">firstName</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+            <span class="nx">lastName</span><span class="o">:</span> <span class="nb">String</span>
+        <span class="p">},</span>
+      <span class="cm">/*   emits: [&#39;update:firstName&#39;,&#39;update:lastName&#39;], */</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">            &lt;input
+</span><span class="sb">                :value=&#34;firstName&#34;
+</span><span class="sb">                @input=&#34;$emit(&#39;update:firstName&#39;,$event.target.value)&#34;
+</span><span class="sb">            &gt;
+</span><span class="sb">            &lt;input
+</span><span class="sb">                :value=&#34;lastName&#34;
+</span><span class="sb">                @input=&#34;$emit(&#39;update:lastName&#39;,$event.target.value)&#34;
+</span><span class="sb">            &gt;
+</span><span class="sb">        `</span>
+    <span class="p">})</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="处理v-model修饰符">处理v-model修饰符</h4>
+<p>v-model修饰符在<code>modelModifiers</code>prop中,若为带参数的<code>v-model</code>绑定，则在<code>args+Modifiers</code>中，实际上v-model修饰符的作用在于<code>if</code>判定，对于有<strong>修饰符</strong>进行特殊处理</p>
+<p>以下实现了首字母大写</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;en&#34;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">http</span><span class="o">-</span><span class="nx">equiv</span><span class="o">=</span><span class="s2">&#34;X-UA-Compatible&#34;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&#34;IE=edge&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&#34;viewport&#34;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&#34;width=device-width, initial-scale=1.0&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Document</span><span class="o">&lt;</span><span class="err">/title&gt;</span>
+    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://unpkg.com/vue@next&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+    <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="err">/head&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;app&#34;</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">First</span> <span class="nx">name</span> <span class="p">{{</span> <span class="nx">firstName</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Last</span> <span class="nx">name</span> <span class="p">{{</span> <span class="nx">lastName</span> <span class="p">}}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+        <span class="o">&lt;</span><span class="nx">user</span><span class="o">-</span><span class="nx">name</span> 
+            <span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">:</span><span class="nx">first</span><span class="o">-</span><span class="nx">name</span><span class="p">.</span><span class="nx">trans</span><span class="o">=</span><span class="s2">&#34;firstName&#34;</span>
+            <span class="nx">v</span><span class="o">-</span><span class="nx">model</span><span class="o">:</span><span class="nx">last</span><span class="o">-</span><span class="nx">name</span><span class="p">.</span><span class="nx">trans</span><span class="o">=</span><span class="s2">&#34;lastName&#34;</span>
+        <span class="o">&gt;&lt;</span><span class="err">/user-name&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="o">&lt;</span><span class="err">/body&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+    <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">createApp</span><span class="p">({</span>
+        <span class="nx">data</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="nx">firstName</span><span class="o">:</span> <span class="s1">&#39;Frank&#39;</span><span class="p">,</span>
+                <span class="nx">lastName</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;user-name&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">firstName</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+            <span class="nx">lastName</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+            <span class="nx">firstNameModifiers</span><span class="o">:</span><span class="p">{</span>
+                <span class="k">default</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">({})</span>
+            <span class="p">},</span>
+            <span class="nx">lastNameModifiers</span><span class="o">:</span> <span class="p">{</span>
+                <span class="k">default</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">({})</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">changeFirstName</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+                <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">firstNameModifiers</span><span class="p">.</span><span class="nx">trans</span><span class="p">){</span>
+                    <span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">value</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;update:firstName&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="nx">changeLastName</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+                <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lastNameModifiers</span><span class="p">.</span><span class="nx">trans</span><span class="p">){</span>
+                    <span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">value</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s1">&#39;update:lastName&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+      <span class="cm">/*   emits: [&#39;update:firstName&#39;,&#39;update:lastName&#39;], */</span>
+        <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">            &lt;input
+</span><span class="sb">                :value=&#34;firstName&#34;
+</span><span class="sb">                @input=&#34;changeFirstName&#34;
+</span><span class="sb">            &gt;
+</span><span class="sb">            &lt;input
+</span><span class="sb">                :value=&#34;lastName&#34;
+</span><span class="sb">                @input=&#34;changeLastName&#34;
+</span><span class="sb">            &gt;
+</span><span class="sb">             
+</span><span class="sb">        `</span>
+    <span class="p">})</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="s1">&#39;#app&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="err">/html&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="插槽-1">插槽</h3>
+<h4 id="插槽内容">插槽内容</h4>
+<p>插槽可以包含任何模板代码，包括 HTML、组件</p>
+<h4 id="渲染作用域">渲染作用域</h4>
+<p><strong>父级模板里的所有内容都是在父级作用域中编译的；</strong></p>
+<p><strong>子模板里的所有内容都是在子作用域中编译的。</strong></p>
+<h4 id="备用内容">备用内容</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">slot</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">submit-button</span><span class="p">&gt;&lt;/</span><span class="nt">submit-button</span><span class="p">&gt;</span>
+当组件中无内容时显示Submit，有内容时显示内容
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="具名插槽">具名插槽</h4>
+<p>具名插槽用于需要多插槽的场景</p>
+<p>插槽具有<code>name</code>属性，用<code>&lt;template&gt;</code>和<code>v-slot</code>来对应</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">//html
+<span class="p">&lt;</span><span class="nt">base-layout</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-slot:header</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Here might be a page title<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-slot:default</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A paragraph for the main content.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>And another one.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-slot:footer</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Here&#39;s some contact info<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">base-layout</span><span class="p">&gt;</span>
+
+//组件
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;header&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">slot</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;footer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">slot</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="provideinject">Provide/Inject</h3>
+<p>适用于跨级传参/接受参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;todo-list&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">todos</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Feed a cat&#39;</span><span class="p">,</span> <span class="s1">&#39;Buy tickets&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">provide</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">todoLength</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">length</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="sb">`
+</span><span class="sb">    ...
+</span><span class="sb">  `</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>provide/inject</code> 绑定<em><strong>并不是</strong></em>响应式的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;todo-list&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span>  <span class="nx">provide</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">todoLength</span><span class="o">:</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">computed</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="动态组件异步组件">动态组件&amp;异步组件</h3>
+<h4 id="keep-alive">keep-alive</h4>
+<p>使用keep-alive可以让组件失活，即在第一次创建后缓存下来</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">keep-alive</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">component</span> <span class="na">:is</span><span class="o">=</span><span class="s">&#34;getCurrentTag&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;tag&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">component</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">keep-alive</span><span class="p">&gt;</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="异步组件待补">异步组件（待补）</h4>
+<p>待补</p>
+<h3 id="模板引用">模板引用</h3>
+<p><code>ref</code>为子组件的直接引用提供了id，其位于<code>$refs</code>上</p>
+<p><strong>Tips:</strong><code>$refs</code> 只会在组件渲染完成之后生效，应避免在模板或计算属性中使用</p>
+<h2 id="过渡动画待补">过渡&amp;动画（待补）</h2>
+<h3 id="单元素组件的过渡">单元素/组件的过渡</h3>
+<h4 id="过渡class">过渡class</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">transiton</span> <span class="na">name</span><span class="o">=</span><span class="s">&#39;name&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">transiton</span><span class="p">&gt;</span> 默认name为v
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://v3.cn.vuejs.org/images/transitions.svg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Transition Diagram"
+	
+	
+></p>
+<h2 id="可复用组合">可复用&amp;组合</h2>
+<h2 id="axios">axios</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">axios</span><span class="p">({</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;请求类型&#39;</span><span class="p">,</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;URL&#39;</span>
+    
+    <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+
+	<span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">//result为请求结果
+</span><span class="c1"></span><span class="p">})</span>
+
+<span class="nx">方法返回值为Promise可以用await</span><span class="p">,</span><span class="nx">await将其转换为一个值</span>
+
+<span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kr">async</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">data</span> <span class="p">}</span> <span class="o">=</span> <span class="p">...</span>
+    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">axios</span><span class="p">({</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;URL&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;qwq&#39;</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+<span class="nx">请求数据储存在result</span><span class="p">.</span><span class="nx">data中</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="解构赋值重命名">解构赋值(重命名)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kr">async</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">res</span> <span class="p">}</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">axios</span><span class="p">({</span>
+        <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;URL&#39;</span><span class="p">,</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+			<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;qwq&#39;</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="nx">consolo</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>直接get or post</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#btn&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kr">async</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">data</span><span class="o">:</span> <span class="nx">res</span><span class="p">}</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://www.liulongbin.top:3006/api/getbooks&#39;</span><span class="p">,{</span>
+        <span class="nx">params</span><span class="o">:</span> <span class="p">{</span><span class="nx">bookname</span><span class="o">:</span> <span class="s1">&#39;西游记&#39;</span><span class="p">}</span>
+    <span class="p">})</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#btn&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kr">async</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">data</span><span class="o">:</span> <span class="nx">res</span><span class="p">}</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://www.liulongbin.top:3006/api/getbooks&#39;</span><span class="p">,{</span>
+        <span class="nx">data</span><span class="o">:</span> <span class="p">{</span><span class="nx">bookname</span><span class="o">:</span> <span class="s1">&#39;西游记&#39;</span><span class="p">}</span>
+    <span class="p">})</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="生命周期">生命周期</h2>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/react/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">React</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nuxtjs/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Nuxtjs</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/ajax/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Ajax</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 Example Site
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.12.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#模板语法">模板语法</a>
+      <ol>
+        <li><a href="#插值">插值</a>
+          <ol>
+            <li><a href="#文本">文本</a></li>
+          </ol>
+        </li>
+        <li><a href="#v-html">v-html</a></li>
+        <li><a href="#v-bind-用于html内的属性绑定">v-bind :用于html内的属性绑定</a></li>
+        <li><a href="#v-model">v-model</a>
+          <ol>
+            <li></li>
+            <li><a href="#修饰符">修饰符</a></li>
+          </ol>
+        </li>
+        <li><a href="#v-on-用于添加事件">v-on @用于添加事件</a></li>
+        <li><a href="#v-for-用于循环">v-for 用于循环</a></li>
+        <li><a href="#v-if-v-else-v-else-if">v-if v-else v-else-if</a></li>
+        <li><a href="#动态参数-避免大写">动态参数 避免大写</a></li>
+        <li><a href="#修饰符-1">修饰符</a></li>
+      </ol>
+    </li>
+    <li><a href="#data-property">Data Property</a>
+      <ol>
+        <li><a href="#防抖与节流">防抖与节流</a>
+          <ol>
+            <li><a href="#防抖">防抖</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#组件-component">组件 component</a></li>
+    <li><a href="#计算属性与监听器">计算属性与监听器</a>
+      <ol>
+        <li><a href="#计算属性">计算属性</a></li>
+        <li><a href="#computed">computed</a></li>
+        <li><a href="#setter">Setter</a></li>
+        <li><a href="#监听器-watch">监听器 watch</a></li>
+      </ol>
+    </li>
+    <li><a href="#事件处理">事件处理</a>
+      <ol>
+        <li><a href="#内联处理器">内联处理器</a></li>
+        <li><a href="#多事件处理器">多事件处理器</a></li>
+        <li><a href="#事件修饰符">事件修饰符</a></li>
+        <li><a href="#按键修饰符">按键修饰符</a>
+          <ol>
+            <li><a href="#按键别名">按键别名</a></li>
+          </ol>
+        </li>
+        <li><a href="#系统修饰键">系统修饰键</a>
+          <ol>
+            <li><a href="#exact"><code>.exact</code></a></li>
+            <li><a href="#鼠标按钮修饰符">鼠标按钮修饰符</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#组件基础">组件基础</a>
+      <ol>
+        <li><a href="#基本实例">基本实例</a></li>
+        <li><a href="#传递数据">传递数据</a>
+          <ol>
+            <li><a href="#props--emits">props &amp; emits</a></li>
+          </ol>
+        </li>
+        <li><a href="#监听子组件事件">监听子组件事件</a>
+          <ol>
+            <li><a href="#使用事件抛出一个值">使用事件抛出一个值</a></li>
+            <li><a href="#在组件上使用v-model">在组件上使用v-model</a></li>
+          </ol>
+        </li>
+        <li><a href="#插槽">插槽</a></li>
+        <li><a href="#动态组件">动态组件</a></li>
+        <li><a href="#解析dom模板时的注意事项">解析DOM模板时的注意事项</a>
+          <ol>
+            <li><a href="#element-placement-restrictions">Element Placement Restrictions</a></li>
+            <li><a href="#case-insensitivity">Case Insensitivity</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#深入组件">深入组件</a>
+      <ol>
+        <li><a href="#组件注册">组件注册</a>
+          <ol>
+            <li><a href="#全局注册">全局注册</a></li>
+            <li><a href="#局部注册">局部注册</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#props">Props</a>
+      <ol>
+        <li><a href="#prop类型">prop类型</a>
+          <ol>
+            <li><a href="#字符串数组">字符串数组</a></li>
+            <li><a href="#对象">对象</a></li>
+          </ol>
+        </li>
+        <li><a href="#传递静态或动态的prop">传递静态或动态的Prop</a></li>
+        <li><a href="#传入一个对象的所有property">传入一个对象的所有property</a></li>
+        <li><a href="#prop验证">Prop验证</a></li>
+        <li><a href="#非prop的attribute">非prop的Attribute</a>
+          <ol>
+            <li><a href="#atrribute继承">Atrribute继承</a></li>
+            <li><a href="#禁用atrribute继承">禁用Atrribute继承</a></li>
+            <li><a href="#多个根节点上的-attribute-继承">多个根节点上的 Attribute 继承</a></li>
+          </ol>
+        </li>
+        <li><a href="#自定义事件">自定义事件</a>
+          <ol>
+            <li><a href="#定义自定义事件">定义自定义事件</a></li>
+            <li><a href="#验证抛出的事件">验证抛出的事件</a></li>
+            <li><a href="#多个v-model绑定">多个v-model绑定</a></li>
+            <li><a href="#处理v-model修饰符">处理v-model修饰符</a></li>
+          </ol>
+        </li>
+        <li><a href="#插槽-1">插槽</a>
+          <ol>
+            <li><a href="#插槽内容">插槽内容</a></li>
+            <li><a href="#渲染作用域">渲染作用域</a></li>
+            <li><a href="#备用内容">备用内容</a></li>
+            <li><a href="#具名插槽">具名插槽</a></li>
+          </ol>
+        </li>
+        <li><a href="#provideinject">Provide/Inject</a></li>
+        <li><a href="#动态组件异步组件">动态组件&amp;异步组件</a>
+          <ol>
+            <li><a href="#keep-alive">keep-alive</a></li>
+            <li><a href="#异步组件待补">异步组件（待补）</a></li>
+          </ol>
+        </li>
+        <li><a href="#模板引用">模板引用</a></li>
+      </ol>
+    </li>
+    <li><a href="#过渡动画待补">过渡&amp;动画（待补）</a>
+      <ol>
+        <li><a href="#单元素组件的过渡">单元素/组件的过渡</a>
+          <ol>
+            <li><a href="#过渡class">过渡class</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#可复用组合">可复用&amp;组合</a></li>
+    <li><a href="#axios">axios</a>
+      <ol>
+        <li><a href="#解构赋值重命名">解构赋值(重命名)</a></li>
+      </ol>
+    </li>
+    <li><a href="#生命周期">生命周期</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
