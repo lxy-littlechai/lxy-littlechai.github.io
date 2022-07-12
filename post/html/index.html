@@ -875,6 +875,38 @@ div&gt;p*2 即
 </tr>
 </tbody>
 </table>
+<h4 id="submit和reset与form配合使用">submit和reset与form配合使用</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">body</span>&gt;
+  &lt;<span style="color:#ff79c6">form</span> <span style="color:#50fa7b">action</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;password&#34;</span>&gt; &lt;<span style="color:#ff79c6">br</span>&gt;
+    性别: &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;radio&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sex&#34;</span>&gt;男 &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;radio&#34;</span> <span style="color:#50fa7b">name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;sex&#34;</span>&gt;女 &lt;<span style="color:#ff79c6">br</span>&gt;
+    &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;checkbox&#34;</span>&gt;1 &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;checkbox&#34;</span>&gt;2 &lt;<span style="color:#ff79c6">br</span>/&gt;
+
+    &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;submit&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">input</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;reset&#34;</span>&gt;
+  &lt;/<span style="color:#ff79c6">form</span>&gt;
+
+
+&lt;/<span style="color:#ff79c6">body</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="../HTML.assets/image-20220712090814820.png" alt="image-20220712090814820"></p>
 <h3 id="lable标签">lable标签</h3>
 <p>lable标签绑定表单元素，增加用户体验</p>
 <p>基本语法</p>
@@ -899,8 +931,8 @@ div&gt;p*2 即
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">select</span>&gt;
-    &lt;<span style="color:#ff79c6">option</span> <span style="color:#50fa7b">selected </span><span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;selected&#34;</span>&gt;&lt;/<span style="color:#ff79c6">option</span>&gt;	<span style="color:#6272a4">&lt;!-- 默认选中 --&gt;</span>
-    &lt;<span style="color:#ff79c6">option</span>&gt;&lt;/<span style="color:#ff79c6">option</span>&gt;
+    &lt;<span style="color:#ff79c6">option</span> <span style="color:#50fa7b">selected </span><span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;selected&#34;</span>&gt;默认&lt;/<span style="color:#ff79c6">option</span>&gt;	<span style="color:#6272a4">&lt;!-- 默认选中 --&gt;</span>
+    &lt;<span style="color:#ff79c6">option</span>&gt;第一选项&lt;/<span style="color:#ff79c6">option</span>&gt;
 &lt;/<span style="color:#ff79c6">select</span>&gt;
 </code></pre></td></tr></table>
 </div>
