@@ -520,7 +520,7 @@ CSS的第一部分"/>
 <h4 id="链接伪类选择器">链接伪类选择器</h4>
 <p>用<code>:</code> 表示</p>
 <p>链接伪类选择器 <strong>注意有顺序</strong> LVHA指定样式</p>
-<p>链接必须单独给<code>&lt;a&gt;&lt;/a&gt;</code></p>
+<p>链接必须单独给<code>a</code>添加css</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -537,7 +537,7 @@ CSS的第一部分"/>
 </div>
 </div><h4 id="focus伪类选择器">focus伪类选择器</h4>
 <p>用于选取获得焦点的表单元素</p>
-<p>焦点就是光标，一般情况下<input>类表单元素才能获取</p>
+<p>焦点就是光标，一般情况下<code>input</code>类表单元素才能获取</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -714,7 +714,7 @@ font: italic 700 16px 宋体
 </ol>
 <p><strong>Tips：</strong></p>
 <ul>
-<li>文字类的元素(<code>&lt;p&gt; &lt;h1&gt;~&lt;h6&gt;</code>)内不能使用块级元素</li>
+<li>文字类的元素(<code>p h1~h6</code>)内不能使用块级元素</li>
 </ul>
 <h4 id="行元素">行元素</h4>
 <ol>
@@ -726,10 +726,10 @@ font: italic 700 16px 宋体
 <p><strong>Tips：</strong></p>
 <ul>
 <li>链接里面不能放链接</li>
-<li><code>&lt;a&gt;</code>链接里面能放块元素，但给<code>&lt;a&gt;</code>转换一下块级模式最安全</li>
+<li><code>a</code>链接里面能放块元素，但给<code>a</code>转换一下块级模式最安全</li>
 </ul>
 <h4 id="行内块元素">行内块元素</h4>
-<p><code>&lt;img/&gt;、&lt;input/&gt;、&lt;td&gt;</code></p>
+<p><code>img、input、td</code></p>
 <ol>
 <li>一行可以显示多个行内块元素，中间会有空白缝隙</li>
 <li>默认宽度是本身内容的跨度</li>
@@ -1301,7 +1301,7 @@ font: italic 700 16px 宋体
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">text-shadow: h-shadow v-shadow blur color;
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">text-shadow: h-shadow v-shadow blur color;
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="本周练习">本周练习</h2>
