@@ -367,7 +367,7 @@ CSS的第一部分"/>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> h1(标签名) {
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> h1(标签名) {
             各种属性
 			color: red;
             font-size: 12px;
@@ -481,7 +481,7 @@ CSS的第一部分"/>
 &lt;/<span style="color:#ff79c6">div</span>&gt;
 
 &lt;<span style="color:#ff79c6">style</span>&gt;
-	.<span style="color:#50fa7b">B</span> <span style="color:#ff79c6">C</span>{
+	.<span style="color:#50fa7b">B</span> .<span style="color:#50fa7b">C</span>{
 	
 	}
 &lt;/<span style="color:#ff79c6">style</span>&gt;
@@ -639,8 +639,8 @@ h2 {
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/*font: font-style font-weight font-size/line-height font-family*/
-font: italic 700 16px 宋体
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#6272a4">/*font: font-style font-weight font-size/line-height font-family*/</span>
+<span style="color:#ff79c6">font</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">italic</span> <span style="color:#ff79c6">700</span> <span style="color:#ff79c6">16px</span> <span style="color:#ff79c6">宋体</span>
 </code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -655,10 +655,10 @@ font: italic 700 16px 宋体
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">div {
-	color: red;
-	color: #FF0000 （十六进制编码）
-	color: rgb(255,0,0) or rgb(100%,0%,0%)
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">div</span> {
+	<span style="color:#ff79c6">color</span>: <span style="color:#ff79c6">red</span>;
+	<span style="color:#ff79c6">color</span>: <span style="color:#bd93f9">#FF0000</span> （十六进制编码）
+	<span style="color:#ff79c6">color</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd;font-style:italic">rgb</span>(<span style="color:#bd93f9">255</span>,<span style="color:#bd93f9">0</span>,<span style="color:#bd93f9">0</span>) or <span style="color:#8be9fd;font-style:italic">rgb</span>(<span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>,<span style="color:#bd93f9">0</span><span style="color:#8be9fd">%</span>,<span style="color:#bd93f9">0</span><span style="color:#8be9fd">%</span>)
 }
 </code></pre></td></tr></table>
 </div>
@@ -670,8 +670,8 @@ font: italic 700 16px 宋体
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">div {
-	text-align: center/left/right
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">div</span> {
+	<span style="color:#ff79c6">text-align</span>: <span style="color:#ff79c6">center</span><span style="color:#ff79c6">/</span><span style="color:#ff79c6">left</span><span style="color:#ff79c6">/</span><span style="color:#ff79c6">right</span>
 }
 </code></pre></td></tr></table>
 </div>
@@ -712,9 +712,9 @@ font: italic 700 16px 宋体
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">div {
-	text-indent: 10px(缩进值)
-	text-indent: 2em(相对文字大小，即缩进2个文字大小距离)
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">div</span> {
+	<span style="color:#ff79c6">text-indent</span>: <span style="color:#bd93f9">10</span><span style="color:#8be9fd">px</span>(缩进值)
+	<span style="color:#ff79c6">text</span><span style="color:#ff79c6">-</span>indent<span style="color:#ff79c6">:</span> <span style="color:#bd93f9">2</span><span style="color:#8be9fd">em</span>(相对文字大小，即缩进<span style="color:#bd93f9">2</span>个文字大小距离)
 }
 </code></pre></td></tr></table>
 </div>
@@ -727,8 +727,8 @@ font: italic 700 16px 宋体
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">p {
-	line-height: 26px;
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">p</span> {
+	<span style="color:#ff79c6">line-height</span>: <span style="color:#bd93f9">26</span><span style="color:#8be9fd">px</span>;
 }
 </code></pre></td></tr></table>
 </div>
@@ -738,7 +738,7 @@ font: italic 700 16px 宋体
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">line-height: 盒子高度px;
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">line-height</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">盒子高度px</span><span style="color:#ff79c6">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="css的元素显示模式">CSS的元素显示模式</h2>
@@ -838,7 +838,7 @@ font: italic 700 16px 宋体
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">background-color: rgb(0, 0, 0, 0~1) 最后一个参数为透明度
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">background-color</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">rgb</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">0</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">0</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">0</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">0</span><span style="color:#ff79c6">~</span><span style="color:#ff79c6">1</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">最后一个参数为透明度</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="背景图片">背景图片</h3>
@@ -900,7 +900,7 @@ font: italic 700 16px 宋体
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">background: 背景颜色 图片地址 平铺 图像滚动 图片位置
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#ff79c6">background</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">背景颜色</span> <span style="color:#ff79c6">图片地址</span> <span style="color:#ff79c6">平铺</span> <span style="color:#ff79c6">图像滚动</span> <span style="color:#ff79c6">图片位置</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="背景线性渐变">背景线性渐变</h3>
@@ -1050,22 +1050,28 @@ font: italic 700 16px 宋体
 </div><p>给个栗子</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;border&#34;</span>&gt;&lt;/<span style="color:#ff79c6">div</span>&gt;
 
-.border {
-    height: 100px;
-    width: 100px;
-    border: 1px solid black;
+&lt;<span style="color:#ff79c6">style</span>&gt;
+
+.<span style="color:#50fa7b">border</span> {
+    <span style="color:#ff79c6">height</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">px</span>;
+    <span style="color:#ff79c6">width</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">px</span>;
+    <span style="color:#ff79c6">border</span>: <span style="color:#bd93f9">1</span><span style="color:#8be9fd">px</span> <span style="color:#ff79c6">solid</span> <span style="color:#ff79c6">black</span>;
   }
+&lt;/<span style="color:#ff79c6">style</span>&gt;
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/img/Week2.assets/image-20220707102411019.png" alt="image-20220707102411019"></p>
