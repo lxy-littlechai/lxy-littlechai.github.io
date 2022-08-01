@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title> | 小柴Yeah</title>
+    <title>Week4 | 小柴Yeah</title>
 
     
 
@@ -20,12 +20,12 @@
 <link rel="canonical" href="https://lxy-littlechai.github.io/post/week4/" />
 
 
-<meta property="og:title" content="" />
+<meta property="og:title" content="Week4" />
 <meta property="og:description" content="Week4 这周分享一下写页面的一些小知识，一起写一下b站首页的一些部分 项目结构 好的结构才能让写代码更加快捷方便，在使用三件套（html，css，js" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lxy-littlechai.github.io/post/week4/" /><meta property="og:image" content="https://lxy-littlechai.github.io/img/background.jpg"/><meta property="article:section" content="post" />
-
-
+<meta property="article:published_time" content="2022-08-01T20:13:39+08:00" />
+<meta property="article:modified_time" content="2022-08-01T20:13:39+08:00" />
 
 
 
@@ -33,7 +33,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://lxy-littlechai.github.io/img/background.jpg"/>
 
-<meta name="twitter:title" content=""/>
+<meta name="twitter:title" content="Week4"/>
 <meta name="twitter:description" content="Week4 这周分享一下写页面的一些小知识，一起写一下b站首页的一些部分 项目结构 好的结构才能让写代码更加快捷方便，在使用三件套（html，css，js"/>
 
 
@@ -162,15 +162,17 @@
   <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
     <section class="ui segment">
       <header>
-        <h1 class="ui large header"><span class="sub header">
+        <h1 class="ui large header">Week4<span class="sub header">
             <span class="left">
               @
               
-                Littlechai
+                
+                  Littlechai
+                
               
 
               | 
-                  <span data-format="luxon">0001-01-01T00:00:00Z</span>
+                  <span data-format="luxon">2022-08-01T20:13:39&#43;08:00</span>
                 
 
               | 10 分钟阅读
@@ -178,7 +180,7 @@
               
               | 更新于
                 
-                  <span data-format="luxon">0001-01-01T00:00:00Z</span>
+                  <span data-format="luxon">2022-08-01T20:13:39&#43;08:00</span>
                 
               
             </span>
@@ -188,7 +190,7 @@
   <a href="#" class="save-as-image" title="保存为图片" onclick="savePostAsImg()">
     <i class="save icon"></i>
   </a>
-  <a href="https://twitter.com/intent/tweet?text=&url=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fweek4%2f" title="Twitter">
+  <a href="https://twitter.com/intent/tweet?text=Week4&url=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fweek4%2f" title="Twitter">
     <i class="twitter icon"></i>
   </a>
   <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2flxy-littlechai.github.io%2fpost%2fweek4%2f" title="Facebook">
@@ -203,12 +205,14 @@
 
       <article class="main">
         
+        <img class="cover" src="/img/cover/misaka.png" />
+        
 
         <h1 id="week4">Week4</h1>
 <p>这周分享一下写页面的一些小知识，一起写一下b站首页的一些部分</p>
 <h2 id="项目结构">项目结构</h2>
 <p>好的结构才能让写代码更加快捷方便，在使用三件套（html，css，js）写页面时，我们应有怎样的项目结构呢？</p>
-<p><img src="Week4.assets/image-20220726103412721.png" alt="/img/image-20220726103412721"></p>
+<p><img src="/img/Week4.assets/image-20220726103412721.png" alt="image-20220726103412721"></p>
 <p>我们可以简单的分为css（存放css样式代码），font（存放字体相关），img（存放图片），js（存放js代码，当然现在用不到）</p>
 <h2 id="页面初始化">页面初始化</h2>
 <p>所谓页面初始化，就是指清除浏览器默认css样式，这里给出一段简单的初始化代码，网上有很多很多，大家也可以直接copy一下</p>
@@ -250,7 +254,7 @@
 <p>经过前几周的作业，小伙伴们肯定发现，我们自己的字体好丑啊，怎样使用b站的字体呢？</p>
 <p>经百度，b站使用的是华为鸿蒙字体，<a href="http://link.zhihu.com/?target=https%3A//communityfile-drcn.op.hicloud.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20210901095443.74581760409541900242078305341701%3A50520831022654%3A2800%3A9F02B57E1BD25D06595FC0F53E736B7654496543DCA355D0A7640A3230FFAA90.zip%3FneedInitFileName%3Dtrue">下载地址</a></p>
 <p>下载这个文件，将内容放在<code>font</code>文件夹下，如图所示</p>
-<p><img src="Week4.assets/image-20220726103728991.png" alt="/img/image-20220726103728991"></p>
+<p><img src="/img/Week4.assets/image-20220726103728991.png" alt="/img/image-20220726103728991"></p>
 <p>那怎样使用呢？之前学过<code>font-family</code>可以声明使用的字体，那我们只需要将下载的字体 引入，再声明就ok了</p>
 <p>可以使用<code>@font-face</code>来引用字体，并将其命名为<code>bilibili-font</code></p>
 <p><strong>注意：<strong>路径要根据自己的设置，要导入</strong>HarmonyOS_Sans_SC</strong>下的<strong>ttf</strong>文件</p>
@@ -386,29 +390,29 @@ less写法
 <p>现在我们完成了基本的准备，大家可以选择自己喜欢的布局模式，当然我是混着用的，写的也比较搓，下面开始写页面啦</p>
 <p>by the way， <strong>关于代码规范</strong>，大家写代码还是要<strong>多用英文单词啊，别整 简写或者拼音</strong>，记得使用<strong>驼峰命名法</strong>，或者用<code>-</code></p>
 <h2 id="navigation导航栏">navigation导航栏</h2>
-<p><img src="Week4.assets/image-20220726112327664.png" alt="/img/image-20220726112327664"></p>
+<p><img src="/img/Week4.assets/image-20220726112327664.png" alt="image-20220726112327664"></p>
 <p>我们可以大体将navigation分为四个div，其中<code>left-aside</code>和<code>right-aisde</code>内部使用<code>flex</code>布局</p>
 <p>但小logo怎么用呢，这里向大家介绍一下<code>iconfont</code></p>
 <h3 id="关于iconfont">关于iconfont</h3>
 <p><a href="https://www.iconfont.cn/">阿里巴巴矢量图库</a></p>
 <h4 id="新建项目">新建项目</h4>
 <p>可以在我的项目中创建新的项目</p>
-<p><img src="Week4.assets/image-20220726112815462.png" alt="image-20220726112815462"></p>
+<p><img src="/img/Week4.assets/image-20220726112815462.png" alt="image-20220726112815462"></p>
 <h4 id="添加图标">添加图标</h4>
 <p>在搜索框中搜索图标</p>
-<p><img src="Week4.assets/image-20220726113048691.png" alt="/img/image-20220726113048691"></p>
+<p><img src="/img/Week4.assets/image-20220726113048691.png" alt="/img/image-20220726113048691"></p>
 <p>添加入库</p>
-<p><img src="Week4.assets/image-20220726113201850.png" alt="/img/image-20220726113201850"></p>
+<p><img src="/img/Week4.assets/image-20220726113201850.png" alt="/img/image-20220726113201850"></p>
 <p>点击右上方购物车</p>
-<p><img src="Week4.assets/image-20220726113240861.png" alt="/img/image-20220726113240861"></p>
+<p><img src="/img/Week4.assets/image-20220726113240861.png" alt="/img/image-20220726113240861"></p>
 <p>添加至项目</p>
-<p><img src="Week4.assets/image-20220726113301152.png" alt="/img/image-20220726113301152"></p>
+<p><img src="/img/Week4.assets/image-20220726113301152.png" alt="/img/image-20220726113301152"></p>
 <h4 id="引入图标">引入图标</h4>
 <p>这里有三种方式引入Unicode、Font class、Symbol，这里只介绍比较清晰的Font class</p>
 <p>点击下载到本地按钮</p>
-<p><img src="Week4.assets/image-20220726113443470.png" alt="/img/-20220726113443470"></p>
+<p><img src="/img/Week4.assets/image-20220726113443470.png" alt="/img/-20220726113443470"></p>
 <p>将下载完成的文件解压到<code>font</code>文件夹下</p>
-<p><img src="Week4.assets/image-20220726113603792.png" alt="/img/image-20220726113603792"></p>
+<p><img src="/img/Week4.assets/image-20220726113603792.png" alt="/img/image-20220726113603792"></p>
 <p>其中<code>demo_index.html</code>是介绍怎样使用的文件，有兴趣可以详细看下</p>
 <p>这里我们只需要将<code>iconfont.css</code>文件引入<code>index.html</code>中，并在需要插入的地方给出对应的<code>class</code>就ok了</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -420,7 +424,7 @@ less写法
 </code></pre></td></tr></table>
 </div>
 </div><p>如要添加<strong>大会员</strong>这个图标，在我的项目界面，将鼠标放在大会员上，点击复制代码</p>
-<p><img src="Week4.assets/image-20220726114302868.png" alt="/img/image-20220726114302868"></p>
+<p><img src="/img/Week4.assets/image-20220726114302868.png" alt="/img/image-20220726114302868"></p>
 <p>像这样给<code>class</code>添加<code>iconfont和 对应图标class</code>就可以使用了</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -438,8 +442,8 @@ less写法
 <h3 id="参考代码">参考代码</h3>
 <p>这里我偷懒了，直接复制了svg代码，所以<strong>删除了比较冗长的部分</strong>，详见github吧，大家在 写的时候可以按照上述方式添加图标。</p>
 <p>当然如果你也想偷懒的话。。。</p>
-<p><img src="Week4.assets/image-20220726121415923.png" alt="/img/image-20220726121415923"></p>
-<p><img src="Week4.assets/image-20220726121430245.png" alt="/img/image-20220726121430245"></p>
+<p><img src="/img/Week4.assets/image-20220726121415923.png" alt="/img/image-20220726121415923"></p>
+<p><img src="/img/Week4.assets/image-20220726121430245.png" alt="/img/image-20220726121430245"></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -884,10 +888,10 @@ less写法
 </div>
 </div><h2 id="channel频道">channel频道</h2>
 <p>channel也很简单啦，就是一个大盒子，里面三个小盒子，都采用flex布局，这里需要注意的一个地方是<strong>版心</strong></p>
-<p><img src="Week4.assets/image-20220726122150595.png" alt="/img/image-20220726122150595"></p>
+<p><img src="/img/Week4.assets/image-20220726122150595.png" alt="/img/image-20220726122150595"></p>
 <h3 id="关于版心">关于版心</h3>
 <p>什么是版心 ？我们可以观察到，页面的两边都是由留白的</p>
-<p><img src="Week4.assets/image-20220726122358281.png" alt="/img/image-20220726122358281"></p>
+<p><img src="/img/Week4.assets/image-20220726122358281.png" alt="/img/image-20220726122358281"></p>
 <p>我们中间盒子的位置就称之为版心，这段公共样式可放在<code>common.css</code>里</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1203,7 +1207,7 @@ less写法
 </div>
 </div><h2 id="favicon">Favicon</h2>
 <p>Favicon就是小图标啦</p>
-<p><img src="Week4.assets/image-20220729213857913.png" alt="/img/image-20220729213857913"></p>
+<p><img src="/img/Week4.assets/image-20220729213857913.png" alt="/img/image-20220729213857913"></p>
 <p>怎样引入呢？</p>
 <p>百度搜索favicon，会找到图标生成器，生成ico文件后，引入到html中</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -1265,7 +1269,7 @@ less写法
 <h2 id="练习">练习</h2>
 <p><strong>提交方式</strong>： 邮箱 <a href="mailto:lxy.littlechai@qq.com">lxy.littlechai@qq.com</a> or 私发给我</p>
 <p>**1、**根据本周内容完成b站的navigation和channel栏</p>
-<p><img src="Week4.assets/image-20220729213451961.png" alt="/img/image-20220729213451961"></p>
+<p><img src="/img/Week4.assets/image-20220729213451961.png" alt="/img/image-20220729213451961"></p>
 <p>**2、（选做）**自主完成b站的剩余部分</p>
 
       </article>

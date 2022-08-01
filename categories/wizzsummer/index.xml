@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;&lt;img alt=&#34;知识共享许可协议&#34; style=&#34;border-width:0&#34; src=&#34;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&#34; /&gt;&lt;/a&gt;&lt;br /&gt;本作品采用&lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;进行许可。&lt;br /&gt;&lt;br /&gt;背景使用了 &lt;a href=&#34;https://www.pexels.com/zh-cn/&#34; target=&#34;_blank&#34;&gt;Pexels&lt;/a&gt; 上 &lt;a href=&#34;https://www.pexels.com/zh-cn/@minan1398&#34; target=&#34;_blank&#34;&gt;Min An&lt;/a&gt; 拍摄的&lt;a href=&#34;https://www.pexels.com/zh-cn/photo/1454794/&#34; target=&#34;_blank&#34;&gt;图片&lt;/a&gt;。</copyright>
-    <lastBuildDate>Mon, 25 Jul 2022 21:56:12 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/categories/wizzsummer/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Aug 2022 20:13:39 +0800</lastBuildDate><atom:link href="https://lxy-littlechai.github.io/categories/wizzsummer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Week4</title>
+      <link>https://lxy-littlechai.github.io/post/week4/</link>
+      <pubDate>Mon, 01 Aug 2022 20:13:39 +0800</pubDate>
+      
+      <guid>https://lxy-littlechai.github.io/post/week4/</guid>
+      <description>Week4 这周分享一下写页面的一些小知识，一起写一下b站首页的一些部分 项目结构 好的结构才能让写代码更加快捷方便，在使用三件套（html，css，js</description>
+    </item>
+    
     <item>
       <title>css2</title>
       <link>https://lxy-littlechai.github.io/post/css2/</link>
